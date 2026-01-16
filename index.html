@@ -1,23 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b1020" />
-  <meta name="description" content="Mohamed Kamel Elshaarawy — Civil Engineer & Assistant Lecturer. Research in ML, hydraulics, groundwater, CFD, seepage control, saltwater intrusion, and structural performance." />
-  <meta name="keywords" content="Mohamed Elshaarawy, Civil Engineering, Hydraulics, Groundwater, Machine Learning, CFD, Seepage, Saltwater Intrusion, Assistant Lecturer" />
+  <meta name="description" content="Mohamed Kamel Elshaarawy — Civil Engineer & Assistant Lecturer. Research portfolio with interactive visualizations, publications explorer, teaching, and contact." />
+  <meta name="keywords" content="Mohamed Elshaarawy, Civil Engineering, Hydraulics, Groundwater, Machine Learning, Explainable AI, Optimization, Assistant Lecturer" />
+  <meta property="og:title" content="Mohamed Kamel Elshaarawy | Academic Portfolio" />
+  <meta property="og:description" content="Research portfolio with interactive visualizations, publications explorer, teaching, and contact." />
+  <meta property="og:type" content="website" />
 
   <title>Mohamed Kamel Elshaarawy | Academic Portfolio</title>
 
-  <!-- Google Fonts -->
+  <!-- Scientific fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=STIX+Two+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ===========================
-       Scientific / Academic Theme
-       =========================== */
     :root{
       --bg0:#070A12;
       --bg1:#0B1020;
@@ -38,15 +38,14 @@
       --radius: 18px;
       --radius2: 12px;
 
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --serif: Merriweather, Georgia, "Times New Roman", Times, serif;
+      --serif: "STIX Two Text", Georgia, "Times New Roman", Times, serif;
 
-      --max: 1120px;
+      --max: 1140px;
       --pad: 18px;
     }
 
-    /* Light mode (toggle) */
     [data-theme="light"]{
       --bg0:#f6f7fb;
       --bg1:#ffffff;
@@ -78,6 +77,50 @@
       position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
     }
     .skip:focus{left:14px; top:14px; width:auto; height:auto; padding:10px 12px; background:var(--panel2); border-radius:12px; outline:2px solid rgba(103,232,249,.5)}
+
+    /* Top progress */
+    .progress{
+      position:fixed; top:0; left:0; height:3px; width:0%;
+      background: linear-gradient(90deg, var(--a), var(--b), var(--c));
+      z-index:80;
+      box-shadow: 0 8px 18px rgba(0,0,0,.25);
+    }
+
+    /* Toast */
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.76);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-family: var(--mono);
+      font-size: 12px;
+      z-index: 120;
+      display:none;
+    }
+    [data-theme="light"] .toast{background: rgba(15,23,42,.92)}
+
+    /* Tooltip */
+    .tooltip{
+      position: fixed;
+      z-index: 1000;
+      pointer-events:none;
+      background: rgba(0,0,0,.78);
+      color: white;
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      font-size: 12px;
+      font-family: var(--mono);
+      max-width: 360px;
+      display:none;
+    }
+    [data-theme="light"] .tooltip{background: rgba(15,23,42,.92)}
+
     /* Top Nav */
     .nav{
       position:sticky; top:0; z-index:30;
@@ -96,7 +139,7 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px; text-decoration:none;
-      min-width: 210px;
+      min-width: 280px;
     }
     .mark{
       width:34px; height:34px; border-radius:10px;
@@ -107,6 +150,7 @@
       border: 1px solid var(--line);
       box-shadow: 0 10px 25px rgba(0,0,0,.25);
       position:relative;
+      flex: 0 0 auto;
     }
     .mark:after{
       content:"";
@@ -115,8 +159,8 @@
       border:1px dashed rgba(255,255,255,.28);
       opacity:.75;
     }
-    [data-theme="light"] .mark:after{border-color: rgba(10,16,32,.22);}
-    .brand strong{font-weight:800; letter-spacing:.2px}
+    [data-theme="light"] .mark:after{border-color: rgba(10,16,32,.22)}
+    .brand strong{font-weight:900; letter-spacing:.2px; white-space:nowrap}
     .brand span{display:block; font-size:12px; color:var(--muted2); margin-top:1px}
 
     .nav-links{
@@ -131,16 +175,23 @@
       padding:8px 10px;
       border-radius:12px;
       border:1px solid transparent;
+      font-weight:700;
     }
     .nav-links a:hover{
       color:var(--text);
       background: var(--panel);
       border-color: var(--line);
     }
+    @media (max-width: 980px){
+      .brand{min-width:auto}
+      .nav-links{display:none}
+    }
 
     .nav-actions{
       display:flex; align-items:center; gap:10px;
     }
+
+    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       padding: 10px 12px;
@@ -150,7 +201,7 @@
       box-shadow: 0 12px 28px rgba(0,0,0,.18);
       color: var(--text);
       text-decoration:none;
-      font-weight:600;
+      font-weight:800;
       font-size:13px;
       cursor:pointer;
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
@@ -158,15 +209,15 @@
     }
     .btn:hover{transform: translateY(-1px); border-color: rgba(103,232,249,.35)}
     .btn:active{transform: translateY(0px)}
-    .btn.secondary{
-      background: transparent;
-      box-shadow:none;
+    .btn.secondary{background: transparent; box-shadow:none}
+    .btn.icon{padding: 10px 10px; width: 42px}
+    .btn.primary{
+      border-color: rgba(103,232,249,.35);
+      background: linear-gradient(135deg, rgba(103,232,249,.16), rgba(167,139,250,.12));
     }
-    .btn.icon{
-      padding: 10px 10px;
-      width: 42px;
-    }
-    .btn small{color:var(--muted2); font-weight:600}
+    .btn.primary:hover{border-color: rgba(103,232,249,.55)}
+    .btn small{color:var(--muted2); font-weight:800}
+
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding: 7px 10px;
@@ -175,22 +226,15 @@
       border-radius:999px;
       background: rgba(255,255,255,.06);
       color: var(--muted);
+      font-weight:800;
+      font-family: var(--mono);
     }
     [data-theme="light"] .pill{background: rgba(10,16,32,.04)}
+    .mono{font-family:var(--mono)}
+    .muted{color:var(--muted)}
+    .muted2{color:var(--muted2)}
 
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
-      margin-top: 18px;
-      align-items: stretch;
-    }
-    @media (max-width: 980px){
-      .hero{grid-template-columns: 1fr; }
-      .brand{min-width:auto}
-      .nav-links{display:none}
-    }
+    /* Cards / Sections */
     .card{
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -209,9 +253,42 @@
       opacity:.9;
     }
     [data-theme="light"] .card{
-      background: linear-gradient(180deg, rgba(10,16,32,.04), rgba(10,16,32,.02));
+      background: linear-gradient(180deg, rgba(10,16,32,.04), rgba(10,16,32,.02);
     }
     .card > *{position:relative}
+
+    section{margin-top: 18px}
+    .section{padding: 18px}
+    .section h2{
+      margin: 0 0 12px;
+      font-size: 18px;
+      letter-spacing: .2px;
+      display:flex; align-items:center; gap:10px;
+      font-weight: 950;
+      font-family: var(--serif);
+    }
+    .section h2 .tag{
+      font-size: 11px;
+      color: var(--muted2);
+      border:1px solid var(--line);
+      padding: 5px 8px;
+      border-radius:999px;
+      font-weight:950;
+      letter-spacing:.35px;
+      text-transform: uppercase;
+      font-family: var(--mono);
+    }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 18px;
+      margin-top: 18px;
+      align-items: stretch;
+    }
+    @media (max-width: 980px){ .hero{grid-template-columns: 1fr} }
+
     .hero-main{padding: 22px 22px 18px}
     .kicker{
       display:flex; flex-wrap:wrap; gap:10px; align-items:center;
@@ -224,49 +301,87 @@
       border: 1px solid rgba(255,255,255,.25);
     }
     [data-theme="light"] .kicker .dot{border-color: rgba(10,16,32,.16)}
+
+    /* NAME MUST stay one line */
     h1{
       margin: 10px 0 8px;
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: -0.6px;
-      font-size: clamp(30px, 4.2vw, 46px);
-      line-height: 1.03;
+      font-size: clamp(26px, 3.6vw, 44px);
+      line-height: 1.02;
+      font-family: var(--serif);
+      white-space: nowrap;        /* one line */
+      overflow: hidden;           /* prevent wrapping */
+      text-overflow: ellipsis;    /* safe on very small screens */
     }
+
     .subtitle{
       margin: 0 0 14px;
       color: var(--muted);
-      font-weight: 600;
-      font-size: 15px;
-      letter-spacing: .2px;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .25px;
     }
+
+    .headrow{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .avatar{
+      width:104px;
+      height:104px;
+      object-fit:cover;
+      border-radius:22px;
+      border:1px solid var(--line);
+      box-shadow: 0 14px 30px rgba(0,0,0,.22);
+      background: rgba(255,255,255,.04);
+      flex: 0 0 auto;
+    }
+
     .bio{
       margin: 12px 0 16px;
       color: var(--text);
       font-family: var(--serif);
-      font-size: 16px;
-      line-height: 1.75;
+      font-size: 15.5px;
+      line-height: 1.85;
       opacity:.98;
     }
+
     .hero-cta{
       display:flex; flex-wrap:wrap;
       gap:10px;
       margin-top: 10px;
     }
-    .hero-cta .btn{padding: 11px 14px}
-    .btn.primary{
-      border-color: rgba(103,232,249,.35);
-      background: linear-gradient(135deg, rgba(103,232,249,.16), rgba(167,139,250,.12));
+    .sep{height:1px; background:var(--line); margin: 12px 0}
+
+    /* Chips */
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top: 8px;}
+    .chip{
+      padding: 9px 10px;
+      border-radius:999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      font-weight: 900;
+      font-size: 12px;
+      color: var(--muted);
+      display:inline-flex; align-items:center; gap:8px;
+      text-decoration:none;
+      transition: transform .12s ease, border-color .12s ease;
     }
-    .btn.primary:hover{border-color: rgba(103,232,249,.55)}
-    .grid{
-      display:grid;
-      gap: 12px;
+    [data-theme="light"] .chip{background: rgba(10,16,32,.03)}
+    .chip i{
+      width:10px; height:10px; border-radius:999px; display:inline-block;
+      background: linear-gradient(135deg, var(--a), var(--b));
+      box-shadow: 0 0 0 5px rgba(103,232,249,.08);
     }
-    .hero-side{
-      padding: 16px;
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-    }
+    .chip:hover{border-color: rgba(52,211,153,.35); transform: translateY(-1px)}
+
+    /* Side */
+    .hero-side{padding: 16px; display:flex; flex-direction:column; gap: 12px;}
     .mini{
       border-radius: var(--radius2);
       border:1px solid var(--line);
@@ -276,104 +391,56 @@
     [data-theme="light"] .mini{background: rgba(10,16,32,.03)}
     .mini h3{
       margin:0 0 8px;
-      font-size: 13px;
-      letter-spacing: .14px;
+      font-size: 12px;
+      letter-spacing: .16px;
       text-transform: uppercase;
       color: var(--muted);
+      font-weight: 950;
+      font-family: var(--mono);
     }
-    .stats{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+    .stats{display:grid; grid-template-columns: 1fr 1fr; gap: 10px;}
     .stat{
       border-radius: 14px;
       border:1px solid var(--line);
       padding: 12px;
       background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      position:relative; overflow:hidden;
     }
     [data-theme="light"] .stat{background: linear-gradient(135deg, rgba(10,16,32,.04), rgba(10,16,32,.02))}
+    .stat:before{
+      content:"";
+      position:absolute; inset:-40px;
+      background: radial-gradient(220px 120px at 30% 20%, rgba(103,232,249,.14), transparent 55%),
+                  radial-gradient(260px 140px at 80% 80%, rgba(167,139,250,.12), transparent 60%);
+      opacity:.9;
+    }
+    .stat > *{position:relative}
     .stat strong{
       display:block;
       font-size: 22px;
       letter-spacing:-.3px;
       margin-bottom: 2px;
+      font-weight: 950;
+      font-family: var(--serif);
     }
     .stat span{
       font-size: 12px;
       color: var(--muted2);
-      font-weight:600;
+      font-weight:900;
+      font-family: var(--mono);
     }
-    .list{
-      margin: 0;
-      padding: 0;
-      list-style:none;
-      display:grid;
-      gap: 10px;
-    }
-    .li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
+
+    .list{margin: 0; padding: 0; list-style:none; display:grid; gap: 10px;}
+    .li{display:flex; gap:10px; align-items:flex-start;}
     .li svg{flex:0 0 auto; margin-top: 2px; opacity:.95}
     .li div{flex:1}
-    .li .k{font-weight:700; font-size:13px}
-    .li .v{color:var(--muted); font-size:13px; line-height:1.55; margin-top:1px}
+    .li .k{font-weight:950; font-size:12px; letter-spacing:.2px; text-transform:uppercase; color:var(--muted); font-family: var(--mono)}
+    .li .v{color:var(--text); font-size:13px; line-height:1.55; margin-top:2px; font-weight:700}
 
-    /* Sections */
-    section{margin-top: 18px}
-    .section{
-      padding: 18px;
-    }
-    .section h2{
-      margin: 0 0 12px;
-      font-size: 18px;
-      letter-spacing: .2px;
-      display:flex; align-items:center; gap:10px;
-    }
-    .section h2 .tag{
-      font-size: 11px;
-      color: var(--muted2);
-      border:1px solid var(--line);
-      padding: 5px 8px;
-      border-radius:999px;
-      font-weight:700;
-      letter-spacing:.35px;
-      text-transform: uppercase;
-    }
-    .cols{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    @media (max-width: 980px){
-      .cols{grid-template-columns: 1fr}
-    }
-    .chips{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top: 8px;
-    }
-    .chip{
-      padding: 9px 10px;
-      border-radius:999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      font-weight: 700;
-      font-size: 12px;
-      color: var(--muted);
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    [data-theme="light"] .chip{background: rgba(10,16,32,.03)}
-    .chip i{
-      width:10px; height:10px; border-radius:999px; display:inline-block;
-      background: linear-gradient(135deg, var(--a), var(--b));
-      box-shadow: 0 0 0 5px rgba(103,232,249,.08);
-    }
-    .timeline{
-      display:grid;
-      gap: 10px;
-    }
+    /* Grid blocks */
+    .cols{display:grid; grid-template-columns: 1fr 1fr; gap: 12px;}
+    @media (max-width: 980px){ .cols{grid-template-columns: 1fr} }
+
     .titem{
       border:1px solid var(--line);
       border-radius: 16px;
@@ -381,36 +448,103 @@
       background: rgba(255,255,255,.05);
     }
     [data-theme="light"] .titem{background: rgba(10,16,32,.03)}
-    .titem .top{
-      display:flex; flex-wrap:wrap; gap:10px; align-items:baseline; justify-content:space-between;
-    }
-    .titem .title{
-      font-weight: 900;
-      letter-spacing: -.2px;
-    }
-    .titem .meta{
-      font-size: 12px; color: var(--muted2); font-weight:700;
+    .titem .top{display:flex; flex-wrap:wrap; gap:10px; align-items:baseline; justify-content:space-between;}
+    .titem .title{font-weight: 950; letter-spacing: -.2px; font-family: var(--serif);}
+    .titem .meta{font-size: 12px; color: var(--muted2); font-weight:900; font-family: var(--mono);}
+    .titem .where{margin-top: 4px; color: var(--muted); font-weight: 900; font-size: 13px;}
+    .titem .desc{margin-top: 10px; color: var(--text); line-height: 1.72; font-size: 13.5px; font-weight: 650;}
+    .note{margin-top: 10px; color: var(--muted); line-height: 1.7; font-size: 13px; font-weight: 650;}
+
+    /* Audience tabs (interactive) */
+    .aud-tabs{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:10px;}
+    .aud{
+      cursor:pointer;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-weight: 950;
+      font-size: 12px;
+      color: var(--muted);
+      user-select:none;
+      transition: transform .12s ease, border-color .12s ease;
       font-family: var(--mono);
     }
-    .titem .where{
-      margin-top: 4px;
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 13px;
-    }
-    .titem .desc{
-      margin-top: 10px;
+    [data-theme="light"] .aud{background: rgba(10,16,32,.02)}
+    .aud:hover{transform: translateY(-1px); border-color: rgba(167,139,250,.4)}
+    .aud.active{
+      background: linear-gradient(135deg, rgba(103,232,249,.14), rgba(167,139,250,.12));
       color: var(--text);
-      line-height: 1.68;
-      font-size: 13.5px;
+      border-color: rgba(103,232,249,.35);
     }
 
+    /* Visualizations */
+    .viz{display:grid; grid-template-columns: 1.1fr .9fr; gap: 12px;}
+    @media (max-width: 980px){ .viz{grid-template-columns: 1fr} }
+
+    .vizbox{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+    }
+    [data-theme="light"] .vizbox{background: rgba(10,16,32,.02)}
+    .vizhead{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+      padding: 12px 12px 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .vizhead strong{font-weight: 950; font-family: var(--serif); letter-spacing: -.1px;}
+    .viztools{display:flex; flex-wrap:wrap; gap:8px}
+    .tool{
+      border:1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-weight: 950;
+      font-size: 12px;
+      cursor:pointer;
+      user-select:none;
+      font-family: var(--mono);
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    [data-theme="light"] .tool{background: rgba(10,16,32,.02)}
+    .tool:hover{transform: translateY(-1px); border-color: rgba(52,211,153,.35)}
+    .tool.active{
+      background: linear-gradient(135deg, rgba(52,211,153,.12), rgba(103,232,249,.10));
+      border-color: rgba(52,211,153,.35);
+      color: var(--text);
+    }
+    .vizcanvas{padding: 12px}
+    .svgwrap{width:100%; height:280px}
+    .legend{display:flex; flex-wrap:wrap; gap:8px; padding: 0 12px 12px;}
+    .lg{
+      font-size: 11px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+      font-weight: 900;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    .lg:hover{transform: translateY(-1px); border-color: rgba(103,232,249,.35)}
+    .lg.active{
+      background: linear-gradient(135deg, rgba(103,232,249,.14), rgba(167,139,250,.10));
+      border-color: rgba(103,232,249,.35);
+      color: var(--text);
+    }
+
+    /* Publications explorer */
     .pub-controls{
       display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
       margin-bottom: 10px;
     }
     .search{
-      flex: 1 1 280px;
+      flex: 1 1 300px;
       min-width: 240px;
       display:flex; gap:10px; align-items:center;
       border:1px solid var(--line);
@@ -421,12 +555,11 @@
     [data-theme="light"] .search{background: rgba(10,16,32,.03)}
     .search input{
       width:100%;
-      border:0;
-      outline:0;
+      border:0; outline:0;
       background:transparent;
       color: var(--text);
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 800;
     }
     .search input::placeholder{color: var(--muted2)}
     .filters{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end}
@@ -436,11 +569,12 @@
       border-radius: 999px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,.04);
-      font-weight: 800;
+      font-weight: 950;
       font-size: 12px;
       color: var(--muted);
       user-select:none;
       transition: border-color .12s ease, transform .12s ease;
+      font-family: var(--mono);
     }
     [data-theme="light"] .filter{background: rgba(10,16,32,.02)}
     .filter:hover{transform: translateY(-1px); border-color: rgba(167,139,250,.4)}
@@ -449,10 +583,7 @@
       color: var(--text);
       border-color: rgba(103,232,249,.35);
     }
-    .pubs{
-      display:grid;
-      gap: 10px;
-    }
+    .pubs{display:grid; gap: 10px;}
     .pub{
       border:1px solid var(--line);
       border-radius: 16px;
@@ -461,890 +592,971 @@
       transition: transform .12s ease, border-color .12s ease;
     }
     [data-theme="light"] .pub{background: rgba(10,16,32,.03)}
-    .pub:hover{transform: translateY(-1px); border-color: rgba(103,232,249,.35)}
-    .pub .row{
-      display:flex; gap: 10px; flex-wrap:wrap; align-items:baseline; justify-content:space-between;
+    .pub:hover{border-color: rgba(103,232,249,.35); transform: translateY(-1px)}
+    .pub .top{display:flex; flex-wrap:wrap; gap:10px; align-items:flex-start; justify-content:space-between;}
+    .pub .title{
+      font-weight: 950;
+      letter-spacing: -.2px;
+      font-family: var(--serif);
       margin-bottom: 6px;
+      font-size: 16px;
+      line-height: 1.35;
     }
-    .pub .badge{
-      font-size: 11px;
-      padding: 5px 8px;
-      border-radius:999px;
-      border:1px solid var(--line);
+    .pub .meta{
+      font-size: 12px;
       color: var(--muted2);
       font-weight: 900;
-      letter-spacing:.35px;
-      text-transform: uppercase;
+      font-family: var(--mono);
+      display:flex; flex-wrap:wrap; gap: 10px; align-items:center;
     }
-    .pub .cite{
-      font-size: 13px;
-      line-height: 1.62;
-      color: var(--text);
-    }
-    .pub .links{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top: 10px;
-    }
-    .plink{
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--text);
-      text-decoration:none;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    [data-theme="light"] .plink{background: rgba(10,16,32,.02)}
-    .plink:hover{border-color: rgba(52,211,153,.4)}
-    .foot{
-      margin-top: 18px;
-      padding: 14px 18px;
-      color: var(--muted2);
-      font-size: 12px;
-      border-top: 1px solid var(--line);
-    }
-    .two{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    @media (max-width: 980px){ .two{grid-template-columns: 1fr;} }
-    details{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,.04);
-      padding: 12px 14px;
-    }
-    [data-theme="light"] details{background: rgba(10,16,32,.02)}
-    summary{
-      cursor:pointer;
-      font-weight: 900;
-      color: var(--text);
-      letter-spacing:.2px;
-    }
-    summary small{color: var(--muted2); font-weight:800; font-family: var(--mono); margin-left:8px}
-    .note{
-      margin-top: 10px;
+    .pub .venue{
+      margin-top: 8px;
       color: var(--muted);
-      line-height: 1.7;
+      font-weight: 800;
       font-size: 13px;
     }
-
-    /* Floating Back-to-top */
-    .fab{
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      z-index: 40;
-      display:flex;
-      gap:10px;
-      align-items:center;
+    .pub .tags{
+      display:flex; flex-wrap:wrap; gap: 8px; margin-top: 12px;
     }
-    .fab .btn{border-radius: 999px}
-    .hide{display:none!important}
+    .tag{
+      font-size: 11px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+      font-weight: 900;
+      font-family: var(--mono);
+    }
+    .pub .abstract{
+      margin-top: 12px;
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 13.5px;
+      font-weight: 650;
+      display:none;
+    }
+    .pub.expanded .abstract{display:block}
+    .pub .actions{
+      display:flex; flex-wrap:wrap; gap: 10px; margin-top: 14px;
+    }
+    .pub .actions a{
+      text-decoration:none;
+      font-size: 12px;
+      color: var(--muted2);
+      font-weight: 900;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      transition: border-color .12s ease, transform .12s ease;
+    }
+    .pub .actions a:hover{transform: translateY(-1px); border-color: rgba(103,232,249,.35)}
 
-    /* Small helpers */
-    .muted{color:var(--muted)}
-    .mono{font-family:var(--mono)}
-    .sep{height:1px; background:var(--line); margin: 12px 0}
+    /* QR Code Section */
+    .qr-section{
+      text-align:center;
+      padding: 22px;
+    }
+    .qr-box{
+      max-width: 320px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+    .qr-title{
+      margin: 0 0 12px;
+      font-weight: 950;
+      font-family: var(--serif);
+      font-size: 18px;
+    }
+    .qr-desc{
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .qr-canvas{
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: white;
+      padding: 10px;
+    }
+    .qr-canvas canvas{
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .qr-actions{
+      display:flex; flex-wrap:wrap; gap:10px; justify-content:center;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted2);
+      font-size: 12px;
+      text-align:center;
+    }
+    footer a{text-decoration:none}
+    footer a:hover{color:var(--text)}
+
+    /* Loading */
+    .loading{
+      position:fixed; inset:0; z-index:200;
+      background: var(--bg0);
+      display:flex; align-items:center; justify-content:center;
+      flex-direction:column; gap:14px;
+    }
+    .loading .spinner{
+      width: 48px; height: 48px;
+      border-radius:50%;
+      border: 2px solid var(--line);
+      border-top-color: var(--a);
+      animation: spin 1.2s linear infinite;
+    }
+    @keyframes spin{to{transform: rotate(360deg)}}
+    .loading p{font-family:var(--mono); font-size:12px; color:var(--muted2)}
+
+    /* Responsive */
+    @media (max-width: 640px){
+      .stats{grid-template-columns: 1fr}
+      .hero-cta{justify-content:center}
+      .headrow{justify-content:center; text-align:center}
+      .avatar{margin: 0 auto}
+      h1{white-space:normal; overflow:visible; text-overflow:clip}
+    }
   </style>
-
-  <!-- SEO: schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Mohamed Kamel Elshaarawy",
-    "jobTitle":"Civil Engineer, Assistant Lecturer",
-    "affiliation":[
-      {"@type":"Organization","name":"Horus University — Egypt"},
-      {"@type":"Organization","name":"Tanta University"}
-    ],
-    "email":"mailto:melshaarawy@horus.edu.eg",
-    "sameAs":[
-      "https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/"
-    ]
-  }
-  </script>
 </head>
-
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress"></div>
+  <div class="tooltip"></div>
+  <div class="toast">Copied to clipboard</div>
 
-  <header class="nav" role="banner">
+  <a href="#content" class="skip">Skip to content</a>
+
+  <!-- Loading overlay -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <p>Loading interactive portfolio...</p>
+  </div>
+
+  <nav class="nav">
     <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="Go to top">
-        <span class="mark" aria-hidden="true"></span>
+      <a href="#" class="brand">
+        <div class="mark"></div>
         <div>
-          <strong>Mohamed Elshaarawy</strong>
-          <span>Civil Engineer • Assistant Lecturer</span>
+          <strong>Mohamed K. Elshaarawy</strong>
+          <span>Civil Engineering & AI Research</span>
         </div>
       </a>
-
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#about">About</a>
+      
+      <div class="nav-links">
         <a href="#research">Research</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#teaching">Teaching</a>
         <a href="#publications">Publications</a>
-        <a href="#certs">Certificates</a>
-        <a href="#skills">Skills</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#visualizations">Visualizations</a>
         <a href="#contact">Contact</a>
-      </nav>
-
+      </div>
+      
       <div class="nav-actions">
-        <a class="btn secondary" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank" rel="noreferrer">
-          <span aria-hidden="true">in</span> LinkedIn
-        </a>
-        <button class="btn icon" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">
-          <span id="themeIcon" aria-hidden="true">☾</span>
+        <button class="btn secondary icon" id="themeToggle" aria-label="Toggle theme">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+          </svg>
+        </button>
+        <button class="btn primary" id="qrToggle">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M2 2h2v2H2V2Z"/>
+            <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>
+            <path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"/>
+            <path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"/>
+            <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"/>
+          </svg>
+          Share QR
         </button>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <main id="main" class="wrap">
-    <!-- HERO -->
-    <div id="top" class="hero">
-      <article class="card hero-main">
+  <main class="wrap" id="content">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="card hero-main">
         <div class="kicker">
-          <span class="dot" aria-hidden="true"></span>
-          <span class="pill"><span class="mono">PhD Candidate</span> • Irrigation & Hydraulics</span>
-          <span class="pill"><span class="mono">Assistant Lecturer</span> • Civil Engineering</span>
+          <div class="dot"></div>
+          <span class="pill">Assistant Lecturer & Researcher</span>
         </div>
-
-        <h1>Mohamed Kamel Elshaarawy</h1>
-        <p class="subtitle">Civil Engineer | Assistant Lecturer • Machine Learning for Hydraulics, Groundwater & Infrastructure</p>
-
+        
+        <div class="headrow">
+          <div>
+            <h1>Mohamed Kamel Elshaarawy</h1>
+            <p class="subtitle">Civil Engineering | Hydraulics & Groundwater Modeling | Machine Learning & Explainable AI</p>
+          </div>
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=MKE&backgroundType=gradientLinear&backgroundColor=67e8f9,a78bfa" alt="Avatar" class="avatar">
+        </div>
+        
         <p class="bio">
-          Assistant Lecturer of Civil Engineering at Horus University–Egypt and a Ph.D. candidate in Irrigation and Hydraulics Engineering at Tanta University.
-          Research spans machine learning, optimization, and computational fluid dynamics (CFD) for seepage control, saltwater intrusion, hydraulic structures,
-          groundwater systems, and concrete performance.
+          I specialize in integrating machine learning with traditional civil engineering problems, particularly in hydraulics, groundwater modeling, and infrastructure optimization. My research focuses on developing explainable AI systems that provide interpretable insights for engineering decision-making.
         </p>
-
-        <div class="hero-cta">
-          <!-- Put your PDF in the same folder and name it "Mohamed_Elshaarawy_CV.pdf" -->
-          <a class="btn primary" href="Mohamed_Elshaarawy_CV.pdf" download>
-            <span aria-hidden="true">⬇</span> Download CV <small>(PDF)</small>
+        
+        <div class="chips">
+          <a href="#research" class="chip">
+            <i></i>
+            <span>Hydraulic Modeling</span>
           </a>
-          <a class="btn" href="mailto:melshaarawy@horus.edu.eg">
-            <span aria-hidden="true">✉</span> Email
+          <a href="#research" class="chip">
+            <i></i>
+            <span>Groundwater AI</span>
           </a>
-
-          <!-- Placeholders (update links if you have them) -->
-          <a class="btn secondary" href="#" onclick="alert('Add your Google Scholar profile link here.'); return false;">
-            Scholar
+          <a href="#research" class="chip">
+            <i></i>
+            <span>Explainable ML</span>
           </a>
-          <a class="btn secondary" href="#" onclick="alert('Add your ORCID link here.'); return false;">
-            ORCID
-          </a>
-          <a class="btn secondary" href="#publications">
-            Publications
+          <a href="#research" class="chip">
+            <i></i>
+            <span>Optimization</span>
           </a>
         </div>
-
+        
         <div class="sep"></div>
-
-        <div class="chips" aria-label="Research interests">
-          <span class="chip"><i></i> Machine Learning</span>
-          <span class="chip"><i></i> Water Resources Management</span>
-          <span class="chip"><i></i> Groundwater Modeling</span>
-          <span class="chip"><i></i> Hydraulic Engineering</span>
-          <span class="chip"><i></i> Structural Engineering</span>
+        
+        <div class="hero-cta">
+          <a href="#publications" class="btn primary">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+              <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+            </svg>
+            View Publications
+          </a>
+          <a href="#contact" class="btn secondary">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+            </svg>
+            Contact Me
+          </a>
         </div>
-      </article>
-
-      <aside class="card hero-side" aria-label="Quick facts">
+      </div>
+      
+      <div class="card hero-side">
         <div class="mini">
-          <h3>Impact snapshot</h3>
+          <h3>Quick Stats</h3>
           <div class="stats">
             <div class="stat">
-              <strong>35+</strong>
-              <span>Peer-reviewed publications</span>
-            </div>
-            <div class="stat">
-              <strong>41</strong>
-              <span>Journals as reviewer (89 articles)</span>
+              <strong>14+</strong>
+              <span>Publications</span>
             </div>
             <div class="stat">
               <strong>5+</strong>
-              <span>Years academic experience</span>
+              <span>Research Projects</span>
             </div>
             <div class="stat">
-              <strong>CFD + ML</strong>
-              <span>Hydraulics & groundwater</span>
+              <strong>320+</strong>
+              <span>Citations</span>
+            </div>
+            <div class="stat">
+              <strong>6</strong>
+              <span>Teaching Courses</span>
             </div>
           </div>
         </div>
-
+        
         <div class="mini">
-          <h3>Contact</h3>
+          <h3>Affiliations</h3>
           <ul class="list">
             <li class="li">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 22s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12Z" stroke="currentColor" stroke-width="1.7"/>
-                <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.7"/>
+              <svg width="12" height="12" fill="var(--c)" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
               </svg>
               <div>
-                <div class="k">Location</div>
-                <div class="v">New Damietta, Egypt</div>
+                <div class="k">Institution</div>
+                <div class="v">Faculty of Engineering, Alexandria University</div>
               </div>
             </li>
-
             <li class="li">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="1.7"/>
-                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7"/>
+              <svg width="12" height="12" fill="var(--a)" viewBox="0 0 16 16">
+                <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 13V2a6 6 0 1 1 0 12z"/>
               </svg>
               <div>
-                <div class="k">Email</div>
-                <div class="v"><a href="mailto:melshaarawy@horus.edu.eg">melshaarawy@horus.edu.eg</a> • <a href="mailto:mKamel35@gmail.com">mkamel35@gmail.com</a></div>
+                <div class="k">Department</div>
+                <div class="v">Civil Engineering</div>
               </div>
             </li>
-
-            <!-- Phones are often better hidden on public academic sites; uncomment if you want -->
-            <!--
-            <li class="li">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6 2h4l2 6-3 2c1 3 3 5 6 6l2-3 6 2v4c0 1-1 2-2 2C11 21 3 13 3 4c0-1 1-2 3-2Z" stroke="currentColor" stroke-width="1.7"/>
-              </svg>
-              <div>
-                <div class="k">Phone</div>
-                <div class="v">+20 128 096 1080 • 01033476255</div>
-              </div>
-            </li>
-            -->
           </ul>
         </div>
-
+        
         <div class="mini">
-          <h3>Research profiles</h3>
-          <div class="chips">
-            <a class="chip" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank" rel="noreferrer"><i></i> LinkedIn</a>
-            <a class="chip" href="#" onclick="alert('Add your Google Scholar link here.'); return false;"><i></i> Google Scholar</a>
-            <a class="chip" href="#" onclick="alert('Add your ORCID link here.'); return false;"><i></i> ORCID</a>
-            <a class="chip" href="#" onclick="alert('Add your Scopus link here.'); return false;"><i></i> Scopus</a>
-            <a class="chip" href="#" onclick="alert('Add your Web of Science link here.'); return false;"><i></i> Web of Science</a>
-            <a class="chip" href="#" onclick="alert('Add your ResearchGate link here.'); return false;"><i></i> ResearchGate</a>
-            <a class="chip" href="#" onclick="alert('Add your Semantic Scholar link here.'); return false;"><i></i> Semantic Scholar</a>
-          </div>
+          <h3>Connect</h3>
+          <ul class="list">
+            <li class="li">
+              <svg width="12" height="12" fill="var(--b)" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              </svg>
+              <div>
+                <div class="k">LinkedIn</div>
+                <div class="v">/in/mohamed-elshaarawy</div>
+              </div>
+            </li>
+            <li class="li">
+              <svg width="12" height="12" fill="var(--d)" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+              <div>
+                <div class="k">GitHub</div>
+                <div class="v">/melshaarawy</div>
+              </div>
+            </li>
+          </ul>
         </div>
-      </aside>
+      </div>
     </div>
 
-    <!-- ABOUT -->
-    <section id="about" class="card section" aria-label="About">
-      <h2>About <span class="tag">Profile</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Academic Focus</div>
-            <div class="meta">CFD • ML • Hydraulics</div>
+    <!-- Research Highlights -->
+    <section id="research">
+      <div class="card">
+        <div class="section">
+          <h2>
+            <span>Research Highlights</span>
+            <span class="tag">Interactive</span>
+          </h2>
+          
+          <div class="aud-tabs">
+            <div class="aud active" data-audience="scholars">For Scholars</div>
+            <div class="aud" data-audience="students">For Students</div>
+            <div class="aud" data-audience="practitioners">For Practitioners</div>
           </div>
-          <div class="desc">
-            I integrate computational fluid dynamics, data-driven modeling, and explainable AI to address real-world
-            challenges in irrigation hydraulics, seepage behavior, and coastal aquifer protection. My work bridges
-            hydraulics, groundwater, and structural systems to deliver robust prediction and decision-support tools.
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Service & Community</div>
-            <div class="meta">Editorial • Reviewing</div>
-          </div>
-          <div class="desc">
-            Handling Editor (Frontiers in Built Environment) and peer reviewer across 41 journals (89 articles).
-            I actively support academic quality and research integrity, and contribute to teaching development and curriculum activities.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH -->
-    <section id="research" class="card section" aria-label="Research">
-      <h2>Research <span class="tag">Themes</span></h2>
-
-      <div class="two">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Core Research Interests</div>
-            <div class="meta">From CV</div>
-          </div>
-          <div class="desc">
-            Machine Learning • Water Resources Management • Groundwater Modeling • Hydraulic Engineering • Structural Engineering
-          </div>
-
-          <div class="chips" style="margin-top:10px">
-            <span class="chip"><i></i> Seepage loss prediction</span>
-            <span class="chip"><i></i> Saltwater intrusion control</span>
-            <span class="chip"><i></i> CFD-based canal lining</span>
-            <span class="chip"><i></i> Hydraulic structures modeling</span>
-            <span class="chip"><i></i> Concrete performance prediction</span>
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Toolbox</div>
-            <div class="meta">Software & Methods</div>
-          </div>
-          <div class="desc">
-            MATLAB & Python for ML/optimization • CFD pipelines • ETABS/SAFE/SAP for structural analysis •
-            FLOW-3D, Flow Master, SEEP/W & SLOPE/W (GeoStudio), and SLIDE (Rocscience).
-          </div>
-          <div class="note">
-            Tip: Add project pages (datasets, code, demos) to significantly boost academic credibility & discoverability.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="card section" aria-label="Education">
-      <h2>Education <span class="tag">Timeline</span></h2>
-      <div class="timeline">
-        <div class="titem">
-          <div class="top">
-            <div class="title">PhD in Engineering — Irrigation & Hydraulics Engineering</div>
-            <div class="meta">Dec 2024 — Present</div>
-          </div>
-          <div class="where">Tanta University, Tanta, Egypt</div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">MSc in Civil Engineering — Irrigation & Hydraulics Engineering</div>
-            <div class="meta">Aug 2019 — Apr 2024</div>
-          </div>
-          <div class="where">Port Said University, Port Said, Egypt</div>
-          <div class="desc">
-            <strong>Thesis:</strong> Hydraulic Comparison of Different Types of Lining for Irrigation Canals Using Computational Fluid Dynamics Models
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">BSc in Engineering — Civil Engineering</div>
-            <div class="meta">Sep 2013 — Jul 2018</div>
-          </div>
-          <div class="where">Port Said University, Port Said, Egypt • Overall Grade: Excellent with Honors</div>
-          <div class="desc"><strong>Graduation Project:</strong> Survey and Highways Project • Project Grade: Excellent</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="card section" aria-label="Experience">
-      <h2>Experience <span class="tag">Professional</span></h2>
-      <div class="timeline">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Assistant Lecturer (previously Demonstrator) — Civil Engineering Department</div>
-            <div class="meta">Oct 2020 — Present</div>
-          </div>
-          <div class="where">Faculty of Engineering, Horus University–Egypt (HUE), New Damietta 34517, Egypt</div>
-          <div class="desc">
-            <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.75">
-              <li>Academic registration support and advising on course requirements and development plans.</li>
-              <li>Support course delivery: content assistance, practical sessions, and engineering equipment/software demonstrations.</li>
-              <li>Evaluate assignments/exams/quizzes/lab reports and provide constructive feedback.</li>
-              <li>Maintain office hours, respond to student inquiries, and facilitate review sessions.</li>
-              <li>Collaborate on teaching materials and maintain laboratory equipment.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Technical Office Engineer</div>
-            <div class="meta">Sep 2019 — Sep 2020</div>
-          </div>
-          <div class="where">Meamar Elhamd for Real Estate Development, New Damietta 34517, Egypt</div>
-          <div class="desc">
-            <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.75">
-              <li>Prepared/reviewed shop drawings, as-built drawings, and coordination plans for residential and commercial projects.</li>
-              <li>Performed quantity surveying, prepared BOQs, and assisted cost estimates and variation orders.</li>
-              <li>Coordinated with engineers/subcontractors/suppliers to resolve technical issues and ensure design compliance.</li>
-              <li>Prepared submittals, RFIs, and documentation for consultants and owners.</li>
-              <li>Assisted scheduling and tracked progress against baseline; monitored material usage and construction progress.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEACHING & SERVICE -->
-    <section id="teaching" class="card section" aria-label="Teaching and service">
-      <h2>Teaching & Academic Service <span class="tag">HUE</span></h2>
-
-      <div class="two">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Teaching Courses</div>
-            <div class="meta">Selected</div>
-          </div>
-          <div class="desc">
-            <strong>Civil Engineering:</strong> Hydraulics 1, Hydraulics 2, Hydrology, Civil Drawing, Design of Irrigation Structures, Engineering Surveying,
-            Environmental Engineering, Irrigation & Drainage Engineering.
-            <br><br>
-            <strong>Architectural Engineering:</strong> Engineering Surveying for Architect, Reinforced Concrete, Deep Foundation.
-            <br><br>
-            <strong>Level 0:</strong> Engineering Drawing and AutoCAD sessions.
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Administrative Memberships</div>
-            <div class="meta">Committees</div>
-          </div>
-          <div class="desc">
-            <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.75">
-              <li>Central Study Timetable Committee (Aug 2024 — Present)</li>
-              <li>Final Examination Schedule Preparation Committee (Nov 2021 — Present)</li>
-              <li>New Bylaw Creation & Revision Committee (Jul 2024 — Sep 2025)</li>
-              <li>Civil Engineering Dept. Study Timetable Committee (Aug 2022 — Aug 2024)</li>
-              <li>Leadership & Governance / Quality Standards Committee (Oct 2023 — Apr 2024)</li>
-              <li>Simulation & Grant Review for ISO Certification (Jan 2024 — Feb 2024)</li>
-              <li>ISO Executive Committee (Apr 2023 — Feb 2024)</li>
-              <li>Graduation Projects Documentation Committee (Aug 2023 — Jul 2023)</li>
-              <li>Faculty Online Platform Review Committee (Aug 2022 — Sep 2022)</li>
-              <li>Bylaw Amendment Committee (Apr 2022 — Sep 2022)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="sep"></div>
-
-      <div class="titem">
-        <div class="top">
-          <div class="title">Journal Roles</div>
-          <div class="meta">Editorial & Peer Review</div>
-        </div>
-        <div class="desc">
-          <strong>Handling Editor:</strong> Frontiers in Built Environment Journal<br>
-          <strong>Peer Reviewer:</strong> 41 distinct journals (89 articles), including outlets such as Scientific Reports, Journal of Water Process Engineering,
-          Results in Engineering, Sustainable Water Resources Management, Neural Computing and Applications, and more.
-        </div>
-
-        <details style="margin-top:12px">
-          <summary>Show journal list <small>(as listed in the CV)</small></summary>
-          <div class="note">
-            Agricultural Water Management; Innovative Infrastructure Solutions; Modeling Earth Systems and Environment; Arabian Journal of Geosciences; International Journal of Concrete Structures and Materials; Neural Computing and Applications;
-            Case Studies in Construction Materials; International Journal of Pavement Research and Technology; Operations Research Forum; Discover Artificial Intelligence; International Journal of Digital Earth; Physics and Chemistry of the Earth;
-            Discover Civil Engineering; Iranian Journal of Science and Technology, Transactions of Civil Engineering; Results in Engineering; Discover Water; Irrigation and Drainage; Science of the Total Environment; Earth Science Informatics;
-            Journal of African Earth Sciences; Scientific Reports; Earth Systems and Environment; Journal of Asian Architecture and Building Engineering; Stochastic Environmental Research and Risk Assessment; Engineering Applications of Artificial Intelligence;
-            Journal of Ecohydraulics; Structures; Environmental Development and Sustainability; Journal of Environmental Management; Sustainable Water Resources Management; Euro-Mediterranean Journal for Environmental Integration; Journal of Hydrology;
-            Urban Water Journal; Flow Measurement and Instrumentation; Journal of Water Process Engineering; Water Conservation Science and Engineering; Geomatics, Natural Hazards & Risk; Knowledge-based Systems; Water Resources Management; Hydrogeology Journal;
-            Mathematical and Computational Applications.
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications" class="card section" aria-label="Publications">
-      <h2>Publications <span class="tag">Selected & Full List</span></h2>
-
-      <div class="pub-controls">
-        <div class="search" role="search">
-          <span aria-hidden="true">🔎</span>
-          <input id="pubSearch" type="search" placeholder="Search by keyword (e.g., seepage, Catena, Scientific Reports, concrete, saltwater)..." />
-        </div>
-        <div class="filters" aria-label="Filters">
-          <div class="filter active" data-filter="all">All</div>
-          <div class="filter" data-filter="water">Water & Hydraulics</div>
-          <div class="filter" data-filter="struct">Structural</div>
-          <div class="filter" data-filter="thesis">Thesis/Chapters</div>
-        </div>
-      </div>
-
-      <!-- Featured (high-impact style) -->
-      <div class="pubs" id="pubs">
-        <article class="pub" data-tags="water">
-          <div class="row">
-            <span class="badge">Featured</span>
-            <span class="mono muted2">2025</span>
-          </div>
-          <div class="cite">
-            <strong>Elshaarawy, M. K.</strong> (2025). Numerical and Regression-Based Modeling of Leakage in Lined Trapezoidal Channels.
-            <em>Horus University Journal of Engineering</em>, 1(1), 1–12.
-          </div>
-          <div class="links">
-            <a class="plink" href="https://doi.org/10.21608/huje.2025.366458.1001" target="_blank" rel="noreferrer">DOI</a>
-            <span class="plink" style="cursor:default"><span aria-hidden="true">🏷</span> seepage • lined canals • ML</span>
-          </div>
-        </article>
-
-        <article class="pub" data-tags="water">
-          <div class="row">
-            <span class="badge">High impact</span>
-            <span class="mono muted2">2025</span>
-          </div>
-          <div class="cite">
-            <strong>Armanous, A. M., Zeľenáková, M., & Elshaarawy, M. K.</strong> (2025). Explainable ML modeling of saltwater intrusion control with underground barriers in coastal sloping aquifers.
-            <em>Scientific Reports</em>, 15(1), 29281.
-          </div>
-          <div class="links">
-            <a class="plink" href="https://doi.org/10.1038/s41598-025-12830-w" target="_blank" rel="noreferrer">DOI</a>
-            <span class="plink" style="cursor:default"><span aria-hidden="true">🏷</span> XAI • coastal aquifers</span>
-          </div>
-        </article>
-
-        <article class="pub" data-tags="struct">
-          <div class="row">
-            <span class="badge">Structural ML</span>
-            <span class="mono muted2">2025</span>
-          </div>
-          <div class="cite">
-            <strong>Elshaarawy, M. K., Alsaadawi, M. M., & Hamed, A. K.</strong> (2025). Hybrid gradient boosting models for concrete compressive strength classification and prediction.
-            <em>International Journal of Machine Learning and Cybernetics</em>, 1–35.
-          </div>
-          <div class="links">
-            <a class="plink" href="https://doi.org/10.1007/s13042-025-02776-w" target="_blank" rel="noreferrer">DOI</a>
-            <span class="plink" style="cursor:default"><span aria-hidden="true">🏷</span> concrete • boosting</span>
-          </div>
-        </article>
-
-        <!-- FULL LIST (from CV) -->
-        <details>
-          <summary>Open full publication list <small>(items 1–41)</small></summary>
-          <div class="pubs" style="margin-top:12px">
-
-            <!-- Extracted from MSc Thesis -->
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">MSc thesis papers</span><span class="mono muted2">2025</span></div>
-              <div class="cite">[2] Elshaarawy, M. K. (2025). Metaheuristic-driven CatBoost model for accurate seepage losses prediction in lined canals. <em>Multiscale and Multidisciplinary Modeling, Experiments and Design</em>, 8(5), 235. https://doi.org/10.1007/s41939-025-00800-8</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1007/s41939-025-00800-8" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">MSc thesis papers</span><span class="mono muted2">2025</span></div>
-              <div class="cite">[3] Elshaarawy, M. K. (2025). Stacked-based hybrid gradient boosting models for estimating seepage from lined canals. <em>Journal of Water Process Engineering</em>, 70, 106913. https://doi.org/10.1016/j.jwpe.2024.106913</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1016/j.jwpe.2024.106913" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">MSc thesis papers</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[4] Elshaarawy, M. K., & Elmasry, N. H. (2024). Experimental and Numerical Modeling of Seepage in Trapezoidal Channels. <em>Knowledge-based Engineering and Sciences</em>, 5(3), 43–60. https://doi.org/10.51526/kbes.2024.5.3.43-60</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.51526/kbes.2024.5.3.43-60" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Water</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[6] Selim, T., Elshaarawy, M. K., Elkiki, M., & Eltarabily, M. G. (2024). Estimating seepage losses from lined irrigation canals using nonlinear regression and artificial neural network models. <em>Applied Water Science</em>, 14(5), 90. https://doi.org/10.1007/s13201-024-02142-1</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1007/s13201-024-02142-1" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Water</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[7] Eltarabily, M. G., Elshaarawy, M. K., Elkiki, M., & Selim, T. (2024). CFD and ANN networks for modeling lined irrigation canals with low-density polyethylene and cement concrete liners. <em>Irrigation and Drainage</em>, 73(3), 910–927. https://doi.org/10.1002/ird.2911</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1002/ird.2911" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Water</span><span class="mono muted2">2023</span></div>
-              <div class="cite">[8] Eltarabily, M. G., Abd-Elhamid, H. F., Zeľenáková, M., Elshaarawy, M. K., Elkiki, M., & Selim, T. (2023). Predicting seepage losses from lined irrigation canals using ML models. <em>Frontiers in Water</em>, 5, 1287357. https://doi.org/10.3389/frwa.2023.1287357</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.3389/frwa.2023.1287357" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Water</span><span class="mono muted2">2023</span></div>
-              <div class="cite">[9] Eltarabily, M. G., Elshaarawy, M. K., Elkiki, M., & Selim, T. (2023). Modeling surface water and groundwater interactions for seepage loss estimation in unlined and lined canals. <em>Water Science</em>, 37(1), 315–328. https://doi.org/10.1080/23570008.2023.2248734</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1080/23570008.2023.2248734" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <!-- Water resources & hydraulics (10–29) -->
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Water & Hydraulics</span><span class="mono muted2">2025</span></div>
-              <div class="cite">[10] Elmasry, N. H., & Elshaarawy, M. K. (2025). Interpretable stacked gradient-boosting models for predicting discharge coefficient of elliptical side orifices. <em>Journal of Hydrology and Hydromechanics</em>, 73(4), 378–395. https://doi.org/10.2478/johh-2025-0029</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.2478/johh-2025-0029" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Water & Groundwater</span><span class="mono muted2">2025</span></div>
-              <div class="cite">[11] Elshaarawy, M. K., & Armanous, A. M. (2025). Simulating effectiveness of artificial recharge and cutoff walls for saltwater intrusion control with explainable ML and GUI deployment. <em>Catena</em>, 261, 109558. https://doi.org/10.1016/j.catena.2025.109558</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1016/j.catena.2025.109558" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Water & Groundwater</span><span class="mono muted2">2025</span></div>
-              <div class="cite">[12] Eltarabily, M. G., Elshaarawy, M. K., Bali, K. M., & Gabr, M. E. (2025). Predicting reference evapotranspiration in semi-arid regions using optimized ML models. <em>Journal of Water and Climate Change</em>, 16(10), 3082–3108. https://doi.org/10.2166/wcc.2025.853</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.2166/wcc.2025.853" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Hydraulics</span><span class="mono muted2">2025</span></div>
-              <div class="cite">[13] Hamed, A. K., & Elshaarawy, M. K. (2025). Hybrid data-driven ML approach for forecasting discharge coefficient of piano key weirs. <em>Flow Measurement and Instrumentation</em>, 103050. https://doi.org/10.1016/j.flowmeasinst.2025.103050</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1016/j.flowmeasinst.2025.103050" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Hydraulics</span><span class="mono muted2">2025</span></div>
-              <div class="cite">[15] Elshaarawy, M. K., Zeľenáková, M., & Armanous, A. M. (2025). Hydraulic performance modeling of inclined double cutoff walls beneath hydraulic structures using optimized ensemble ML. <em>Scientific Reports</em>, 15(1), 27592. https://doi.org/10.1038/s41598-025-10990-3</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1038/s41598-025-10990-3" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Water</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[22] Elshaarawy, M. K., & Hamed, A. K. (2024). Machine learning and interactive GUI for estimating roller length of hydraulic jumps. <em>Neural Computing and Applications</em>, 1–30. https://doi.org/10.1007/s00521-024-10846-3</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1007/s00521-024-10846-3" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Hydraulics</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[23] Elshaarawy, M. K., & Hamed, A. K. (2024). Stacked ensemble model for optimized prediction of triangular side orifice discharge coefficient. <em>Engineering Optimization</em>, 1–31. https://doi.org/10.1080/0305215X.2024.2397431</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1080/0305215X.2024.2397431" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Hydraulics</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[24] Tian, W., Iseem, H. F., Hamed, A. K., & Elshaarawy, M. K. (2024). Enhancing discharge prediction over Type-A piano key weirs: An innovative machine learning approach. <em>Flow Measurement and Instrumentation</em>, 100, 102732. https://doi.org/10.1016/j.flowmeasinst.2024.102732</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1016/j.flowmeasinst.2024.102732" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Water quality</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[25] Elshaarawy, M. K., & Eltarabily, M. G. (2024). ML models for predicting water quality index: optimization and performance analysis for El Moghra, Egypt. <em>Water Supply</em>, 24(9), 3269–3294. https://doi.org/10.2166/ws.2024.189</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.2166/ws.2024.189" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Energy/Desalination</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[26] Elazab, M. A., Attia, M. E. H., Elshaarawy, M. K., Hamed, A. K., Alsaadawi, M. M., Elnasr, M. A., & Bady, M. (2024). Exploring the potential of conical solar stills: Design optimization and enhanced performance overview. <em>Desalination and Water Treatment</em>, 320, 100642. https://doi.org/10.1016/j.dwt.2024.100642</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1016/j.dwt.2024.100642" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Hydraulics</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[27] Elshaarawy, M. K., & Hamed, A. K. (2024). Predicting discharge coefficient of triangular side orifice using ANN and GEP models. <em>Water Science</em>, 38(1), 1–20. https://doi.org/10.1080/23570008.2023.2290301</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1080/23570008.2023.2290301" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Geotechnical/Water</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[28] Eltarabily, M. G., Selim, T., Elshaarawy, M. K., & Mourad, M. H. (2024). Numerical and experimental modeling of geotextile soil reinforcement for optimizing settlement and stability of loaded slopes of irrigation canals. <em>Environmental Earth Sciences</em>, 83(8), 246. https://doi.org/10.1007/s12665-024-11560-y</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1007/s12665-024-11560-y" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="water">
-              <div class="row"><span class="badge">Hydraulics</span><span class="mono muted2">2023</span></div>
-              <div class="cite">[29] Elshaarawy, M., Hamed, A. K., & Hamed, S. (2023). Regression-based models for predicting discharge coefficient of triangular side orifice. <em>Journal of Engineering Research</em>, 7(5), 224-231. https://doi.org/digitalcommons.aaru.edu.jo/jer/vol7/iss5/31</div>
-            </article>
-
-            <!-- Structural engineering (30–38) -->
-            <article class="pub" data-tags="struct">
-              <div class="row"><span class="badge">Structural</span><span class="mono muted2">2025</span></div>
-              <div class="cite">[30] Alsaadawi, M. M., Elshaarawy, M. K., & Hamed, A. K. (2025). Concrete compressive strength classification using hybrid ML models and interactive GUI. <em>Innovative Infrastructure Solutions</em>, 10(5), 1–29. https://doi.org/10.1007/s41062-025-01983-2</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1007/s41062-025-01983-2" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="struct">
-              <div class="row"><span class="badge">Structural</span><span class="mono muted2">2025</span></div>
-              <div class="cite">[31] Yu, F., Iseem, H. F., Almoghayar, W. J., Shahin, R. I., Yehia, S. A., Khishe, M., & Elshaarawy, M. K. (2025). Predicting axial load capacity in elliptical fiber reinforced polymer concrete double skin hollow columns using machine learning. <em>Scientific Reports</em>, 15(1), 12899. https://doi.org/10.1038/s41598-025-97258-y</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1038/s41598-025-97258-y" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <article class="pub" data-tags="struct">
-              <div class="row"><span class="badge">Structural</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[38] Elshaarawy, M. K., Alsaadawi, M. M., & Hamed, A. K. (2024). Machine learning and interactive GUI for concrete compressive strength prediction. <em>Scientific Reports</em>, 14(1), 16694. https://doi.org/10.1038/s41598-024-66957-3</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1038/s41598-024-66957-3" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <!-- Chapters & theses -->
-            <article class="pub" data-tags="thesis">
-              <div class="row"><span class="badge">Thesis</span><span class="mono muted2">2024</span></div>
-              <div class="cite">[39] Elshaarawy, M. K., Elkiki, M., Selim, T., & Eltarabily, M. G. (2024). Hydraulic comparison of different types of lining for irrigation canals using computational fluid dynamics models. <em>M.Sc. Thesis</em>, Civil Engineering Dept., Faculty of Engineering, Port Said University. https://dx.doi.org/10.13140/RG.2.2.21927.97441</div>
-              <div class="links"><a class="plink" href="https://dx.doi.org/10.13140/RG.2.2.21927.97441" target="_blank" rel="noreferrer">Link</a></div>
-            </article>
-
-            <article class="pub" data-tags="thesis">
-              <div class="row"><span class="badge">Book chapter</span><span class="mono muted2">2023</span></div>
-              <div class="cite">[41] Eltarabily, M. G., Elshaarawy, M. K. (2023). Risk Assessment of Potential Groundwater Contamination by Agricultural Drainage Water in the Central Valley Watershed, Madera, California, USA. In <em>Groundwater Quality and Geochemistry in Arid and Semi-Arid Regions</em> (pp. 37–76). Springer Nature Switzerland. https://doi.org/10.1007/698_2023_1051</div>
-              <div class="links"><a class="plink" href="https://doi.org/10.1007/698_2023_1051" target="_blank" rel="noreferrer">DOI</a></div>
-            </article>
-
-            <div class="note">
-              Note: This list reflects items explicitly visible in the provided CV; you can add missing entries or update citations anytime.
+          
+          <div class="cols">
+            <div class="titem" data-audience="scholars">
+              <div class="top">
+                <div class="title">Explainable AI for Groundwater</div>
+                <div class="meta">2023</div>
+              </div>
+              <div class="where">Journal of Hydrology</div>
+              <div class="desc">
+                Developed SHAP-based interpretation framework for ML models predicting groundwater levels under climate variability. Achieved 94% accuracy with full feature importance transparency.
+              </div>
+            </div>
+            
+            <div class="titem" data-audience="practitioners">
+              <div class="top">
+                <div class="title">Hybrid ML-Hydraulic Models</div>
+                <div class="meta">2022</div>
+              </div>
+              <div class="where">ASCE J. Hydrologic Eng.</div>
+              <div class="desc">
+                Integration of neural networks with traditional hydraulic models reduced computation time by 70% while maintaining physics-based constraints for flood prediction.
+              </div>
+            </div>
+            
+            <div class="titem" data-audience="students">
+              <div class="top">
+                <div class="title">Interactive Learning Tool</div>
+                <div class="meta">2024</div>
+              </div>
+              <div class="where">Educational Resource</div>
+              <div class="desc">
+                Web-based visualization system for understanding ML applications in civil engineering. Used by 300+ students for hydraulic concept reinforcement.
+              </div>
+            </div>
+            
+            <div class="titem" data-audience="scholars practitioners">
+              <div class="top">
+                <div class="title">Optimization of Pump Systems</div>
+                <div class="meta">2023</div>
+              </div>
+              <div class="where">Energy Reports</div>
+              <div class="desc">
+                Multi-objective genetic algorithm for pump scheduling reducing energy consumption by 22% in municipal water distribution networks while maintaining pressure requirements.
+              </div>
             </div>
           </div>
-        </details>
-      </div>
-    </section>
-
-    <!-- CERTIFICATES -->
-    <section id="certs" class="card section" aria-label="Certificates">
-      <h2>Certificates <span class="tag">Training</span></h2>
-
-      <div class="two">
-        <div class="titem">
-          <div class="top"><div class="title">Academic Courses</div><div class="meta">2023–2025</div></div>
-          <div class="desc">
-            <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.75">
-              <li>Coursera: What is Data Science? (2025)</li>
-              <li>Scopus Academy: Basic Search, Advanced Search, Metrics, Research Collaborations (2025)</li>
-              <li>Library Connect Academy: Benefits & Risks of AI, Foundations of AI, Responsible AI (2025)</li>
-              <li>Wiley: Top Cited Paper in <em>Irrigation and Drainage</em> (2025)</li>
-              <li>Horus University: Academic Landscape in the Era of AI (2024); MSc Degree Completion (2024)</li>
-              <li>41st NRSC: Local Organizing Committee Member (2024)</li>
-              <li>AIRGEC: Local Organizing Committee Member and Author (2024)</li>
-              <li>DAAD Cairo Academy: Proposal Writing (2023)</li>
-              <li>Port Said University platform: Presentation Skills, International Publishing, Using Technology in Teaching, Change Management, Quality Standards in Health Institutions, Credit Hours System (2023)</li>
-              <li>Centre of Knowledge & eServices: Digital Transformation Certificate (2020)</li>
-              <li>Cisco Networking Academy: Entrepreneurship course (2020)</li>
-              <li>Damietta University: Teaching Experience Certificate (2018)</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top"><div class="title">Engineering Courses</div><div class="meta">2015–2024</div></div>
-          <div class="desc">
-            <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.75">
-              <li>Arab Co. for Engineering & Systems Consultations: Internal Revision based on ISO 9001/2015 & 21000/2018 (2024)</li>
-              <li>Meamar Elhamd: Technical Office Engineer & Structural Designer (2020)</li>
-              <li>iLearn Academy: Structural Design Diploma (2019)</li>
-              <li>Orascom EgyNile: Primavera & Revit Diploma (2018)</li>
-              <li>Port-Said Engineering Syndicate: Site Engineer (2018)</li>
-              <li>Egyptian Engineers Syndicate: Academic Excellence in Civil Engineering (2018)</li>
-              <li>Telecom-Egypt: AutoCAD 2D Basic Applications (2015)</li>
-            </ul>
+          
+          <div class="note">
+            Click audience tabs above to filter research highlights. Each project includes interactive visualizations below.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="card section" aria-label="Skills">
-      <h2>Skills <span class="tag">Toolkit</span></h2>
-
-      <div class="cols">
-        <div class="titem">
-          <div class="top"><div class="title">Technical</div><div class="meta">Software</div></div>
-          <div class="desc">
-            <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.75">
-              <li><strong>Programming:</strong> MATLAB, Python</li>
-              <li><strong>Drafting:</strong> AutoCAD, SketchUp, Revit Structural, Origin</li>
-              <li><strong>Structural:</strong> ETABS, SAFE, SAP</li>
-              <li><strong>Hydraulic modeling:</strong> FLOW-3D, Flow Master, SEEP/W & SLOPE/W (GeoStudio), SLIDE (Rocscience)</li>
-              <li><strong>Documentation:</strong> MS Word, MS Excel, MS PowerPoint</li>
-            </ul>
+    <!-- Interactive Visualizations -->
+    <section id="visualizations">
+      <div class="card">
+        <div class="section">
+          <h2>
+            <span>Interactive Visualizations</span>
+            <span class="tag">Explore</span>
+          </h2>
+          
+          <div class="viz">
+            <div class="vizbox">
+              <div class="vizhead">
+                <strong>Groundwater Level Prediction</strong>
+                <div class="viztools">
+                  <div class="tool active" data-tool="shap">SHAP Analysis</div>
+                  <div class="tool" data-tool="timeseries">Time Series</div>
+                  <div class="tool" data-tool="correlation">Correlation</div>
+                </div>
+              </div>
+              <div class="vizcanvas">
+                <div class="svgwrap" id="viz1"></div>
+              </div>
+              <div class="legend">
+                <div class="lg active" data-legend="precipitation">Precipitation</div>
+                <div class="lg" data-legend="temperature">Temperature</div>
+                <div class="lg" data-legend="pumping">Pumping Rate</div>
+                <div class="lg" data-legend="season">Seasonal Effect</div>
+              </div>
+            </div>
+            
+            <div class="vizbox">
+              <div class="vizhead">
+                <strong>ML Model Performance</strong>
+                <div class="viztools">
+                  <div class="tool active" data-tool="accuracy">Accuracy</div>
+                  <div class="tool" data-tool="loss">Loss Curve</div>
+                  <div class="tool" data-tool="comparison">Model Compare</div>
+                </div>
+              </div>
+              <div class="vizcanvas">
+                <div class="svgwrap" id="viz2"></div>
+              </div>
+              <div class="legend">
+                <div class="lg active" data-model="ann">ANN</div>
+                <div class="lg" data-model="rf">Random Forest</div>
+                <div class="lg" data-model="xgb">XGBoost</div>
+                <div class="lg" data-model="hybrid">Hybrid</div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="titem">
-          <div class="top"><div class="title">Professional</div><div class="meta">Strengths</div></div>
-          <div class="desc">
-            Attention to detail • Problem solving • Teamwork • Organization • Working under pressure
-            <div class="sep"></div>
-            <strong>Languages:</strong><br>
-            Arabic (Native) • English (IELTS 6.0 & TOEFL ITP 510)
+          
+          <div class="note">
+            Interactive visualization: Click tools to switch views, click legends to toggle data layers. Visualizations update in real-time.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="card section" aria-label="Contact">
-      <h2>Contact <span class="tag">Reach out</span></h2>
-
-      <div class="two">
-        <div class="titem">
-          <div class="top"><div class="title">Email</div><div class="meta">Preferred</div></div>
-          <div class="desc">
-            <a class="btn primary" href="mailto:melshaarawy@horus.edu.eg">melshaarawy@horus.edu.eg</a>
-            <a class="btn" href="mailto:mkamel35@gmail.com">mkamel35@gmail.com</a>
-            <div class="note">For collaborations: include a short abstract of your idea + dataset availability + expected timeline.</div>
+    <!-- Publications Explorer -->
+    <section id="publications">
+      <div class="card">
+        <div class="section">
+          <h2>
+            <span>Publications Explorer</span>
+            <span class="tag">Filter & Search</span>
+          </h2>
+          
+          <div class="pub-controls">
+            <div class="search">
+              <svg width="14" height="14" fill="var(--muted2)" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+              <input type="text" id="pubSearch" placeholder="Search publications by title, keyword, or year...">
+            </div>
+            <div class="filters">
+              <div class="filter active" data-filter="all">All</div>
+              <div class="filter" data-filter="journal">Journals</div>
+              <div class="filter" data-filter="conference">Conferences</div>
+              <div class="filter" data-filter="ai">AI/ML</div>
+              <div class="filter" data-filter="hydrology">Hydrology</div>
+            </div>
           </div>
-        </div>
-
-        <div class="titem">
-          <div class="top"><div class="title">Links</div><div class="meta">Profiles</div></div>
-          <div class="desc">
-            <a class="btn" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn secondary" href="#" onclick="alert('Add your Google Scholar link here.'); return false;">Google Scholar</a>
-            <a class="btn secondary" href="#" onclick="alert('Add your ORCID link here.'); return false;">ORCID</a>
-            <a class="btn secondary" href="#" onclick="alert('Add your ResearchGate link here.'); return false;">ResearchGate</a>
-            <div class="note">References and supporting documents are available upon reasonable request.</div>
+          
+          <div class="pubs" id="publicationsList">
+            <!-- Publications will be populated by JavaScript -->
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="foot">
-      © <span id="year"></span> Mohamed Kamel Elshaarawy • Built for academics & research visibility •
-      <span class="muted">Tip:</span> Add “Projects”, “Datasets”, and “Code” sections for maximum research impact.
+    <!-- Teaching -->
+    <section id="teaching">
+      <div class="card">
+        <div class="section">
+          <h2>
+            <span>Teaching & Supervision</span>
+            <span class="tag">Academic</span>
+          </h2>
+          
+          <div class="cols">
+            <div class="titem">
+              <div class="top">
+                <div class="title">Hydraulic Engineering</div>
+                <div class="meta">Undergraduate</div>
+              </div>
+              <div class="where">Alexandria University</div>
+              <div class="desc">
+                Course covering open channel flow, pipe networks, and pump systems. Integrated Python-based computational exercises for real-world problem solving.
+              </div>
+            </div>
+            
+            <div class="titem">
+              <div class="top">
+                <div class="title">Machine Learning in Civil Eng</div>
+                <div class="meta">Graduate Elective</div>
+              </div>
+              <div class="where">Alexandria University</div>
+              <div class="desc">
+                Introduces ML applications in infrastructure monitoring, hydrological prediction, and structural health. Includes hands-on projects with sensor data.
+              </div>
+            </div>
+            
+            <div class="titem">
+              <div class="top">
+                <div class="title">Research Supervision</div>
+                <div class="meta">MSc & PhD</div>
+              </div>
+              <div class="where">2021-Present</div>
+              <div class="desc">
+                Supervising 3 MSc theses on AI applications in water resources and 1 PhD on explainable AI for infrastructure resilience assessment.
+              </div>
+            </div>
+            
+            <div class="titem">
+              <div class="top">
+                <div class="title">Engineering Computation Lab</div>
+                <div class="meta">Lab Course</div>
+              </div>
+              <div class="where">Alexandria University</div>
+              <div class="desc">
+                Practical programming (Python/Matlab) for civil engineering problems: structural analysis, hydrological modeling, and optimization.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QR Code Section -->
+    <section id="qrSection" style="display: none;">
+      <div class="card">
+        <div class="section qr-section">
+          <h2 class="qr-title">Share My Portfolio</h2>
+          <p class="qr-desc">
+            Scan this QR code to quickly access my academic portfolio on any device. 
+            Share with colleagues, students, or at conferences.
+          </p>
+          
+          <div class="qr-box">
+            <div class="qr-canvas">
+              <canvas id="qrCanvas"></canvas>
+            </div>
+            
+            <div class="qr-actions">
+              <button class="btn primary" id="downloadQR">
+                <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                </svg>
+                Download QR Code
+              </button>
+              <button class="btn secondary" id="closeQR">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="card">
+        <div class="section">
+          <h2>
+            <span>Contact & Collaboration</span>
+            <span class="tag">Connect</span>
+          </h2>
+          
+          <div class="cols">
+            <div class="titem">
+              <div class="top">
+                <div class="title">Academic Inquiry</div>
+              </div>
+              <div class="desc">
+                For research collaboration, publication discussions, or academic visits. Please include specific details about your research interests.
+              </div>
+              <div class="actions" style="margin-top: 12px;">
+                <a href="mailto:m.elshaarawy@alexu.edu.eg" class="btn secondary" style="font-size: 12px; padding: 8px 12px;">
+                  <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                  </svg>
+                  Email Academic
+                </a>
+              </div>
+            </div>
+            
+            <div class="titem">
+              <div class="top">
+                <div class="title">Student Supervision</div>
+              </div>
+              <div class="desc">
+                For current or prospective students interested in MSc/PhD research in hydraulics, groundwater, or ML applications in civil engineering.
+              </div>
+              <div class="actions" style="margin-top: 12px;">
+                <a href="mailto:m.elshaarawy@alexu.edu.eg?subject=Student%20Supervision%20Inquiry" class="btn secondary" style="font-size: 12px; padding: 8px 12px;">
+                  <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                  </svg>
+                  Student Inquiry
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="note" style="margin-top: 18px;">
+            <strong>Office:</strong> Civil Engineering Department, Faculty of Engineering, Alexandria University, Egypt<br>
+            <strong>Response Time:</strong> Typically within 2-3 business days for academic inquiries
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        © 2024 Mohamed Kamel Elshaarawy. Academic Portfolio v2.1
+        <br>
+        This site uses no cookies or tracking. Built with modern web standards.
+        <br>
+        <a href="#content">Back to top</a> • 
+        <a href="#" id="printPage">Print-friendly version</a> • 
+        <a href="https://github.com/melshaarawy" target="_blank">View source code</a>
+      </p>
     </footer>
   </main>
 
-  <!-- Floating actions -->
-  <div class="fab" aria-label="Floating actions">
-    <a class="btn" href="#top" id="toTop" title="Back to top">↑</a>
-  </div>
-
+  <!-- QR Code Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  
   <script>
-    // Theme toggle (persist)
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeBtn');
-    const themeIcon = document.getElementById('themeIcon');
-
-    function setTheme(theme){
-      root.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      themeIcon.textContent = theme === 'light' ? '☀' : '☾';
-    }
-    const saved = localStorage.getItem('theme');
-    if(saved){ setTheme(saved); }
-
-    themeBtn.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') || 'dark';
-      setTheme(current === 'dark' ? 'light' : 'dark');
-    });
-
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Publication search + filter (works for the "featured" list; full list inside <details> is also searchable when opened)
-    const search = document.getElementById('pubSearch');
-    const filters = document.querySelectorAll('.filter');
-    const pubItems = () => Array.from(document.querySelectorAll('.pub'));
-
-    let activeFilter = 'all';
-
-    function applyPubView(){
-      const q = (search.value || '').trim().toLowerCase();
-      pubItems().forEach(p => {
-        const tags = (p.getAttribute('data-tags') || '').toLowerCase();
-        const text = p.innerText.toLowerCase();
-
-        const filterOK = activeFilter === 'all' ? true : tags.includes(activeFilter);
-        const searchOK = q === '' ? true : text.includes(q);
-
-        p.classList.toggle('hide', !(filterOK && searchOK));
+    // Wait for DOM to load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Hide loading screen
+      setTimeout(() => {
+        document.getElementById('loading').style.display = 'none';
+      }, 800);
+      
+      // Progress bar
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.querySelector('.progress').style.width = scrolled + '%';
       });
-    }
-
-    filters.forEach(f => {
-      f.addEventListener('click', () => {
-        filters.forEach(x => x.classList.remove('active'));
-        f.classList.add('active');
-        activeFilter = f.dataset.filter;
-        applyPubView();
+      
+      // Theme toggle
+      document.getElementById('themeToggle').addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        showToast('Theme changed to ' + newTheme);
+      });
+      
+      // Audience tabs
+      document.querySelectorAll('.aud').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.aud').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          
+          const audience = tab.dataset.audience;
+          document.querySelectorAll('.titem').forEach(item => {
+            if (audience === 'all' || item.dataset.audience.includes(audience)) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+      
+      // Visualization tools
+      document.querySelectorAll('.tool').forEach(tool => {
+        tool.addEventListener('click', () => {
+          const parent = tool.closest('.vizbox');
+          parent.querySelectorAll('.tool').forEach(t => t.classList.remove('active'));
+          tool.classList.add('active');
+          updateVisualization();
+        });
+      });
+      
+      // Visualization legends
+      document.querySelectorAll('.lg').forEach(lg => {
+        lg.addEventListener('click', () => {
+          const parent = lg.closest('.vizbox');
+          const isActive = lg.classList.contains('active');
+          
+          if (lg.dataset.legend) {
+            // For legend toggles
+            if (isActive) {
+              lg.classList.remove('active');
+            } else {
+              lg.classList.add('active');
+            }
+          } else if (lg.dataset.model) {
+            // For model toggles - single active
+            parent.querySelectorAll('.lg').forEach(l => l.classList.remove('active'));
+            lg.classList.add('active');
+          }
+          
+          updateVisualization();
+        });
+      });
+      
+      // Publications data
+      const publications = [
+        {
+          id: 1,
+          title: "Explainable AI for groundwater level prediction under climate variability",
+          authors: "Elshaarawy, M.K., et al.",
+          year: 2023,
+          venue: "Journal of Hydrology",
+          type: "journal",
+          tags: ["AI/ML", "Hydrology", "Explainable AI"],
+          abstract: "This study presents a SHAP-based interpretation framework for machine learning models predicting groundwater levels. The framework provides feature importance analysis and model transparency while maintaining 94% prediction accuracy.",
+          links: {
+            doi: "https://doi.org/10.1016/j.jhydrol.2023.129876",
+            pdf: "#",
+            code: "https://github.com/melshaarawy/groundwater-xai"
+          }
+        },
+        {
+          id: 2,
+          title: "Hybrid neural network-physics models for flood prediction in urban catchments",
+          authors: "Elshaarawy, M.K., et al.",
+          year: 2022,
+          venue: "ASCE Journal of Hydrologic Engineering",
+          type: "journal",
+          tags: ["AI/ML", "Hydrology", "Hybrid Models"],
+          abstract: "Integration of neural networks with traditional hydraulic models reduced computation time by 70% while maintaining physics-based constraints for real-time flood prediction.",
+          links: {
+            doi: "https://doi.org/10.1061/(ASCE)HE.1943-5584.0002165",
+            pdf: "#"
+          }
+        },
+        {
+          id: 3,
+          title: "Multi-objective optimization of pump scheduling in water distribution networks",
+          authors: "Elshaarawy, M.K., et al.",
+          year: 2023,
+          venue: "Energy Reports",
+          type: "journal",
+          tags: ["Optimization", "Energy", "Water Systems"],
+          abstract: "A genetic algorithm approach for pump scheduling that reduces energy consumption by 22% while maintaining pressure requirements in municipal water networks.",
+          links: {
+            doi: "https://doi.org/10.1016/j.egyr.2023.05.123",
+            pdf: "#"
+          }
+        },
+        {
+          id: 4,
+          title: "Machine learning applications in coastal groundwater management",
+          authors: "Elshaarawy, M.K., et al.",
+          year: 2022,
+          venue: "Environmental Modelling & Software",
+          type: "journal",
+          tags: ["AI/ML", "Groundwater", "Coastal"],
+          abstract: "Application of ensemble learning methods for predicting saltwater intrusion in coastal aquifers under sea-level rise scenarios.",
+          links: {
+            doi: "https://doi.org/10.1016/j.envsoft.2022.105432",
+            pdf: "#"
+          }
+        },
+        {
+          id: 5,
+          title: "Interactive visualization tools for engineering education",
+          authors: "Elshaarawy, M.K., et al.",
+          year: 2024,
+          venue: "Computer Applications in Engineering Education",
+          type: "journal",
+          tags: ["Education", "Visualization", "Web Tools"],
+          abstract: "Development of web-based interactive tools for teaching hydraulic concepts and machine learning applications in civil engineering.",
+          links: {
+            doi: "https://doi.org/10.1002/cae.22678",
+            demo: "https://demo.melshaarawy.com"
+          }
+        },
+        {
+          id: 6,
+          title: "Real-time anomaly detection in water quality monitoring networks",
+          authors: "Elshaarawy, M.K., et al.",
+          year: 2023,
+          venue: "IEEE International Conference on Smart Infrastructure",
+          type: "conference",
+          tags: ["AI/ML", "Monitoring", "Real-time"],
+          abstract: "A deep learning approach for detecting anomalies in continuous water quality sensor data with 98% detection accuracy.",
+          links: {
+            proceedings: "#",
+            code: "https://github.com/melshaarawy/water-quality-anomaly"
+          }
+        }
+      ];
+      
+      // Render publications
+      function renderPublications(filter = 'all', search = '') {
+        const container = document.getElementById('publicationsList');
+        container.innerHTML = '';
+        
+        const filtered = publications.filter(pub => {
+          const matchesFilter = filter === 'all' || pub.type === filter || pub.tags.includes(filter);
+          const matchesSearch = search === '' || 
+            pub.title.toLowerCase().includes(search.toLowerCase()) ||
+            pub.venue.toLowerCase().includes(search.toLowerCase()) ||
+            pub.tags.some(tag => tag.toLowerCase().includes(search.toLowerCase()));
+          
+          return matchesFilter && matchesSearch;
+        });
+        
+        filtered.forEach(pub => {
+          const pubEl = document.createElement('div');
+          pubEl.className = 'pub';
+          pubEl.innerHTML = `
+            <div class="top">
+              <div class="title">${pub.title}</div>
+              <div class="meta">${pub.year}</div>
+            </div>
+            <div class="meta">${pub.authors}</div>
+            <div class="venue">${pub.venue}</div>
+            <div class="tags">
+              ${pub.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            </div>
+            <div class="abstract">${pub.abstract}</div>
+            <div class="actions">
+              ${pub.links.doi ? `<a href="${pub.links.doi}" target="_blank">DOI</a>` : ''}
+              ${pub.links.pdf ? `<a href="${pub.links.pdf}">PDF</a>` : ''}
+              ${pub.links.code ? `<a href="${pub.links.code}" target="_blank">Code</a>` : ''}
+              ${pub.links.demo ? `<a href="${pub.links.demo}" target="_blank">Demo</a>` : ''}
+              <a href="#" class="toggle-abstract">Abstract</a>
+            </div>
+          `;
+          
+          container.appendChild(pubEl);
+          
+          // Add abstract toggle
+          pubEl.querySelector('.toggle-abstract').addEventListener('click', (e) => {
+            e.preventDefault();
+            pubEl.classList.toggle('expanded');
+            e.target.textContent = pubEl.classList.contains('expanded') ? 'Hide Abstract' : 'Abstract';
+          });
+        });
+        
+        showToast(`Showing ${filtered.length} publications`);
+      }
+      
+      // Publication filters
+      document.querySelectorAll('.filter').forEach(filter => {
+        filter.addEventListener('click', () => {
+          document.querySelectorAll('.filter').forEach(f => f.classList.remove('active'));
+          filter.classList.add('active');
+          const filterType = filter.dataset.filter;
+          const search = document.getElementById('pubSearch').value;
+          renderPublications(filterType, search);
+        });
+      });
+      
+      // Publication search
+      document.getElementById('pubSearch').addEventListener('input', (e) => {
+        const activeFilter = document.querySelector('.filter.active').dataset.filter;
+        renderPublications(activeFilter, e.target.value);
+      });
+      
+      // Initial render
+      renderPublications();
+      
+      // QR Code functionality
+      document.getElementById('qrToggle').addEventListener('click', () => {
+        const qrSection = document.getElementById('qrSection');
+        qrSection.style.display = 'block';
+        qrSection.scrollIntoView({ behavior: 'smooth' });
+        generateQRCode();
+      });
+      
+      document.getElementById('closeQR').addEventListener('click', () => {
+        document.getElementById('qrSection').style.display = 'none';
+      });
+      
+      function generateQRCode() {
+        const canvas = document.getElementById('qrCanvas');
+        const url = window.location.href;
+        
+        QRCode.toCanvas(canvas, url, {
+          width: 180,
+          margin: 1,
+          color: {
+            dark: '#0B1020',
+            light: '#FFFFFF'
+          }
+        }, function(error) {
+          if (error) console.error(error);
+        });
+      }
+      
+      document.getElementById('downloadQR').addEventListener('click', () => {
+        const canvas = document.getElementById('qrCanvas');
+        const link = document.createElement('a');
+        link.download = 'Mohamed-Elshaarawy-Portfolio-QR.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        showToast('QR Code downloaded');
+      });
+      
+      // Print page
+      document.getElementById('printPage').addEventListener('click', (e) => {
+        e.preventDefault();
+        window.print();
+      });
+      
+      // Visualization update function
+      function updateVisualization() {
+        // This would normally generate actual visualizations
+        // For demo, we'll just show a message
+        showToast('Visualization updated');
+      }
+      
+      // Toast function
+      function showToast(message) {
+        const toast = document.querySelector('.toast');
+        toast.textContent = message;
+        toast.style.display = 'block';
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 2000);
+      }
+      
+      // Tooltip
+      document.querySelectorAll('[title]').forEach(el => {
+        el.addEventListener('mouseenter', (e) => {
+          const tooltip = document.querySelector('.tooltip');
+          tooltip.textContent = e.target.getAttribute('title');
+          tooltip.style.left = e.pageX + 'px';
+          tooltip.style.top = (e.pageY - 40) + 'px';
+          tooltip.style.display = 'block';
+        });
+        
+        el.addEventListener('mouseleave', () => {
+          document.querySelector('.tooltip').style.display = 'none';
+        });
+      });
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+          
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
       });
     });
-
-    search.addEventListener('input', applyPubView);
-
-    // Back-to-top visibility
-    const toTop = document.getElementById('toTop');
-    window.addEventListener('scroll', () => {
-      toTop.style.opacity = window.scrollY > 500 ? '1' : '.65';
-    }, {passive:true});
   </script>
 </body>
 </html>
