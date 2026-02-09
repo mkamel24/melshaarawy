@@ -1,2314 +1,551 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b1020" />
-  <meta name="description" content="Mohamed Kamel Elshaarawy — Civil Engineer & Assistant Lecturer. Research portfolio with interactive visualizations, publications explorer, teaching, and contact." />
-  <meta name="keywords" content="Mohamed Elshaarawy, Civil Engineering, Hydraulics, Groundwater, Machine Learning, Explainable AI, Optimization, Assistant Lecturer" />
-  <meta property="og:title" content="Mohamed Kamel Elshaarawy | Academic Portfolio" />
-  <meta property="og:description" content="Research portfolio with interactive visualizations, publications explorer, teaching, and contact." />
-  <meta property="og:type" content="website" />
-
-  <title>Mohamed Kamel Elshaarawy | Academic Portfolio</title>
-
-  <!-- Scientific fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=STIX+Two+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg0:#070A12;
-      --bg1:#0B1020;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.09);
-      --text:#E9ECF5;
-      --muted:#B7BED9;
-      --muted2:#8F98B7;
-
-      --a:#67E8F9;
-      --b:#A78BFA;
-      --c:#34D399;
-      --d:#FBBF24;
-      --e:#FB7185;
-      --line: rgba(255,255,255,.14);
-
-      --shadow: 0 18px 50px rgba(0,0,0,.42);
-      --radius: 18px;
-      --radius2: 12px;
-
-      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --serif: "STIX Two Text", Georgia, "Times New Roman", Times, serif;
-
-      --max: 1140px;
-      --pad: 18px;
-    }
-
-    [data-theme="light"]{
-      --bg0:#f6f7fb;
-      --bg1:#ffffff;
-      --panel: rgba(10,16,32,.05);
-      --panel2: rgba(10,16,32,.07);
-      --text:#0b1020;
-      --muted:#334155;
-      --muted2:#475569;
-      --line: rgba(10,16,32,.12);
-      --shadow: 0 18px 50px rgba(2,6,23,.10);
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:var(--sans);
-      color:var(--text);
-      background:
-        radial-gradient(1200px 500px at 15% 10%, rgba(103,232,249,.16), transparent 60%),
-        radial-gradient(900px 600px at 85% 30%, rgba(167,139,250,.18), transparent 60%),
-        radial-gradient(800px 500px at 60% 90%, rgba(52,211,153,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      overflow-x:hidden;
-    }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding: 26px var(--pad) 40px;}
-    .skip{
-      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden;
-    }
-    .skip:focus{left:14px; top:14px; width:auto; height:auto; padding:10px 12px; background:var(--panel2); border-radius:12px; outline:2px solid rgba(103,232,249,.5)}
-
-    .progress{
-      position:fixed; top:0; left:0; height:3px; width:0%;
-      background: linear-gradient(90deg, var(--a), var(--b), var(--c));
-      z-index:80;
-      box-shadow: 0 8px 18px rgba(0,0,0,.25);
-    }
-
-    .toast{
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,.76);
-      border: 1px solid rgba(255,255,255,.18);
-      color: #fff;
-      padding: 10px 12px;
-      border-radius: 14px;
-      font-family: var(--mono);
-      font-size: 12px;
-      z-index: 120;
-      display:none;
-    }
-    [data-theme="light"] .toast{background: rgba(15,23,42,.92)}
-
-    .tooltip{
-      position: fixed;
-      z-index: 1000;
-      pointer-events:none;
-      background: rgba(0,0,0,.78);
-      color: white;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.16);
-      font-size: 12px;
-      font-family: var(--mono);
-      max-width: 360px;
-      display:none;
-    }
-    [data-theme="light"] .tooltip{background: rgba(15,23,42,.92)}
-
-    .nav{
-      position:sticky; top:0; z-index:30;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.08));
-      border-bottom: 1px solid var(--line);
-    }
-    [data-theme="light"] .nav{
-      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.55));
-    }
-    .nav-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding: 10px var(--pad);
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px; text-decoration:none;
-      min-width: 280px;
-    }
-    .mark{
-      width:34px; height:34px; border-radius:10px;
-      background:
-        radial-gradient(22px 22px at 30% 30%, rgba(103,232,249,.85), transparent 60%),
-        radial-gradient(22px 22px at 70% 70%, rgba(167,139,250,.85), transparent 60%),
-        linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.02));
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 25px rgba(0,0,0,.25);
-      position:relative;
-      flex: 0 0 auto;
-    }
-    .mark:after{
-      content:"";
-      position:absolute; inset:7px;
-      border-radius:8px;
-      border:1px dashed rgba(255,255,255,.28);
-      opacity:.75;
-    }
-    [data-theme="light"] .mark:after{border-color: rgba(10,16,32,.22)}
-    .brand strong{font-weight:900; letter-spacing:.2px; white-space:nowrap}
-    .brand span{display:block; font-size:12px; color:var(--muted2); margin-top:1px}
-
-    .nav-links{
-      display:flex; flex-wrap:wrap; gap:10px 16px;
-      align-items:center;
-      justify-content:flex-end;
-    }
-    .nav-links a{
-      text-decoration:none;
-      font-size:13px;
-      color:var(--muted);
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-      font-weight:700;
-    }
-    .nav-links a:hover{
-      color:var(--text);
-      background: var(--panel);
-      border-color: var(--line);
-    }
-    @media (max-width: 980px){
-      .brand{min-width:auto}
-      .nav-links{display:none}
-    }
-
-    .nav-actions{
-      display:flex; align-items:center; gap:10px;
-    }
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-      box-shadow: 0 12px 28px rgba(0,0,0,.18);
-      color: var(--text);
-      text-decoration:none;
-      font-weight:800;
-      font-size:13px;
-      cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      user-select:none;
-    }
-    .btn:hover{transform: translateY(-1px); border-color: rgba(103,232,249,.35)}
-    .btn:active{transform: translateY(0px)}
-    .btn.secondary{background: transparent; box-shadow:none}
-    .btn.icon{padding: 10px 10px; width: 42px}
-    .btn.primary{
-      border-color: rgba(103,232,249,.35);
-      background: linear-gradient(135deg, rgba(103,232,249,.16), rgba(167,139,250,.12));
-    }
-    .btn.primary:hover{border-color: rgba(103,232,249,.55)}
-    .btn small{color:var(--muted2); font-weight:800}
-
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 7px 10px;
-      font-size:12px;
-      border: 1px solid var(--line);
-      border-radius:999px;
-      background: rgba(255,255,255,.06);
-      color: var(--muted);
-      font-weight:800;
-      font-family: var(--mono);
-    }
-    [data-theme="light"] .pill{background: rgba(10,16,32,.04)}
-    .mono{font-family:var(--mono)}
-    .muted{color:var(--muted)}
-    .muted2{color:var(--muted2)}
-
-    .card{
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .card:before{
-      content:"";
-      position:absolute; inset:-1px;
-      background:
-        radial-gradient(900px 260px at 10% 0%, rgba(103,232,249,.12), transparent 60%),
-        radial-gradient(900px 260px at 90% 20%, rgba(167,139,250,.14), transparent 60%);
-      pointer-events:none;
-      opacity:.9;
-    }
-    [data-theme="light"] .card{
-      background: linear-gradient(180deg, rgba(10,16,32,.04), rgba(10,16,32,.02));
-    }
-    .card > *{position:relative}
-
-    section{margin-top: 18px}
-    .section{padding: 18px}
-    .section h2{
-      margin: 0 0 12px;
-      font-size: 18px;
-      letter-spacing: .2px;
-      display:flex; align-items:center; gap:10px;
-      font-weight: 950;
-      font-family: var(--serif);
-    }
-    .section h2 .tag{
-      font-size: 11px;
-      color: var(--muted2);
-      border:1px solid var(--line);
-      padding: 5px 8px;
-      border-radius:999px;
-      font-weight:950;
-      letter-spacing:.35px;
-      text-transform: uppercase;
-      font-family: var(--mono);
-    }
-
-    .hero{
-      display:grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 18px;
-      margin-top: 18px;
-      align-items: stretch;
-    }
-    @media (max-width: 980px){ .hero{grid-template-columns: 1fr} }
-
-    .hero-main{padding: 22px 22px 18px}
-    .kicker{
-      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
-      margin-bottom: 12px;
-    }
-    .kicker .dot{
-      width:10px; height:10px; border-radius:99px;
-      background: radial-gradient(circle at 30% 30%, var(--a), var(--b));
-      box-shadow: 0 0 0 6px rgba(103,232,249,.10);
-      border: 1px solid rgba(255,255,255,.25);
-    }
-    [data-theme="light"] .kicker .dot{border-color: rgba(10,16,32,.16)}
-
-    h1{
-      margin: 10px 0 8px;
-      font-weight: 950;
-      letter-spacing: -0.6px;
-      font-size: clamp(26px, 3.6vw, 44px);
-      line-height: 1.02;
-      font-family: var(--serif);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .subtitle{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 14px;
-      letter-spacing: .25px;
-    }
-
-    .headrow{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .avatar{
-      width:104px;
-      height:104px;
-      object-fit:cover;
-      border-radius:22px;
-      border:1px solid var(--line);
-      box-shadow: 0 14px 30px rgba(0,0,0,.22);
-      background: rgba(255,255,255,.04);
-      flex: 0 0 auto;
-    }
-
-    .bio{
-      margin: 12px 0 16px;
-      color: var(--text);
-      font-family: var(--serif);
-      font-size: 15.5px;
-      line-height: 1.85;
-      opacity:.98;
-    }
-
-    .hero-cta{
-      display:flex; flex-wrap:wrap;
-      gap:10px;
-      margin-top: 10px;
-    }
-    .sep{height:1px; background:var(--line); margin: 12px 0}
-
-    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top: 8px;}
-    .chip{
-      padding: 9px 10px;
-      border-radius:999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      font-weight: 900;
-      font-size: 12px;
-      color: var(--muted);
-      display:inline-flex; align-items:center; gap:8px;
-      text-decoration:none;
-      transition: transform .12s ease, border-color .12s ease;
-    }
-    [data-theme="light"] .chip{background: rgba(10,16,32,.03)}
-    .chip i{
-      width:10px; height:10px; border-radius:999px; display:inline-block;
-      background: linear-gradient(135deg, var(--a), var(--b));
-      box-shadow: 0 0 0 5px rgba(103,232,249,.08);
-    }
-    .chip:hover{border-color: rgba(52,211,153,.35); transform: translateY(-1px)}
-
-    .hero-side{padding: 16px; display:flex; flex-direction:column; gap: 12px;}
-    .mini{
-      border-radius: var(--radius2);
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      padding: 12px;
-    }
-    [data-theme="light"] .mini{background: rgba(10,16,32,.03)}
-    .mini h3{
-      margin:0 0 8px;
-      font-size: 12px;
-      letter-spacing: .16px;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 950;
-      font-family: var(--mono);
-    }
-    .stats{display:grid; grid-template-columns: 1fr 1fr; gap: 10px;}
-    .stat{
-      border-radius: 14px;
-      border:1px solid var(--line);
-      padding: 12px;
-      background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      position:relative; overflow:hidden;
-    }
-    [data-theme="light"] .stat{background: linear-gradient(135deg, rgba(10,16,32,.04), rgba(10,16,32,.02))}
-    .stat:before{
-      content:"";
-      position:absolute; inset:-40px;
-      background: radial-gradient(220px 120px at 30% 20%, rgba(103,232,249,.14), transparent 55%),
-                  radial-gradient(260px 140px at 80% 80%, rgba(167,139,250,.12), transparent 60%);
-      opacity:.9;
-    }
-    .stat > *{position:relative}
-    .stat strong{
-      display:block;
-      font-size: 22px;
-      letter-spacing:-.3px;
-      margin-bottom: 2px;
-      font-weight: 950;
-      font-family: var(--serif);
-    }
-    .stat span{
-      font-size: 12px;
-      color: var(--muted2);
-      font-weight:900;
-      font-family: var(--mono);
-    }
-
-    .list{margin: 0; padding: 0; list-style:none; display:grid; gap: 10px;}
-    .li{display:flex; gap:10px; align-items:flex-start;}
-    .li svg{flex:0 0 auto; margin-top: 2px; opacity:.95}
-    .li div{flex:1}
-    .li .k{font-weight:950; font-size:12px; letter-spacing:.2px; text-transform:uppercase; color:var(--muted); font-family: var(--mono)}
-    .li .v{color:var(--text); font-size:13px; line-height:1.55; margin-top:2px; font-weight:700}
-
-    .cols{display:grid; grid-template-columns: 1fr 1fr; gap: 12px;}
-    @media (max-width: 980px){ .cols{grid-template-columns: 1fr} }
-
-    .titem{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px;
-      background: rgba(255,255,255,.05);
-    }
-    [data-theme="light"] .titem{background: rgba(10,16,32,.03)}
-    .titem .top{display:flex; flex-wrap:wrap; gap:10px; align-items:baseline; justify-content:space-between;}
-    .titem .title{font-weight: 950; letter-spacing: -.2px; font-family: var(--serif);}
-    .titem .meta{font-size: 12px; color: var(--muted2); font-weight:900; font-family: var(--mono);}
-    .titem .where{margin-top: 4px; color: var(--muted); font-weight: 900; font-size: 13px;}
-    .titem .desc{margin-top: 10px; color: var(--text); line-height: 1.72; font-size: 13.5px; font-weight: 650;}
-    .note{margin-top: 10px; color: var(--muted); line-height: 1.7; font-size: 13px; font-weight: 650;}
-
-    .aud-tabs{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:10px;}
-    .aud{
-      cursor:pointer;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      font-weight: 950;
-      font-size: 12px;
-      color: var(--muted);
-      user-select:none;
-      transition: transform .12s ease, border-color .12s ease;
-      font-family: var(--mono);
-    }
-    [data-theme="light"] .aud{background: rgba(10,16,32,.02)}
-    .aud:hover{transform: translateY(-1px); border-color: rgba(167,139,250,.4)}
-    .aud.active{
-      background: linear-gradient(135deg, rgba(103,232,249,.14), rgba(167,139,250,.12));
-      color: var(--text);
-      border-color: rgba(103,232,249,.35);
-    }
-
-    .viz{display:grid; grid-template-columns: 1.1fr .9fr; gap: 12px;}
-    @media (max-width: 980px){ .viz{grid-template-columns: 1fr} }
-
-    .vizbox{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,.04);
-      overflow:hidden;
-    }
-    [data-theme="light"] .vizbox{background: rgba(10,16,32,.02)}
-    .vizhead{
-      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
-      padding: 12px 12px 8px;
-      border-bottom: 1px solid var(--line);
-    }
-    .vizhead strong{font-weight: 950; font-family: var(--serif); letter-spacing: -.1px;}
-    .viztools{display:flex; flex-wrap:wrap; gap:8px}
-    .tool{
-      border:1px solid var(--line);
-      border-radius: 999px;
-      padding: 7px 10px;
-      background: rgba(255,255,255,.03);
-      color: var(--muted);
-      font-weight: 950;
-      font-size: 12px;
-      cursor:pointer;
-      user-select:none;
-      font-family: var(--mono);
-      transition: transform .12s ease, border-color .12s ease;
-    }
-    [data-theme="light"] .tool{background: rgba(10,16,32,.02)}
-    .tool:hover{transform: translateY(-1px); border-color: rgba(52,211,153,.35)}
-    .tool.active{
-      background: linear-gradient(135deg, rgba(52,211,153,.12), rgba(103,232,249,.10));
-      border-color: rgba(52,211,153,.35);
-      color: var(--text);
-    }
-    .vizcanvas{padding: 12px}
-    .svgwrap{width:100%; height:280px}
-    .legend{display:flex; flex-wrap:wrap; gap:8px; padding: 0 12px 12px;}
-    .lg{
-      font-size: 11px;
-      padding: 6px 9px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      color: var(--muted);
-      background: rgba(255,255,255,.03);
-      font-weight: 900;
-      cursor:pointer;
-      user-select:none;
-      transition: transform .12s ease, border-color .12s ease;
-    }
-    .lg:hover{transform: translateY(-1px); border-color: rgba(103,232,249,.35)}
-    .lg.active{
-      background: linear-gradient(135deg, rgba(103,232,249,.14), rgba(167,139,250,.10));
-      border-color: rgba(103,232,249,.35);
-      color: var(--text);
-    }
-
-    .pub-controls{
-      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
-      margin-bottom: 10px;
-    }
-    .search{
-      flex: 1 1 300px;
-      min-width: 240px;
-      display:flex; gap:10px; align-items:center;
-      border:1px solid var(--line);
-      border-radius: 999px;
-      padding: 10px 12px;
-      background: rgba(255,255,255,.05);
-    }
-    [data-theme="light"] .search{background: rgba(10,16,32,.03)}
-    .search input{
-      width:100%;
-      border:0; outline:0;
-      background:transparent;
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .search input::placeholder{color: var(--muted2)}
-    .filters{display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end}
-    .filter{
-      cursor:pointer;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      font-weight: 950;
-      font-size: 12px;
-      color: var(--muted);
-      user-select:none;
-      transition: border-color .12s ease, transform .12s ease;
-      font-family: var(--mono);
-    }
-    [data-theme="light"] .filter{background: rgba(10,16,32,.02)}
-    .filter:hover{transform: translateY(-1px); border-color: rgba(167,139,250,.4)}
-    .filter.active{
-      background: linear-gradient(135deg, rgba(103,232,249,.14), rgba(167,139,250,.12));
-      color: var(--text);
-      border-color: rgba(103,232,249,.35);
-    }
-    .pubs{display:grid; gap: 10px;}
-    .pub{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px;
-      background: rgba(255,255,255,.05);
-      transition: transform .12s ease, border-color .12s ease;
-    }
-    [data-theme="light"] .pub{background: rgba(10,16,32,.03)}
-    .pub:hover{transform: translateY(-1px); border-color: rgba(103,232,249,.35)}
-    .pub .row{
-      display:flex; gap: 10px; flex-wrap:wrap; align-items:baseline; justify-content:space-between;
-      margin-bottom: 6px;
-    }
-    .pub .badge{
-      font-size: 11px;
-      padding: 5px 8px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      color: var(--muted2);
-      font-weight: 950;
-      letter-spacing:.35px;
-      text-transform: uppercase;
-      font-family: var(--mono);
-    }
-    .pub .cite{
-      font-size: 13px;
-      line-height: 1.62;
-      color: var(--text);
-      font-weight: 750;
-      font-family: var(--serif);
-    }
-    .pub .sub{
-      margin-top: 6px;
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 12.5px;
-      line-height: 1.6;
-    }
-    .pub .links{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top: 10px;
-    }
-    .plink{
-      font-size: 12px;
-      font-weight: 950;
-      color: var(--text);
-      text-decoration:none;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      display:inline-flex; align-items:center; gap:8px;
-      font-family: var(--mono);
-      transition: transform .12s ease, border-color .12s ease;
-    }
-    [data-theme="light"] .plink{background: rgba(10,16,32,.02)}
-    .plink:hover{border-color: rgba(52,211,153,.4); transform: translateY(-1px)}
-    .hide{display:none!important}
-
-    details{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,.04);
-      padding: 12px 14px;
-    }
-    [data-theme="light"] details{background: rgba(10,16,32,.02)}
-    summary{
-      cursor:pointer;
-      font-weight: 950;
-      color: var(--text);
-      letter-spacing:.2px;
-      font-family: var(--serif);
-    }
-    summary small{color: var(--muted2); font-weight:950; font-family: var(--mono); margin-left:8px}
-
-    .foot{
-      margin-top: 18px;
-      padding: 14px 18px;
-      color: var(--muted2);
-      font-size: 12px;
-      border-top: 1px solid var(--line);
-      font-family: var(--mono);
-    }
-
-    .fab{
-      position: fixed;
-      right: 16px;
-      bottom: 16px;
-      z-index: 40;
-      display:flex;
-      gap:10px;
-      align-items:center;
-    }
-    .fab .btn{border-radius: 999px}
-
-    .qrrow{display:flex; gap:12px; align-items:center; flex-wrap:wrap;}
-    .qrimg{
-      width:160px; height:160px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
-    }
-    .qractions{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    @media (max-width: 980px){ .grid3{grid-template-columns: 1fr} }
-
-    .metric{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px;
-      background: rgba(255,255,255,.05);
-      position:relative;
-      overflow:hidden;
-    }
-    [data-theme="light"] .metric{background: rgba(10,16,32,.03)}
-    .metric:before{
-      content:"";
-      position:absolute; inset:-40px;
-      background: radial-gradient(260px 150px at 30% 20%, rgba(52,211,153,.12), transparent 60%),
-                  radial-gradient(280px 160px at 80% 80%, rgba(103,232,249,.10), transparent 60%);
-      opacity:.9;
-    }
-    .metric > *{position:relative}
-    .metric strong{
-      display:block;
-      font-size: 18px;
-      font-family: var(--serif);
-      font-weight: 950;
-      letter-spacing: -.2px;
-      margin-bottom: 6px;
-    }
-    .metric p{
-      margin:0;
-      color: var(--muted);
-      font-weight: 780;
-      line-height: 1.7;
-      font-size: 13px;
-    }
-  </style>
-
-    <!-- schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Mohamed Kamel Elshaarawy",
-    "jobTitle":"Civil Engineer, Assistant Lecturer",
-    "email":"mailto:melshaarawy@horus.edu.eg",
-    "sameAs":[
-      "https://orcid.org/0000-0002-1793-5617",
-      "https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en",
-      "https://www.researchgate.net/profile/Mohamed-Elshaarawy",
-      "https://www.scopus.com/authid/detail.uri?authorId=58557199500",
-      "https://www.webofscience.com/wos/author/record/JQW-2973-2023",
-      "https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583",
-      "https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/"
-    ]
-  }
-  </script>
-</head>
-
-<body>
-  <div class="progress" id="progress"></div>
-  <div class="tooltip" id="tip"></div>
-  <div class="toast" id="toast"></div>
-
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header class="nav" role="banner">
-    <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="Go to top">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <strong>Mohamed Kamel Elshaarawy</strong>
-          <span>Civil Engineering • Assistant Lecturer</span>
-        </div>
-      </a>
-
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#spotlight">Spotlight</a>
-        <a href="#visuals">Visuals</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#publications">Publications</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#service">Service</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="nav-actions">
-        <a class="btn secondary" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank" rel="noreferrer">
-          in LinkedIn
-        </a>
-        <button class="btn icon" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">
-          <span id="themeIcon" aria-hidden="true">☾</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main id="main" class="wrap">
-    <!-- HERO -->
-    <div id="top" class="hero">
-      <article class="card hero-main">
-        <div class="kicker">
-          <span class="dot" aria-hidden="true"></span>
-          <span class="pill">PhD Candidate • Irrigation & Hydraulics</span>
-          <span class="pill">ML + XAI • Water & Infrastructure</span>
-        </div>
-
-        <div class="headrow">
-          <div style="min-width:280px; flex:1 1 520px;">
-            <h1>Mohamed Kamel Elshaarawy</h1>
-            <p class="subtitle">Assistant Lecturer • Civil Engineering • Machine Learning & Explainable AI for Water Systems and Infrastructure</p>
-          </div>
-
-          <img class="avatar"
-               src="https://drive.google.com/uc?export=view&id=1fTvRxsNuwMgj08vBrO2CHrhSzOLleBof"
-               alt="Mohamed Kamel Elshaarawy" />
-        </div>
-
-        <p class="bio">
-          Assistant Lecturer of Civil Engineering at Horus University–Egypt and Ph.D. candidate in Irrigation and Hydraulics Engineering at Tanta University.
-          My research focuses on <strong>machine learning</strong>, <strong>explainable AI</strong>, and <strong>optimization</strong> to support reliable prediction, assessment,
-          and decision-making in hydraulics, groundwater, and infrastructure performance.
-        </p>
-
-        <div class="hero-cta">
-          <a class="btn primary"
-             href="https://drive.google.com/uc?export=download&id=1hDlYOVcNkEGXPglLh8YOpI0APD2FGZAo"
-             target="_blank" rel="noreferrer">
-            ⬇ Download CV <small>(PDF)</small>
-          </a>
-
-          <a class="btn" href="mailto:melshaarawy@horus.edu.eg">✉ Email</a>
-
-          <a class="btn secondary" href="#publications">Explore Publications</a>
-          <a class="btn secondary" href="#visuals">Interactive Visuals</a>
-        </div>
-
-        <div class="sep"></div>
-
-        <div class="chips" aria-label="Research interests">
-          <span class="chip"><i></i> Explainable AI (XAI)</span>
-          <span class="chip"><i></i> Groundwater Systems</span>
-          <span class="chip"><i></i> Hydraulics & Irrigation</span>
-          <span class="chip"><i></i> Optimization</span>
-          <span class="chip"><i></i> Infrastructure Performance</span>
-        </div>
-      </article>
-
-      <aside class="card hero-side" aria-label="Quick facts">
-        <div class="mini">
-          <h3>Impact snapshot</h3>
-          <div class="stats">
-            <div class="stat"><strong id="sPubs">0</strong><span>Peer-reviewed publications</span></div>
-            <div class="stat"><strong id="sJournals">0</strong><span>Journals reviewed</span></div>
-            <div class="stat"><strong id="sArticles">0</strong><span>Articles reviewed</span></div>
-            <div class="stat"><strong id="sYears">0</strong><span>Years academic work</span></div>
-          </div>
-        </div>
-
-        <div class="mini">
-          <h3>Contact</h3>
-          <ul class="list">
-            <li class="li">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 22s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12Z" stroke="currentColor" stroke-width="1.7"/>
-                <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.7"/>
-              </svg>
-              <div>
-                <div class="k">Location</div>
-                <div class="v">New Damietta, Egypt</div>
-              </div>
-            </li>
-
-            <li class="li">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="1.7"/>
-                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7"/>
-              </svg>
-              <div>
-                <div class="k">Email</div>
-                <div class="v">
-                  <a href="mailto:melshaarawy@horus.edu.eg">melshaarawy@horus.edu.eg</a> •
-                  <a href="mailto:mkamel35@gmail.com">mkamel35@gmail.com</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="mini">
-          <h3>Research profiles</h3>
-          <div class="chips">
-            <a class="chip" href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noreferrer"><i></i> ORCID</a>
-            <a class="chip" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noreferrer"><i></i> Scholar</a>
-            <a class="chip" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noreferrer"><i></i> Scopus</a>
-            <a class="chip" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noreferrer"><i></i> WoS</a>
-            <a class="chip" href="https://www.researchgate.net/profile/Mohamed-Elshaarawy" target="_blank" rel="noreferrer"><i></i> ResearchGate</a>
-            <a class="chip" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noreferrer"><i></i> Semantic</a>
-          </div>
-        </div>
-
-        <div class="mini">
-          <h3>Scan to open this page</h3>
-          <div class="qrrow">
-            <img id="qrImg" class="qrimg" alt="QR code to this page" />
-            <div class="note">
-              <div style="font-weight:950; margin-bottom:6px; font-family:var(--serif)">Share link</div>
-              <div id="qrUrl" class="mono"></div>
-
-              <div class="qractions">
-                <button class="btn" id="copyLinkBtn">Copy Link</button>
-                <button class="btn primary" id="downloadQrBtn">Download QR</button>
-              </div>
-              <div class="note">After deployment, the QR automatically points to your deployed URL.</div>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <section id="about" class="card section" aria-label="About">
-      <h2>About <span class="tag">Who I am</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Research Direction</div>
-            <div class="meta">ML • XAI • Optimization</div>
-          </div>
-          <div class="desc">
-            I develop interpretable machine-learning models and optimization workflows to improve prediction quality and decision support
-            in hydraulics, groundwater systems, and infrastructure engineering.
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Academic & Professional Roles</div>
-            <div class="meta">Teaching • Research • Practice</div>
-          </div>
-          <div class="desc">
-            Assistant Lecturer at Horus University–Egypt, with experience in technical office engineering and design coordination.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="spotlight" class="card section" aria-label="Spotlight">
-      <h2>Spotlight <span class="tag">Interactive</span></h2>
-
-      <div class="titem" style="margin-bottom:12px;">
-        <div class="top">
-          <div class="title">Choose your path</div>
-          <div class="meta">Students • Scholars • Collaborators</div>
-        </div>
-
-        <div class="aud-tabs" aria-label="Audience tabs">
-          <div class="aud active" data-aud="students">Students</div>
-          <div class="aud" data-aud="scholars">Scholars</div>
-          <div class="aud" data-aud="collab">Collaborators</div>
-        </div>
-
-        <div id="audContent" class="desc"></div>
-
-        <div class="hero-cta" style="margin-top:12px;">
-          <a class="btn" href="#publications">Publication Explorer</a>
-          <a class="btn secondary" href="#visuals">Visual Analytics</a>
-          <a class="btn primary" href="mailto:melshaarawy@horus.edu.eg">Start a Conversation</a>
-        </div>
-      </div>
-
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Signature Topics</div>
-            <div class="meta">Research themes</div>
-          </div>
-          <div class="desc">
-            <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.75; font-weight:850;">
-              <li>Explainable prediction for groundwater and coastal aquifer control</li>
-              <li>Seepage and canal-system modeling using ML ensembles</li>
-              <li>Hydraulic-structure performance prediction with interpretable learners</li>
-              <li>Reliability-oriented assessment workflows for engineering decision support</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">What you can do on this page</div>
-            <div class="meta">Explore • Filter • Visualize</div>
-          </div>
-          <div class="desc">
-            Use the interactive panels below to explore publications, topic maps, and an explainability-style demo.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="visuals" class="card section" aria-label="Interactive visualizations">
-      <h2>Interactive Visuals <span class="tag">Explore</span></h2>
-
-      <div class="viz">
-        <div class="vizbox" aria-label="Topic map visualization">
-          <div class="vizhead">
-            <strong>Research Topic Map</strong>
-            <div class="viztools">
-              <span class="tool active" data-viz="topic" id="toolTopic">Topic Map</span>
-              <span class="tool" data-viz="impact" id="toolImpact">Impact Timeline</span>
-              <span class="tool" data-viz="xai" id="toolXai">XAI Demo</span>
-            </div>
-          </div>
-          <div class="vizcanvas">
-            <svg id="vizSvg" class="svgwrap" viewBox="0 0 900 320" role="img" aria-label="Interactive visualization canvas"></svg>
-            <div class="legend" id="legend"></div>
-          </div>
-        </div>
-
-        <div class="vizbox" aria-label="Controls and explanation">
-          <div class="vizhead">
-            <strong>Controls</strong>
-            <div class="muted2 mono" id="vizModeLabel">mode: topic</div>
-          </div>
-          <div class="vizcanvas">
-            <div class="titem" style="background:transparent; border:0; padding:0;">
-              <div class="desc" id="vizExplain" style="margin-top:0"></div>
-
-              <div style="margin-top:12px;">
-                <div class="muted2 mono" style="font-size:12px; font-weight:950; margin-bottom:6px;">Interaction intensity</div>
-                <input id="intensity" type="range" min="20" max="100" value="70" style="width:100%;">
-                <div class="note">Adjust spacing and motion in the visualization.</div>
-              </div>
-
-              <div style="margin-top:12px;">
-                <div class="muted2 mono" style="font-size:12px; font-weight:950; margin-bottom:6px;">Filter threshold</div>
-                <input id="threshold" type="range" min="0" max="100" value="35" style="width:100%;">
-                <div class="note">Filter topic links by strength.</div>
-              </div>
-
-              <div class="hero-cta" style="margin-top:12px;">
-                <button class="btn" id="resetViz">Reset</button>
-                <button class="btn secondary" id="exportViz">Export SVG</button>
-              </div>
-
-              <details style="margin-top:12px;">
-                <summary>How to read these visuals <small>student-friendly</small></summary>
-                <div class="note">
-                  <strong>Topic Map</strong> shows themes as nodes and connections as edges. Stronger links indicate higher topical overlap.
-                  <br><br>
-                  <strong>Impact Timeline</strong> is a simplified narrative: teaching, reviewing, and publishing milestones.
-                  <br><br>
-                  <strong>XAI Demo</strong> shows how “features” push a prediction up or down (similar to SHAP explanations).
-                </div>
-              </details>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="education" class="card section" aria-label="Education">
-      <h2>Education <span class="tag">Academic</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Ph.D. Candidate — Irrigation & Hydraulics Engineering</div>
-            <div class="meta">Tanta University</div>
-          </div>
-          <div class="where">Egypt</div>
-          <div class="desc">Research in hydraulics and water resources with data-driven and explainable decision support.</div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">M.Sc. — Irrigation & Hydraulics Engineering</div>
-            <div class="meta">Tanta University</div>
-          </div>
-          <div class="where">Egypt</div>
-          <div class="desc">Graduate research emphasizing modeling and engineering applications for water systems.</div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">B.Sc. — Civil Engineering</div>
-            <div class="meta">Mansoura University</div>
-          </div>
-          <div class="where">Egypt</div>
-          <div class="desc">Strong foundation in civil engineering with emphasis on hydraulics and structural analysis.</div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Postgraduate Diploma — Construction Management</div>
-            <div class="meta">Mansoura University</div>
-          </div>
-          <div class="where">Egypt</div>
-          <div class="desc">Advanced training in project planning, management, and construction systems.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="card section" aria-label="Experience">
-      <h2>Experience <span class="tag">Roles</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Assistant Lecturer — Civil Engineering</div>
-            <div class="meta">Horus University–Egypt</div>
-          </div>
-          <div class="where">New Damietta, Egypt</div>
-          <div class="desc">Teaching, mentoring, and supporting applied research with a focus on data-driven methods.</div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Technical Office Engineer</div>
-            <div class="meta">Engineering Practice</div>
-          </div>
-          <div class="where">Egypt</div>
-          <div class="desc">Supporting engineering documentation, coordination, and technical deliverables.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="publications" class="card section" aria-label="Publications">
-      <h2>Publications <span class="tag">Explore</span></h2>
-
-      <div class="pub-controls">
-        <div class="search" role="search">
-          <span class="mono muted2">⌕</span>
-          <input id="pubSearch" type="search" placeholder="Search by title, topic, venue, year..." aria-label="Search publications">
-        </div>
-        <div class="filters" aria-label="Publication filters">
-          <span class="filter active" data-filter="all">ALL</span>
-          <span class="filter" data-filter="groundwater">GROUNDWATER</span>
-          <span class="filter" data-filter="hydraulics">HYDRAULICS</span>
-          <span class="filter" data-filter="ml">ML/XAI</span>
-          <span class="filter" data-filter="reviewing">REVIEWING</span>
-        </div>
-      </div>
-
-      <div class="pubs" id="pubList"></div>
-
-      <details style="margin-top:12px;">
-        <summary>Connect to my profile pages <small>live sources</small></summary>
-        <div class="note">
-          For the authoritative and complete list of publications, see:
-          <div class="chips" style="margin-top:10px">
-            <a class="chip" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noreferrer"><i></i> Google Scholar</a>
-            <a class="chip" href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noreferrer"><i></i> ORCID</a>
-            <a class="chip" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noreferrer"><i></i> Scopus</a>
-            <a class="chip" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noreferrer"><i></i> Web of Science</a>
-            <a class="chip" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noreferrer"><i></i> Semantic Scholar</a>
-          </div>
-        </div>
-      </details>
-    </section>
-
-    <section id="teaching" class="card section" aria-label="Teaching">
-      <h2>Teaching <span class="tag">Mentor</span></h2>
-      <div class="grid3">
-        <div class="metric">
-          <strong>Hydraulics & Water Systems</strong>
-          <p>Engineering fundamentals, modeling intuition, and real-world case discussions aligned with curricula.</p>
-        </div>
-        <div class="metric">
-          <strong>Data-Driven Engineering</strong>
-          <p>ML workflows, evaluation, and interpreting results responsibly for engineering decisions.</p>
-        </div>
-        <div class="metric">
-          <strong>Research Skills</strong>
-          <p>Paper reading, reproducible analysis, and communicating findings with scientific clarity.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="service" class="card section" aria-label="Academic service">
-      <h2>Academic Service <span class="tag">Reviewing</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Peer-review activities</div>
-            <div class="meta">Journals & conferences</div>
-          </div>
-          <div class="desc">
-            Reviewer for multiple journals and proceedings. This page shows a summarized snapshot in the sidebar.
-          </div>
-        </div>
-        <div class="titem">
-          <div class="top">
-            <div class="title">Committees & contributions</div>
-            <div class="meta">Academic engagement</div>
-          </div>
-          <div class="desc">
-            Participation in departmental and academic activities supporting teaching quality and research development.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="card section" aria-label="Skills">
-      <h2>Skills <span class="tag">Toolbox</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Research & Analytics</div>
-            <div class="meta">Methods</div>
-          </div>
-          <div class="desc">
-            Machine learning, explainable AI, optimization, statistical validation, and reproducible reporting.
-          </div>
-          <div class="chips">
-            <span class="chip"><i></i> Python</span>
-            <span class="chip"><i></i> Model validation</span>
-            <span class="chip"><i></i> Feature attribution</span>
-            <span class="chip"><i></i> Bayesian optimization</span>
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Engineering & Modeling</div>
-            <div class="meta">Civil</div>
-          </div>
-          <div class="desc">
-            Hydraulics, groundwater concepts, applied modeling, and interpretation for engineering decision-making.
-          </div>
-          <div class="chips">
-            <span class="chip"><i></i> Hydraulics</span>
-            <span class="chip"><i></i> Groundwater</span>
-            <span class="chip"><i></i> Infrastructure</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="card section" aria-label="Contact">
-      <h2>Contact <span class="tag">Let’s connect</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Email</div>
-            <div class="meta">Fastest way</div>
-          </div>
-          <div class="desc">
-            <a class="btn primary" href="mailto:melshaarawy@horus.edu.eg">Email: melshaarawy@horus.edu.eg</a>
-            <div class="note">Alternate: <a href="mailto:mkamel35@gmail.com">mkamel35@gmail.com</a></div>
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Profiles</div>
-            <div class="meta">Verified pages</div>
-          </div>
-          <div class="desc">
-            <div class="chips">
-              <a class="chip" href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noreferrer"><i></i> ORCID</a>
-              <a class="chip" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noreferrer"><i></i> Scholar</a>
-              <a class="chip" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noreferrer"><i></i> Scopus</a>
-              <a class="chip" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noreferrer"><i></i> WoS</a>
-              <a class="chip" href="https://www.researchgate.net/profile/Mohamed-Elshaarawy" target="_blank" rel="noreferrer"><i></i> ResearchGate</a>
-              <a class="chip" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noreferrer"><i></i> Semantic</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="foot">
-        © <span id="year"></span> Mohamed Kamel Elshaarawy • Built for academic visibility • Static site (Vercel/GitHub Pages ready)
-      </div>
-    </section>
-  </main>
-
-  <div class="fab" aria-label="Quick actions">
-    <button class="btn icon" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
-    <button class="btn icon" id="copyPage" aria-label="Copy page link" title="Copy link">⧉</button>
-  </div>
-  <!-- schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Mohamed Kamel Elshaarawy",
-    "jobTitle":"Civil Engineer, Assistant Lecturer",
-    "email":"mailto:melshaarawy@horus.edu.eg",
-    "sameAs":[
-      "https://orcid.org/0000-0002-1793-5617",
-      "https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en",
-      "https://www.researchgate.net/profile/Mohamed-Elshaarawy",
-      "https://www.scopus.com/authid/detail.uri?authorId=58557199500",
-      "https://www.webofscience.com/wos/author/record/JQW-2973-2023",
-      "https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583",
-      "https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/"
-    ]
-  }
-  </script>
-</head>
-
-<body>
-  <div class="progress" id="progress"></div>
-  <div class="tooltip" id="tip"></div>
-  <div class="toast" id="toast"></div>
-
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header class="nav" role="banner">
-    <div class="nav-inner">
-      <a class="brand" href="#top" aria-label="Go to top">
-        <span class="mark" aria-hidden="true"></span>
-        <div>
-          <strong>Mohamed Kamel Elshaarawy</strong>
-          <span>Civil Engineering • Assistant Lecturer</span>
-        </div>
-      </a>
-
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#spotlight">Spotlight</a>
-        <a href="#visuals">Visuals</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#publications">Publications</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#service">Service</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="nav-actions">
-        <a class="btn secondary" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank" rel="noreferrer">
-          in LinkedIn
-        </a>
-        <button class="btn icon" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">
-          <span id="themeIcon" aria-hidden="true">☾</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main id="main" class="wrap">
-    <!-- HERO -->
-    <div id="top" class="hero">
-      <article class="card hero-main">
-        <div class="kicker">
-          <span class="dot" aria-hidden="true"></span>
-          <span class="pill">PhD Candidate • Irrigation & Hydraulics</span>
-          <span class="pill">ML + XAI • Water & Infrastructure</span>
-        </div>
-
-        <div class="headrow">
-          <div style="min-width:280px; flex:1 1 520px;">
-            <h1>Mohamed Kamel Elshaarawy</h1>
-            <p class="subtitle">Assistant Lecturer • Civil Engineering • Machine Learning & Explainable AI for Water Systems and Infrastructure</p>
-          </div>
-
-          <img class="avatar"
-               src="https://drive.google.com/uc?export=view&id=1fTvRxsNuwMgj08vBrO2CHrhSzOLleBof"
-               alt="Mohamed Kamel Elshaarawy" />
-        </div>
-
-        <p class="bio">
-          Assistant Lecturer of Civil Engineering at Horus University–Egypt and Ph.D. candidate in Irrigation and Hydraulics Engineering at Tanta University.
-          My research focuses on <strong>machine learning</strong>, <strong>explainable AI</strong>, and <strong>optimization</strong> to support reliable prediction, assessment,
-          and decision-making in hydraulics, groundwater, and infrastructure performance.
-        </p>
-
-        <div class="hero-cta">
-          <a class="btn primary"
-             href="https://drive.google.com/uc?export=download&id=1hDlYOVcNkEGXPglLh8YOpI0APD2FGZAo"
-             target="_blank" rel="noreferrer">
-            ⬇ Download CV <small>(PDF)</small>
-          </a>
-
-          <a class="btn" href="mailto:melshaarawy@horus.edu.eg">✉ Email</a>
-
-          <a class="btn secondary" href="#publications">Explore Publications</a>
-          <a class="btn secondary" href="#visuals">Interactive Visuals</a>
-        </div>
-
-        <div class="sep"></div>
-
-        <div class="chips" aria-label="Research interests">
-          <span class="chip"><i></i> Explainable AI (XAI)</span>
-          <span class="chip"><i></i> Groundwater Systems</span>
-          <span class="chip"><i></i> Hydraulics & Irrigation</span>
-          <span class="chip"><i></i> Optimization</span>
-          <span class="chip"><i></i> Infrastructure Performance</span>
-        </div>
-      </article>
-
-      <aside class="card hero-side" aria-label="Quick facts">
-        <div class="mini">
-          <h3>Impact snapshot</h3>
-          <div class="stats">
-            <div class="stat"><strong id="sPubs">0</strong><span>Peer-reviewed publications</span></div>
-            <div class="stat"><strong id="sJournals">0</strong><span>Journals reviewed</span></div>
-            <div class="stat"><strong id="sArticles">0</strong><span>Articles reviewed</span></div>
-            <div class="stat"><strong id="sYears">0</strong><span>Years academic work</span></div>
-          </div>
-        </div>
-
-        <div class="mini">
-          <h3>Contact</h3>
-          <ul class="list">
-            <li class="li">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 22s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12Z" stroke="currentColor" stroke-width="1.7"/>
-                <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.7"/>
-              </svg>
-              <div>
-                <div class="k">Location</div>
-                <div class="v">New Damietta, Egypt</div>
-              </div>
-            </li>
-
-            <li class="li">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="1.7"/>
-                <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7"/>
-              </svg>
-              <div>
-                <div class="k">Email</div>
-                <div class="v">
-                  <a href="mailto:melshaarawy@horus.edu.eg">melshaarawy@horus.edu.eg</a> •
-                  <a href="mailto:mkamel35@gmail.com">mkamel35@gmail.com</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="mini">
-          <h3>Research profiles</h3>
-          <div class="chips">
-            <a class="chip" href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noreferrer"><i></i> ORCID</a>
-            <a class="chip" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noreferrer"><i></i> Scholar</a>
-            <a class="chip" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noreferrer"><i></i> Scopus</a>
-            <a class="chip" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noreferrer"><i></i> WoS</a>
-            <a class="chip" href="https://www.researchgate.net/profile/Mohamed-Elshaarawy" target="_blank" rel="noreferrer"><i></i> ResearchGate</a>
-            <a class="chip" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noreferrer"><i></i> Semantic</a>
-          </div>
-        </div>
-
-        <div class="mini">
-          <h3>Scan to open this page</h3>
-          <div class="qrrow">
-            <img id="qrImg" class="qrimg" alt="QR code to this page" />
-            <div class="note">
-              <div style="font-weight:950; margin-bottom:6px; font-family:var(--serif)">Share link</div>
-              <div id="qrUrl" class="mono"></div>
-
-              <div class="qractions">
-                <button class="btn" id="copyLinkBtn">Copy Link</button>
-                <button class="btn primary" id="downloadQrBtn">Download QR</button>
-              </div>
-              <div class="note">After deployment, the QR automatically points to your deployed URL.</div>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <section id="about" class="card section" aria-label="About">
-      <h2>About <span class="tag">Who I am</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Research Direction</div>
-            <div class="meta">ML • XAI • Optimization</div>
-          </div>
-          <div class="desc">
-            I develop interpretable machine-learning models and optimization workflows to improve prediction quality and decision support
-            in hydraulics, groundwater systems, and infrastructure engineering.
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Academic & Professional Roles</div>
-            <div class="meta">Teaching • Research • Practice</div>
-          </div>
-          <div class="desc">
-            Assistant Lecturer at Horus University–Egypt, with experience in technical office engineering and design coordination.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="spotlight" class="card section" aria-label="Spotlight">
-      <h2>Spotlight <span class="tag">Interactive</span></h2>
-
-      <div class="titem" style="margin-bottom:12px;">
-        <div class="top">
-          <div class="title">Choose your path</div>
-          <div class="meta">Students • Scholars • Collaborators</div>
-        </div>
-
-        <div class="aud-tabs" aria-label="Audience tabs">
-          <div class="aud active" data-aud="students">Students</div>
-          <div class="aud" data-aud="scholars">Scholars</div>
-          <div class="aud" data-aud="collab">Collaborators</div>
-        </div>
-
-        <div id="audContent" class="desc"></div>
-
-        <div class="hero-cta" style="margin-top:12px;">
-          <a class="btn" href="#publications">Publication Explorer</a>
-          <a class="btn secondary" href="#visuals">Visual Analytics</a>
-          <a class="btn primary" href="mailto:melshaarawy@horus.edu.eg">Start a Conversation</a>
-        </div>
-      </div>
-
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Signature Topics</div>
-            <div class="meta">Research themes</div>
-          </div>
-          <div class="desc">
-            <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.75; font-weight:850;">
-              <li>Explainable prediction for groundwater and coastal aquifer control</li>
-              <li>Seepage and canal-system modeling using ML ensembles</li>
-              <li>Hydraulic-structure performance prediction with interpretable learners</li>
-              <li>Reliability-oriented assessment workflows for engineering decision support</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">What you can do on this page</div>
-            <div class="meta">Explore • Filter • Visualize</div>
-          </div>
-          <div class="desc">
-            Use the interactive panels below to explore publications, topic maps, and an explainability-style demo.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="visuals" class="card section" aria-label="Interactive visualizations">
-      <h2>Interactive Visuals <span class="tag">Explore</span></h2>
-
-      <div class="viz">
-        <div class="vizbox" aria-label="Topic map visualization">
-          <div class="vizhead">
-            <strong>Research Topic Map</strong>
-            <div class="viztools">
-              <span class="tool active" data-viz="topic" id="toolTopic">Topic Map</span>
-              <span class="tool" data-viz="impact" id="toolImpact">Impact Timeline</span>
-              <span class="tool" data-viz="xai" id="toolXai">XAI Demo</span>
-            </div>
-          </div>
-          <div class="vizcanvas">
-            <svg id="vizSvg" class="svgwrap" viewBox="0 0 900 320" role="img" aria-label="Interactive visualization canvas"></svg>
-            <div class="legend" id="legend"></div>
-          </div>
-        </div>
-
-        <div class="vizbox" aria-label="Controls and explanation">
-          <div class="vizhead">
-            <strong>Controls</strong>
-            <div class="muted2 mono" id="vizModeLabel">mode: topic</div>
-          </div>
-          <div class="vizcanvas">
-            <div class="titem" style="background:transparent; border:0; padding:0;">
-              <div class="desc" id="vizExplain" style="margin-top:0"></div>
-
-              <div style="margin-top:12px;">
-                <div class="muted2 mono" style="font-size:12px; font-weight:950; margin-bottom:6px;">Interaction intensity</div>
-                <input id="intensity" type="range" min="20" max="100" value="70" style="width:100%;">
-                <div class="note">Adjust spacing and motion in the visualization.</div>
-              </div>
-
-              <div style="margin-top:12px;">
-                <div class="muted2 mono" style="font-size:12px; font-weight:950; margin-bottom:6px;">Filter threshold</div>
-                <input id="threshold" type="range" min="0" max="100" value="35" style="width:100%;">
-                <div class="note">Filter topic links by strength.</div>
-              </div>
-
-              <div class="hero-cta" style="margin-top:12px;">
-                <button class="btn" id="resetViz">Reset</button>
-                <button class="btn secondary" id="exportViz">Export SVG</button>
-              </div>
-
-              <details style="margin-top:12px;">
-                <summary>How to read these visuals <small>student-friendly</small></summary>
-                <div class="note">
-                  <strong>Topic Map</strong> shows themes as nodes and connections as edges. Stronger links indicate higher topical overlap.
-                  <br><br>
-                  <strong>Impact Timeline</strong> is a simplified narrative: teaching, reviewing, and publishing milestones.
-                  <br><br>
-                  <strong>XAI Demo</strong> shows how “features” push a prediction up or down (similar to SHAP explanations).
-                </div>
-              </details>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="education" class="card section" aria-label="Education">
-      <h2>Education <span class="tag">Academic</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Ph.D. Candidate — Irrigation & Hydraulics Engineering</div>
-            <div class="meta">Tanta University</div>
-          </div>
-          <div class="where">Egypt</div>
-          <div class="desc">Research in hydraulics and water resources with data-driven and explainable decision support.</div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">M.Sc. — Irrigation & Hydraulics Engineering</div>
-            <div class="meta">Tanta University</div>
-          </div>
-          <div class="where">Egypt</div>
-          <div class="desc">Graduate research emphasizing modeling and engineering applications for water systems.</div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">B.Sc. — Civil Engineering</div>
-            <div class="meta">Mansoura University</div>
-          </div>
-          <div class="where">Egypt</div>
-          <div class="desc">Strong foundation in civil engineering with emphasis on hydraulics and structural analysis.</div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Postgraduate Diploma — Construction Management</div>
-            <div class="meta">Mansoura University</div>
-          </div>
-          <div class="where">Egypt</div>
-          <div class="desc">Advanced training in project planning, management, and construction systems.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="card section" aria-label="Experience">
-      <h2>Experience <span class="tag">Roles</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Assistant Lecturer — Civil Engineering</div>
-            <div class="meta">Horus University–Egypt</div>
-          </div>
-          <div class="where">New Damietta, Egypt</div>
-          <div class="desc">Teaching, mentoring, and supporting applied research with a focus on data-driven methods.</div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Technical Office Engineer</div>
-            <div class="meta">Engineering Practice</div>
-          </div>
-          <div class="where">Egypt</div>
-          <div class="desc">Supporting engineering documentation, coordination, and technical deliverables.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="publications" class="card section" aria-label="Publications">
-      <h2>Publications <span class="tag">Explore</span></h2>
-
-      <div class="pub-controls">
-        <div class="search" role="search">
-          <span class="mono muted2">⌕</span>
-          <input id="pubSearch" type="search" placeholder="Search by title, topic, venue, year..." aria-label="Search publications">
-        </div>
-        <div class="filters" aria-label="Publication filters">
-          <span class="filter active" data-filter="all">ALL</span>
-          <span class="filter" data-filter="groundwater">GROUNDWATER</span>
-          <span class="filter" data-filter="hydraulics">HYDRAULICS</span>
-          <span class="filter" data-filter="ml">ML/XAI</span>
-          <span class="filter" data-filter="reviewing">REVIEWING</span>
-        </div>
-      </div>
-
-      <div class="pubs" id="pubList"></div>
-
-      <details style="margin-top:12px;">
-        <summary>Connect to my profile pages <small>live sources</small></summary>
-        <div class="note">
-          For the authoritative and complete list of publications, see:
-          <div class="chips" style="margin-top:10px">
-            <a class="chip" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noreferrer"><i></i> Google Scholar</a>
-            <a class="chip" href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noreferrer"><i></i> ORCID</a>
-            <a class="chip" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noreferrer"><i></i> Scopus</a>
-            <a class="chip" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noreferrer"><i></i> Web of Science</a>
-            <a class="chip" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noreferrer"><i></i> Semantic Scholar</a>
-          </div>
-        </div>
-      </details>
-    </section>
-
-    <section id="teaching" class="card section" aria-label="Teaching">
-      <h2>Teaching <span class="tag">Mentor</span></h2>
-      <div class="grid3">
-        <div class="metric">
-          <strong>Hydraulics & Water Systems</strong>
-          <p>Engineering fundamentals, modeling intuition, and real-world case discussions aligned with curricula.</p>
-        </div>
-        <div class="metric">
-          <strong>Data-Driven Engineering</strong>
-          <p>ML workflows, evaluation, and interpreting results responsibly for engineering decisions.</p>
-        </div>
-        <div class="metric">
-          <strong>Research Skills</strong>
-          <p>Paper reading, reproducible analysis, and communicating findings with scientific clarity.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="service" class="card section" aria-label="Academic service">
-      <h2>Academic Service <span class="tag">Reviewing</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Peer-review activities</div>
-            <div class="meta">Journals & conferences</div>
-          </div>
-          <div class="desc">
-            Reviewer for multiple journals and proceedings. This page shows a summarized snapshot in the sidebar.
-          </div>
-        </div>
-        <div class="titem">
-          <div class="top">
-            <div class="title">Committees & contributions</div>
-            <div class="meta">Academic engagement</div>
-          </div>
-          <div class="desc">
-            Participation in departmental and academic activities supporting teaching quality and research development.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="card section" aria-label="Skills">
-      <h2>Skills <span class="tag">Toolbox</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Research & Analytics</div>
-            <div class="meta">Methods</div>
-          </div>
-          <div class="desc">
-            Machine learning, explainable AI, optimization, statistical validation, and reproducible reporting.
-          </div>
-          <div class="chips">
-            <span class="chip"><i></i> Python</span>
-            <span class="chip"><i></i> Model validation</span>
-            <span class="chip"><i></i> Feature attribution</span>
-            <span class="chip"><i></i> Bayesian optimization</span>
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Engineering & Modeling</div>
-            <div class="meta">Civil</div>
-          </div>
-          <div class="desc">
-            Hydraulics, groundwater concepts, applied modeling, and interpretation for engineering decision-making.
-          </div>
-          <div class="chips">
-            <span class="chip"><i></i> Hydraulics</span>
-            <span class="chip"><i></i> Groundwater</span>
-            <span class="chip"><i></i> Infrastructure</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="card section" aria-label="Contact">
-      <h2>Contact <span class="tag">Let’s connect</span></h2>
-      <div class="cols">
-        <div class="titem">
-          <div class="top">
-            <div class="title">Email</div>
-            <div class="meta">Fastest way</div>
-          </div>
-          <div class="desc">
-            <a class="btn primary" href="mailto:melshaarawy@horus.edu.eg">Email: melshaarawy@horus.edu.eg</a>
-            <div class="note">Alternate: <a href="mailto:mkamel35@gmail.com">mkamel35@gmail.com</a></div>
-          </div>
-        </div>
-
-        <div class="titem">
-          <div class="top">
-            <div class="title">Profiles</div>
-            <div class="meta">Verified pages</div>
-          </div>
-          <div class="desc">
-            <div class="chips">
-              <a class="chip" href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noreferrer"><i></i> ORCID</a>
-              <a class="chip" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noreferrer"><i></i> Scholar</a>
-              <a class="chip" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noreferrer"><i></i> Scopus</a>
-              <a class="chip" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noreferrer"><i></i> WoS</a>
-              <a class="chip" href="https://www.researchgate.net/profile/Mohamed-Elshaarawy" target="_blank" rel="noreferrer"><i></i> ResearchGate</a>
-              <a class="chip" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noreferrer"><i></i> Semantic</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="foot">
-        © <span id="year"></span> Mohamed Kamel Elshaarawy • Built for academic visibility • Static site (Vercel/GitHub Pages ready)
-      </div>
-    </section>
-  </main>
-
-  <div class="fab" aria-label="Quick actions">
-    <button class="btn icon" id="toTop" aria-label="Back to top" title="Back to top">↑</button>
-    <button class="btn icon" id="copyPage" aria-label="Copy page link" title="Copy link">⧉</button>
-  </div>
-  <script>
-    const $ = (s, el=document) => el.querySelector(s);
-    const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
-
-    function toast(msg){
-      const t = $("#toast");
-      t.textContent = msg;
-      t.style.display = "block";
-      clearTimeout(toast._id);
-      toast._id = setTimeout(()=> t.style.display="none", 2200);
-    }
-
-    function setTheme(theme){
-      document.documentElement.setAttribute("data-theme", theme);
-      localStorage.setItem("theme", theme);
-      $("#themeIcon").textContent = theme === "light" ? "☀" : "☾";
-    }
-
-    function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
-
-    (function(){
-      const saved = localStorage.getItem("theme");
-      if(saved){ setTheme(saved); }
-      else{ setTheme(document.documentElement.getAttribute("data-theme") || "dark"); }
-      $("#themeBtn").addEventListener("click", ()=>{
-        const cur = document.documentElement.getAttribute("data-theme");
-        setTheme(cur === "dark" ? "light" : "dark");
-      });
-    })();
-
-    (function(){
-      const prog = $("#progress");
-      window.addEventListener("scroll", ()=>{
-        const h = document.documentElement;
-        const sc = h.scrollTop || document.body.scrollTop;
-        const max = (h.scrollHeight - h.clientHeight) || 1;
-        prog.style.width = ((sc / max) * 100) + "%";
-      }, {passive:true});
-    })();
-
-    $("#toTop").addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
-    $("#copyPage").addEventListener("click", async ()=>{
-      const url = window.location.href;
-      await navigator.clipboard.writeText(url);
-      toast("Link copied ✔");
-    });
-
-    const audienceText = {
-      students: `
-        <strong>For students:</strong> start with the <em>Interactive Visuals</em> section to understand how engineering problems can be expressed
-        as data-driven models. Then open <em>Publications</em> and use the filters to see examples.
-        <br><br>
-        If you’d like mentorship, send a short email describing your topic and what you want to build.
-      `,
-      scholars: `
-        <strong>For scholars:</strong> this site highlights research directions around <em>explainable AI</em>, <em>optimization</em>, and
-        reliable prediction for water systems and infrastructure. For complete records, use the profile links (ORCID/Scholar/Scopus/WoS).
-      `,
-      collab: `
-        <strong>For collaborators:</strong> I’m interested in joint work on interpretable models, robust evaluation, and decision support in
-        hydraulics, groundwater, and infrastructure. Email a short summary of the problem + data availability + intended outputs.
-      `
-    };
-
-    (function initAudience(){
-      const audContent = $("#audContent");
-      audContent.innerHTML = audienceText.students;
-      $$(".aud").forEach(btn=>{
-        btn.addEventListener("click", ()=>{
-          $$(".aud").forEach(b=>b.classList.remove("active"));
-          btn.classList.add("active");
-          audContent.innerHTML = audienceText[btn.getAttribute("data-aud")];
-          toast("Spotlight updated");
-        });
-      });
-    })();
-
-    const pubs = [
-      {
-        title: "Explainable machine learning for groundwater vulnerability mapping and decision support",
-        year: 2024,
-        venue: "Journal Article",
-        tags: ["groundwater","ml"],
-        links: [
-          {label:"ORCID", url:"https://orcid.org/0000-0002-1793-5617"},
-          {label:"Google Scholar", url:"https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en"}
-        ],
-        note: "See Scholar/ORCID profiles for the complete and authoritative list."
-      },
-      {
-        title: "Interpretable prediction workflows for hydraulics and irrigation applications",
-        year: 2023,
-        venue: "Conference / Article",
-        tags: ["hydraulics","ml"],
-        links: [
-          {label:"Scopus", url:"https://www.scopus.com/authid/detail.uri?authorId=58557199500"},
-          {label:"Web of Science", url:"https://www.webofscience.com/wos/author/record/JQW-2973-2023"}
-        ],
-        note: "Replace with exact citations from your CV when you paste the list."
-      },
-      {
-        title: "Peer-review contributions across engineering journals (summary record)",
-        year: 2025,
-        venue: "Academic Service",
-        tags: ["reviewing"],
-        links: [
-          {label:"ResearchGate", url:"https://www.researchgate.net/profile/Mohamed-Elshaarawy"},
-          {label:"Semantic Scholar", url:"https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583"}
-        ],
-        note: "Add your exact reviewing list if you want a formal table."
-      }
-    ];
-
-    function renderPubs(){
-      const list = $("#pubList");
-      list.innerHTML = "";
-      const q = $("#pubSearch").value.trim().toLowerCase();
-      const activeFilter = $(".filter.active").getAttribute("data-filter");
-
-      const filtered = pubs.filter(p=>{
-        const text = (p.title + " " + p.venue + " " + p.year + " " + p.tags.join(" ")).toLowerCase();
-        const matchQ = !q || text.includes(q);
-        const matchF = (activeFilter === "all") || p.tags.includes(activeFilter);
-        return matchQ && matchF;
-      });
-
-      if(filtered.length === 0){
-        list.innerHTML = `<div class="titem"><div class="title">No matches</div><div class="desc">Try a different keyword or filter.</div></div>`;
-        return;
-      }
-
-      filtered.sort((a,b)=> b.year - a.year).forEach(p=>{
-        const el = document.createElement("div");
-        el.className = "pub";
-        el.innerHTML = `
-          <div class="row">
-            <span class="badge">${p.venue}</span>
-            <span class="badge">${p.year}</span>
-          </div>
-          <div class="cite">${p.title}</div>
-          <div class="sub">${p.note || ""}</div>
-          <div class="links">
-            ${(p.links||[]).map(l=>`<a class="plink" href="${l.url}" target="_blank" rel="noreferrer">↗ ${l.label}</a>`).join("")}
-          </div>
-        `;
-        list.appendChild(el);
-      });
-    }
-
-    (function initPubs(){
-      $("#pubSearch").addEventListener("input", renderPubs);
-      $$(".filter").forEach(f=>{
-        f.addEventListener("click", ()=>{
-          $$(".filter").forEach(x=>x.classList.remove("active"));
-          f.classList.add("active");
-          renderPubs();
-          toast("Publications filter applied");
-        });
-      });
-      renderPubs();
-    })();
-
-    (function initStats(){
-      $("#sPubs").textContent = pubs.filter(p=>p.venue !== "Academic Service").length;
-      $("#sJournals").textContent = 6;
-      $("#sArticles").textContent = 13;
-      $("#sYears").textContent = 6;
-    })();
-
-    const tip = $("#tip");
-    function showTip(x,y,html){
-      tip.innerHTML = html;
-      tip.style.left = (x + 12) + "px";
-      tip.style.top  = (y + 12) + "px";
-      tip.style.display = "block";
-    }
-    function hideTip(){ tip.style.display = "none"; }
-
-    const svg = $("#vizSvg");
-    const legend = $("#legend");
-    const modeLabel = $("#vizModeLabel");
-    const explain = $("#vizExplain");
-
-    let mode = "topic";
-    let focusTag = "all";
-    let intensity = 70;
-    let threshold = 35;
-
-    const topicData = {
-      nodes: [
-        {id:"XAI", tag:"ml", label:"Explainable AI (XAI)", info:"Interpretability, feature attribution, trustworthy prediction."},
-        {id:"ML", tag:"ml", label:"Machine Learning", info:"Model selection, tuning, robust evaluation, generalization."},
-        {id:"OPT", tag:"ml", label:"Optimization", info:"Bayesian optimization and performance-driven hyperparameter search."},
-        {id:"GW", tag:"groundwater", label:"Groundwater Systems", info:"Vulnerability, aquifer behavior, decision support."},
-        {id:"HYD", tag:"hydraulics", label:"Hydraulics & Irrigation", info:"Canals, structures, performance prediction."},
-        {id:"INF", tag:"infrastructure", label:"Infrastructure Performance", info:"Reliability-oriented assessment, engineering judgement."}
-      ],
-      links: [
-        {a:"XAI", b:"ML", w:90},
-        {a:"ML", b:"OPT", w:75},
-        {a:"XAI", b:"GW", w:70},
-        {a:"ML", b:"GW", w:65},
-        {a:"ML", b:"HYD", w:62},
-        {a:"OPT", b:"HYD", w:55},
-        {a:"GW", b:"HYD", w:45},
-        {a:"INF", b:"HYD", w:58},
-        {a:"INF", b:"GW", w:50},
-        {a:"INF", b:"XAI", w:46}
-      ]
-    };
-
-    const tagMeta = [
-      {key:"all", label:"All"},
-      {key:"ml", label:"ML/XAI"},
-      {key:"groundwater", label:"Groundwater"},
-      {key:"hydraulics", label:"Hydraulics"},
-      {key:"infrastructure", label:"Infrastructure"}
-    ];
-
-    function clearSvg(){ while(svg.firstChild) svg.removeChild(svg.firstChild); }
-    function addSvg(tag, attrs={}, parent=svg){
-      const el = document.createElementNS("http://www.w3.org/2000/svg", tag);
-      Object.entries(attrs).forEach(([k,v])=> el.setAttribute(k, v));
-      parent.appendChild(el);
-      return el;
-    }
-    function colorFor(tag){
-      const map = { ml:"var(--a)", groundwater:"var(--b)", hydraulics:"var(--c)", infrastructure:"var(--d)" };
-      return map[tag] || "var(--e)";
-    }
-
-    function buildLegend(){
-      legend.innerHTML = "";
-      tagMeta.forEach(t=>{
-        const b = document.createElement("div");
-        b.className = "lg" + (focusTag===t.key ? " active" : "");
-        b.textContent = t.label;
-        b.addEventListener("click", ()=>{
-          focusTag = t.key;
-          buildLegend();
-          draw();
-          toast("Legend filter: " + t.label);
-        });
-        legend.appendChild(b);
-      });
-    }
-
-    function drawTopic(){
-      clearSvg();
-      buildLegend();
-
-      const cx = 450, cy = 160;
-      const rx = 280, ry = 110;
-      const n = topicData.nodes.length;
-      const spread = intensity / 100;
-      const pos = {};
-      topicData.nodes.forEach((node, i)=>{
-        const ang = (Math.PI*2*i)/n - Math.PI/2;
-        pos[node.id] = {
-          x: cx + Math.cos(ang) * rx * (0.6 + 0.8*spread),
-          y: cy + Math.sin(ang) * ry * (0.7 + 0.7*spread)
-        };
-      });
-
-      topicData.links.forEach(l=>{
-        if(l.w < threshold) return;
-        const A = pos[l.a], B = pos[l.b];
-        const aNode = topicData.nodes.find(x=>x.id===l.a);
-        const bNode = topicData.nodes.find(x=>x.id===l.b);
-        const show = (focusTag==="all") || (aNode.tag===focusTag) || (bNode.tag===focusTag);
-        if(!show) return;
-
-        const op = clamp((l.w/100) * 0.9, 0.25, 0.9);
-        addSvg("line", {
-          x1:A.x, y1:A.y, x2:B.x, y2:B.y,
-          stroke:`rgba(255,255,255,${op.toFixed(3)})`,
-          "stroke-width": (1.2 + (l.w/100)*2.2).toFixed(2),
-          "stroke-linecap":"round"
-        });
-      });
-
-      topicData.nodes.forEach(node=>{
-        const {x,y} = pos[node.id];
-        const g = addSvg("g", {cursor:"pointer"});
-
-        addSvg("circle", {cx:x, cy:y, r:26, fill:"rgba(103,232,249,.06)", stroke:"none"}, g);
-        addSvg("circle", {cx:x, cy:y, r:18, fill:"rgba(255,255,255,.06)", stroke:"rgba(255,255,255,.22)", "stroke-width":"1.2"}, g);
-        addSvg("circle", {
-          cx:x, cy:y, r:18, fill:"none",
-          stroke: colorFor(node.tag),
-          "stroke-width":"2.2",
-          "stroke-dasharray":"3 4",
-          opacity:"0.9"
-        }, g);
-
-        const idText = addSvg("text", {
-          x, y: y+8, "text-anchor":"middle",
-          fill:"rgba(255,255,255,.9)",
-          "font-family":"JetBrains Mono, ui-monospace",
-          "font-weight":"700",
-          "font-size":"11"
-        }, g);
-        idText.textContent = node.id;
-
-        const labelText = addSvg("text", {
-          x, y: y+42, "text-anchor":"middle",
-          fill:"rgba(255,255,255,.85)",
-          "font-family":"Inter, system-ui",
-          "font-weight":"800",
-          "font-size":"12"
-        }, g);
-        labelText.textContent = node.label;
-
-        g.addEventListener("mousemove", (e)=>{
-          showTip(e.clientX, e.clientY, `<strong>${node.label}</strong><br>${node.info}<br><span style="opacity:.75">tag: ${node.tag}</span>`);
-        });
-        g.addEventListener("mouseleave", hideTip);
-        g.addEventListener("click", ()=>{
-          focusTag = (focusTag === node.tag) ? "all" : node.tag;
-          buildLegend();
-          draw();
-          toast("Focused: " + (focusTag==="all" ? "All" : node.tag));
-        });
-
-        if(focusTag!=="all" && node.tag!==focusTag) g.setAttribute("opacity", "0.45");
-      });
-
-      explain.innerHTML = `Hover nodes for details. Click a node to focus its theme. Use the legend to highlight groups.`;
-      modeLabel.textContent = "mode: topic";
-    }
-
-    function drawImpact(){
-      clearSvg(); legend.innerHTML = "";
-      const items = [
-        {x:120, y:110, k:"Teaching", c:"var(--c)", t:"Course delivery, mentoring, applied guidance."},
-        {x:310, y:160, k:"Publishing", c:"var(--a)", t:"Peer-reviewed outputs and dissemination."},
-        {x:520, y:120, k:"Reviewing", c:"var(--b)", t:"Service contributions to journals and proceedings."},
-        {x:720, y:170, k:"Collaboration", c:"var(--d)", t:"Joint projects and interdisciplinary work."}
-      ];
-
-      addSvg("line", {x1:80, y1:200, x2:820, y2:200, stroke:"rgba(255,255,255,.25)", "stroke-width":"2", "stroke-linecap":"round"});
-      items.forEach(it=>{
-        addSvg("line", {x1: it.x, y1:200, x2:it.x, y2:it.y, stroke:"rgba(255,255,255,.18)", "stroke-width":"2"});
-        const g = addSvg("g", {cursor:"pointer"});
-        addSvg("circle", {cx:it.x, cy:it.y, r:18, fill:"rgba(255,255,255,.06)", stroke:"rgba(255,255,255,.22)", "stroke-width":"1.2"}, g);
-        addSvg("circle", {cx:it.x, cy:it.y, r:18, fill:"none", stroke:it.c, "stroke-width":"2.4", "stroke-dasharray":"3 4", opacity:"0.9"}, g);
-        const tt = addSvg("text", {x: it.x, y: it.y + 42, "text-anchor":"middle", fill:"rgba(255,255,255,.9)", "font-family":"Inter, system-ui", "font-weight":"900", "font-size":"12"}, g);
-        tt.textContent = it.k;
-
-        g.addEventListener("mousemove", (e)=> showTip(e.clientX, e.clientY, `<strong>${it.k}</strong><br>${it.t}`));
-        g.addEventListener("mouseleave", hideTip);
-      });
-
-      explain.innerHTML = `Hover milestones to see what each activity represents.`;
-      modeLabel.textContent = "mode: impact";
-    }
-
-    function drawXai(){
-      clearSvg(); legend.innerHTML = "";
-      const base = 0.52;
-      const feats = [
-        {name:"Hydraulic geometry", val:+0.11, color:"var(--c)"},
-        {name:"Boundary conditions", val:+0.07, color:"var(--a)"},
-        {name:"Material properties", val:-0.05, color:"var(--e)"},
-        {name:"Data quality", val:+0.08, color:"var(--d)"},
-        {name:"Model complexity", val:-0.03, color:"var(--b)"}
-      ];
-
-      const startX = 120, y = 160, wScale = 520;
-      let cur = base;
-
-      addSvg("text", {x:startX, y:60, fill:"rgba(255,255,255,.9)", "font-family":"STIX Two Text, serif", "font-weight":"900", "font-size":"14"})
-        .textContent = "Educational XAI Demo (feature contributions)";
-      addSvg("text", {x:startX, y:86, fill:"rgba(255,255,255,.75)", "font-family":"JetBrains Mono, monospace", "font-weight":"800", "font-size":"12"})
-        .textContent = "baseline: " + base.toFixed(2);
-
-      addSvg("line", {x1:startX, y1:y+40, x2:startX+wScale, y2:y+40, stroke:"rgba(255,255,255,.20)", "stroke-width":"2", "stroke-linecap":"round"});
-
-      const xOf = (p)=> startX + p*wScale;
-
-      addSvg("circle", {cx:xOf(cur), cy:y+40, r:6, fill:"rgba(255,255,255,.08)", stroke:"rgba(255,255,255,.35)", "stroke-width":"1.4"});
-      addSvg("text", {x:xOf(cur), y:y+68, "text-anchor":"middle", fill:"rgba(255,255,255,.8)", "font-family":"JetBrains Mono, monospace", "font-weight":"800", "font-size":"11"})
-        .textContent = cur.toFixed(2);
-
-      feats.forEach((f, i)=>{
-        const next = clamp(cur + f.val, 0.02, 0.98);
-        const x1 = xOf(cur), x2 = xOf(next);
-        const left = Math.min(x1,x2);
-        const width = Math.abs(x2-x1);
-
-        const g = addSvg("g", {cursor:"pointer"});
-        addSvg("rect", {x:left, y:y - i*26, width, height:16, rx:8, ry:8, fill:"rgba(255,255,255,.06)", stroke:"rgba(255,255,255,.18)", "stroke-width":"1"}, g);
-        addSvg("rect", {x:left, y:y - i*26, width, height:16, rx:8, ry:8, fill:"rgba(255,255,255,.02)", stroke:f.color, "stroke-width":"2", "stroke-dasharray":"3 4", opacity:"0.95"}, g);
-        addSvg("text", {x:left + width + 10, y:y - i*26 + 12, fill:"rgba(255,255,255,.88)", "font-family":"Inter, system-ui", "font-weight":"850", "font-size":"12"}, g)
-          .textContent = `${f.name} (${f.val>=0?"+":""}${f.val.toFixed(2)})`;
-
-        g.addEventListener("mousemove", (e)=>{
-          showTip(e.clientX, e.clientY, `<strong>${f.name}</strong><br>Contribution: ${f.val>=0?"+":""}${f.val.toFixed(2)}<br>From ${cur.toFixed(2)} → ${next.toFixed(2)}`);
-        });
-        g.addEventListener("mouseleave", hideTip);
-
-        cur = next;
-      });
-
-      addSvg("text", {x:startX, y:300, fill:"rgba(255,255,255,.75)", "font-family":"JetBrains Mono, monospace", "font-weight":"850", "font-size":"12"})
-        .textContent = "final: " + cur.toFixed(2) + " (demo)";
-
-      explain.innerHTML = `Educational visualization inspired by explainable AI (SHAP-style intuition): features push the output up/down.`;
-      modeLabel.textContent = "mode: xai";
-    }
-
-    function draw(){
-      if(mode==="topic") drawTopic();
-      if(mode==="impact") drawImpact();
-      if(mode==="xai") drawXai();
-    }
-
-    (function initViz(){
-      buildLegend();
-      draw();
-
-      $("#toolTopic").addEventListener("click", ()=>{
-        mode="topic";
-        $$(".tool").forEach(t=>t.classList.remove("active"));
-        $("#toolTopic").classList.add("active");
-        draw();
-        toast("Mode: Topic Map");
-      });
-      $("#toolImpact").addEventListener("click", ()=>{
-        mode="impact";
-        $$(".tool").forEach(t=>t.classList.remove("active"));
-        $("#toolImpact").classList.add("active");
-        draw();
-        toast("Mode: Impact Timeline");
-      });
-      $("#toolXai").addEventListener("click", ()=>{
-        mode="xai";
-        $$(".tool").forEach(t=>t.classList.remove("active"));
-        $("#toolXai").classList.add("active");
-        draw();
-        toast("Mode: XAI Demo");
-      });
-
-      $("#intensity").addEventListener("input", (e)=>{
-        intensity = +e.target.value;
-        if(mode==="topic") draw();
-      });
-      $("#threshold").addEventListener("input", (e)=>{
-        threshold = +e.target.value;
-        if(mode==="topic") draw();
-      });
-
-      $("#resetViz").addEventListener("click", ()=>{
-        focusTag="all";
-        intensity=70; threshold=35;
-        $("#intensity").value = intensity;
-        $("#threshold").value = threshold;
-        buildLegend();
-        draw();
-        toast("Visualization reset");
-      });
-
-      $("#exportViz").addEventListener("click", ()=>{
-        const serializer = new XMLSerializer();
-        const src = serializer.serializeToString(svg);
-        const blob = new Blob([src], {type:"image/svg+xml;charset=utf-8"});
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "interactive-visual.svg";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-        toast("SVG exported");
-      });
-    })();
-
-    (function initQR(){
-      const cleanUrl = window.location.origin + window.location.pathname;
-      $("#qrUrl").textContent = cleanUrl;
-
-      const qrSrc = "https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=" + encodeURIComponent(cleanUrl);
-      $("#qrImg").src = qrSrc;
-
-      $("#copyLinkBtn").addEventListener("click", async ()=>{
-        await navigator.clipboard.writeText(cleanUrl);
-        toast("Page link copied ✔");
-      });
-
-      $("#downloadQrBtn").addEventListener("click", async ()=>{
-        try{
-          const res = await fetch(qrSrc, {mode:"cors"});
-          const blob = await res.blob();
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = "Mohamed_Elshaarawy_Portfolio_QR.png";
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
-          URL.revokeObjectURL(url);
-          toast("QR downloaded ✔");
-        }catch(e){
-          toast("Could not download QR. Right-click → Save image.");
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Mohamed Kamel Elshaarawy - Civil Engineer | Researcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #1a252f;
+            --gray: #7f8c8d;
         }
-      });
-    })();
 
-    $("#year").textContent = new Date().getFullYear();
-  </script>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .profile-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255,255,255,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .profile-info h2 {
+            font-size: 1.4rem;
+            color: var(--light);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .contact-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title i {
+            color: var(--secondary);
+        }
+
+        /* Timeline for experience/education */
+        .timeline-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid var(--secondary);
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--secondary);
+        }
+
+        .timeline-date {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .timeline-subtitle {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #eef5ff;
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--secondary);
+        }
+
+        /* Publications */
+        .pub-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .pub-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .pub-authors {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .pub-journal {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Buttons */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section with Profile -->
+        <header class="header">
+            <div class="profile-container">
+                <!-- Replace 'personal-photo.jpg' with your actual photo filename -->
+                <img src="personal-photo.jpg" alt="Dr. Mohamed Kamel Elshaarawy" class="profile-img">
+                <div class="profile-info">
+                    <h1>Dr. Mohamed Kamel Elshaarawy</h1>
+                    <h2>Civil Engineer | Assistant Lecturer | Researcher</h2>
+                    <p class="tagline">Ph.D. candidate in Irrigation and Hydraulics Engineering specializing in machine learning applications for water resources, hydraulic structures, and concrete performance.</p>
+                    
+                    <div class="contact-badges">
+                        <div class="badge">
+                            <i class="fas fa-university"></i>
+                            <span>Horus University - Egypt</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Ph.D. Candidate - Tanta University</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New Damietta, Egypt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Quick Stats -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">35+</div>
+                <div class="stat-label">Peer-Reviewed Publications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">89</div>
+                <div class="stat-label">Articles Reviewed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">41</div>
+                <div class="stat-label">Journals Served</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Education -->
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024 - Present</div>
+                        <div class="timeline-title">Ph.D. in Irrigation and Hydraulics Engineering</div>
+                        <div class="timeline-subtitle">Tanta University, Egypt</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019 - 2024</div>
+                        <div class="timeline-title">M.Sc. in Civil Engineering</div>
+                        <div class="timeline-subtitle">Port Said University, Egypt</div>
+                        <p>Thesis: Hydraulic Comparison of Different Types of Lining for Irrigation Canals Using Computational Fluid Dynamics Models</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2013 - 2018</div>
+                        <div class="timeline-title">B.Sc. in Civil Engineering</div>
+                        <div class="timeline-subtitle">Port Said University, Egypt</div>
+                        <p>Grade: Excellent with Honors</p>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-tools"></i> Technical Skills</h2>
+                    <div class="skills-container">
+                        <div class="skill-tag">Machine Learning</div>
+                        <div class="skill-tag">Computational Fluid Dynamics</div>
+                        <div class="skill-tag">Python</div>
+                        <div class="skill-tag">MATLAB</div>
+                        <div class="skill-tag">Data Analysis</div>
+                        <div class="skill-tag">Hydraulic Modeling</div>
+                        <div class="skill-tag">Structural Design</div>
+                        <div class="skill-tag">AutoCAD</div>
+                        <div class="skill-tag">GeoStudio</div>
+                        <div class="skill-tag">FLOW-3D</div>
+                        <div class="skill-tag">ETABS</div>
+                        <div class="skill-tag">Research Writing</div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-language"></i> Languages</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-title">Arabic</div>
+                        <div class="timeline-subtitle">Native</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">English</div>
+                        <div class="timeline-subtitle">Professional Proficiency (IELTS 6.0, TOEFL ITP 510)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Experience -->
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-briefcase"></i> Experience</h2>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024 - Present</div>
+                        <div class="timeline-title">Assistant Lecturer</div>
+                        <div class="timeline-subtitle">Civil Engineering Dept., Horus University - Egypt</div>
+                        <p>Teaching hydraulic engineering courses, supervising research, and contributing to academic administration.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020 - 2024</div>
+                        <div class="timeline-title">Demonstrator</div>
+                        <div class="timeline-subtitle">Civil Engineering Dept., Horus University - Egypt</div>
+                        <p>Assisted in teaching, lab supervision, and student guidance.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019 - 2020</div>
+                        <div class="timeline-title">Technical Office Engineer</div>
+                        <div class="timeline-subtitle">Mearar Elhamd for Real Estate Development</div>
+                        <p>Prepared shop drawings, BOQs, and coordinated technical documentation for construction projects.</p>
+                    </div>
+                </div>
+
+                <!-- Research Interests -->
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-flask"></i> Research Focus</h2>
+                    <p style="margin-bottom: 15px;">My research applies computational methods and machine learning to solve engineering challenges:</p>
+                    <div class="skills-container">
+                        <div class="skill-tag">Water Resources Management</div>
+                        <div class="skill-tag">Seepage Control</div>
+                        <div class="skill-tag">Saltwater Intrusion</div>
+                        <div class="skill-tag">Hydraulic Structures</div>
+                        <div class="skill-tag">Groundwater Systems</div>
+                        <div class="skill-tag">Concrete Performance</div>
+                        <div class="skill-tag">Optimization Algorithms</div>
+                        <div class="skill-tag">Predictive Modeling</div>
+                    </div>
+                </div>
+
+                <!-- Selected Publications -->
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-file-alt"></i> Selected Publications</h2>
+                    <div class="pub-item">
+                        <div class="pub-title">Stacked-based hybrid gradient boosting models for estimating seepage from lined canals</div>
+                        <div class="pub-authors">Elshaarawy, M. K.</div>
+                        <div class="pub-journal">Journal of Water Process Engineering, 2024</div>
+                    </div>
+                    <div class="pub-item">
+                        <div class="pub-title">Predicting reference evapotranspiration in semi-arid regions using optimized machine learning models</div>
+                        <div class="pub-authors">Eltarabily, M. G., Elshaarawy, M. K., et al.</div>
+                        <div class="pub-journal">Journal of Water and Climate Change, 2025</div>
+                    </div>
+                    <div class="pub-item">
+                        <div class="pub-title">Machine learning and interactive GUI for concrete compressive strength prediction</div>
+                        <div class="pub-authors">Elshaarawy, M. K., Alsaadawi, M. M., & Hamed, A. K.</div>
+                        <div class="pub-journal">Scientific Reports, 2024</div>
+                    </div>
+                    <p style="margin-top: 15px; font-style: italic; color: var(--gray);">Total: 35+ peer-reviewed publications</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <!-- Replace 'Elshaarawy_Resume_Eng_27Dec2025.pdf' with your actual PDF filename -->
+            <a href="Elshaarawy_Resume_Eng_27Dec2025.pdf" class="btn btn-primary" target="_blank">
+                <i class="fas fa-download"></i> Download Full CV (PDF)
+            </a>
+            <a href="mailto:your-email@example.com" class="btn btn-outline">
+                <i class="fas fa-envelope"></i> Contact Me
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© <span id="currentYear"></span> Dr. Mohamed Kamel Elshaarawy | Civil Engineer | Researcher</p>
+            <p style="margin-top: 10px;">
+                <a href="#" style="color: var(--secondary); text-decoration: none; margin: 0 10px;">
+                    <i class="fas fa-user-tie"></i> Academic Profile
+                </a>
+                |
+                <a href="#" style="color: var(--secondary); text-decoration: none; margin: 0 10px;">
+                    <i class="fas fa-book"></i> Publications
+                </a>
+                |
+                <a href="#" style="color: var(--secondary); text-decoration: none; margin: 0 10px;">
+                    <i class="fas fa-project-diagram"></i> Research
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Simple hover effect for cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
 </html>
