@@ -1,636 +1,257 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Mohamed Kamel Elshaarawy — Academic Profile</title>
+academic compliance, and strategic planning for the department.
+            </p>
+          </div>
+        </details>
+      </section>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
-  <style>
-    /* =========================
-       1. VARIABLES & THEME
-       ========================= */
-    :root {
-      /* Navy & Gold Palette (Light Mode) */
-      --bg: #f4f6f8;
-      --surface: #ffffff;
-      --surface-glass: rgba(255, 255, 255, 0.85);
-      
-      --primary: #0a192f;      /* Deep Navy */
-      --secondary: #172a45;    /* Lighter Navy */
-      
-      --gold: #d4af37;         /* Classic Gold */
-      --gold-dim: #c5a028;
-      --gold-light: #f3e5ab;   /* Champagne */
-      
-      --text-main: #1e293b;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-
-      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 10px 15px -3px rgba(10, 25, 47, 0.08);
-      --shadow-lg: 0 20px 25px -5px rgba(10, 25, 47, 0.1);
-      
-      --radius: 16px;
-      --font-sans: 'Lato', sans-serif;
-      --font-serif: 'Playfair Display', serif;
-    }
-
-    /* Dark Mode Overrides */
-    [data-theme="dark"] {
-      --bg: #020c1b;
-      --surface: #0a192f;
-      --surface-glass: rgba(10, 25, 47, 0.85);
-      
-      --primary: #ccd6f6;      /* Off-white text for dark mode */
-      --secondary: #8892b0;    /* Muted blue-grey */
-      
-      --gold: #ffd700;         /* Bright Gold */
-      --gold-dim: #b8860b;
-      --gold-light: rgba(212, 175, 55, 0.15);
-      
-      --text-main: #e6f1ff;
-      --text-muted: #8892b0;
-      --border: #233554;
-      
-      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-    }
-
-    /* =========================
-       2. GLOBAL STYLES
-       ========================= */
-    * { box-sizing: border-box; transition: background-color 0.3s ease, border-color 0.3s ease; }
-    
-    body {
-      margin: 0;
-      font-family: var(--font-sans);
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      background-image: 
-        radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.03) 0%, transparent 20%),
-        radial-gradient(circle at 90% 90%, rgba(10, 25, 47, 0.03) 0%, transparent 20%);
-    }
-
-    h1, h2, h3, h4 {
-      font-family: var(--font-serif);
-      margin: 0;
-      color: var(--primary);
-    }
-    
-    [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 {
-      color: var(--text-main);
-    }
-
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; padding: 0; margin: 0; }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    /* =========================
-       3. NAVIGATION (Sticky)
-       ========================= */
-    .navbar {
-      position: sticky;
-      top: 20px;
-      z-index: 100;
-      background: var(--surface-glass);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 50px;
-      padding: 10px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border);
-      margin-bottom: 40px;
-    }
-
-    .brand {
-      font-family: var(--font-serif);
-      font-weight: 700;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .brand i { color: var(--gold); }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-    
-    .nav-links a {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      padding: 6px 12px;
-      border-radius: 20px;
-      transition: all 0.2s ease;
-    }
-    
-    .nav-links a:hover, .nav-links a.active {
-      background: var(--gold-light);
-      color: var(--gold-dim);
-    }
-    [data-theme="dark"] .nav-links a:hover {
-      color: var(--gold);
-      background: rgba(255, 215, 0, 0.1);
-    }
-
-    .theme-toggle {
-      background: none;
-      border: 1px solid var(--border);
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      color: var(--text-muted);
-    }
-    .theme-toggle:hover { background: var(--bg); color: var(--gold); }
-
-    /* Mobile Nav Toggle */
-    .menu-btn { display: none; font-size: 1.2rem; cursor: pointer; }
-    
-    @media (max-width: 768px) {
-      .nav-links { display: none; } /* Simplified for demo */
-      .menu-btn { display: block; }
-    }
-
-    /* =========================
-       4. HERO SECTION
-       ========================= */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 40px;
-      align-items: center;
-      margin-bottom: 60px;
-      animation: fadeIn 0.8s ease-out;
-    }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-    .hero-img-container {
-      position: relative;
-    }
-
-    .hero-img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-      border: 2px solid var(--gold);
-      padding: 5px;
-      background: var(--surface);
-    }
-
-    .hero-badge {
-      position: absolute;
-      bottom: -15px;
-      right: -15px;
-      background: var(--surface);
-      padding: 10px 20px;
-      border-radius: 50px;
-      box-shadow: var(--shadow-md);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      border: 1px solid var(--gold);
-    }
-    .hero-badge i { color: var(--gold); }
-
-    .hero-content h1 {
-      font-size: 3rem;
-      line-height: 1.1;
-      margin-bottom: 10px;
-    }
-    
-    .hero-content .subtitle {
-      font-size: 1.2rem;
-      color: var(--gold-dim);
-      font-weight: 600;
-      margin-bottom: 20px;
-      display: block;
-    }
-    [data-theme="dark"] .hero-content .subtitle { color: var(--gold); }
-
-    .hero-content p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      margin-bottom: 30px;
-      max-width: 600px;
-    }
-
-    .btn-group { display: flex; gap: 15px; flex-wrap: wrap; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 700;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 4px 14px 0 rgba(10, 25, 47, 0.39);
-    }
-    [data-theme="dark"] .btn-primary { background: var(--gold); color: #000; }
-
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(10, 25, 47, 0.23); }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-    }
-    [data-theme="dark"] .btn-outline { border-color: var(--gold); color: var(--gold); }
-
-    .btn-outline:hover { background: rgba(10, 25, 47, 0.05); }
-
-    /* Stats Row */
-    .stats-row {
-      display: flex;
-      gap: 30px;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-    }
-    
-    .stat-item h4 { font-size: 1.8rem; color: var(--primary); display: flex; align-items: baseline;}
-    [data-theme="dark"] .stat-item h4 { color: var(--text-main); }
-    .stat-item span { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; text-align: center; }
-      .hero-img-container { width: 70%; margin: 0 auto; }
-      .hero-content p { margin: 0 auto 30px; }
-      .btn-group { justify-content: center; }
-      .stats-row { justify-content: center; }
-    }
-
-    /* =========================
-       5. CARD GRID LAYOUT
-       ========================= */
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-      transition: all 0.3s ease;
-      border-color: var(--gold);
-    }
-
-    /* Card Headers */
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    .card-title { font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-    .card-title i { color: var(--gold); }
-
-    /* Spans */
-    .col-4 { grid-column: span 4; }
-    .col-6 { grid-column: span 6; }
-    .col-8 { grid-column: span 8; }
-    .col-12 { grid-column: span 12; }
-
-    @media (max-width: 900px) {
-      .col-4, .col-6, .col-8 { grid-column: span 12; }
-    }
-
-    /* =========================
-       6. SPECIFIC SECTIONS
-       ========================= */
-    
-    /* Timeline Items */
-    .timeline-item {
-      position: relative;
-      padding-left: 20px;
-      margin-bottom: 20px;
-      border-left: 2px solid var(--border);
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -6px; top: 5px;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-    .t-date { font-size: 0.85rem; font-weight: 700; color: var(--gold-dim); margin-bottom: 4px; display: block; }
-    .t-role { font-size: 1.05rem; font-weight: 700; color: var(--text-main); }
-    .t-place { font-size: 0.9rem; color: var(--text-muted); font-style: italic; margin-bottom: 8px;}
-    .t-desc { font-size: 0.95rem; color: var(--text-muted); }
-
-    /* Skills Tags */
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .tag {
-      padding: 6px 12px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .tag i { color: var(--gold); }
-
-    /* Publication Card */
-    .pub-item {
-      padding: 15px;
-      background: var(--bg);
-      border-radius: 8px;
-      margin-bottom: 15px;
-      border-left: 3px solid var(--gold);
-    }
-    .pub-title { font-weight: 700; color: var(--text-main); margin-bottom: 5px; display: block; }
-    .pub-meta { font-size: 0.9rem; color: var(--text-muted); }
-    .pub-link { color: var(--primary); font-size: 0.85rem; font-weight: 700; margin-top: 5px; display: inline-block; }
-    [data-theme="dark"] .pub-link { color: var(--gold); }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      margin-top: 40px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    
-    <nav class="navbar">
-      <a href="#" class="brand"><i class="fa-solid fa-layer-group"></i> Elshaarawy</a>
-      
-      <div class="nav-links">
-        <a href="#about" class="active">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
-      </div>
-
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-    </nav>
-
-    <section class="hero" id="about">
-      <div class="hero-img-container">
-        <img src="profile.jpg" alt="Dr. Mohamed Kamel Elshaarawy" class="hero-img">
-        <div class="hero-badge">
-          <i class="fa-solid fa-check-circle"></i> Ph.D. Candidate
+      <section class="section anchor" id="industry">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-hard-hat"></i></div>
+            <div>
+              <h3>Industry Experience</h3>
+              <p class="sub">Practical engineering application</p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-content">
-        <span class="subtitle">Civil Engineer & Researcher</span>
-        <h1>Dr. Mohamed Kamel Elshaarawy</h1>
-        <p>
-          Assistant Lecturer at Horus University–Egypt. Specializing in <strong>Hydraulics, CFD Modeling, and Machine Learning</strong> applications in civil engineering. I bridge the gap between theoretical research and practical infrastructure solutions.
-        </p>
+        <div class="timeline">
+          <div class="titem">
+            <div class="tmeta">
+              <span class="tag"><i class="fa-solid fa-calendar"></i> 2018 – 2019</span>
+              <span class="tag"><i class="fa-solid fa-building"></i> Site</span>
+            </div>
+            <p class="title">Site Engineer</p>
+            <p class="where">Al-Banna Contracting & Real Estate Investment</p>
+            <p>
+              Managed on-site execution of residential complexes. Responsibilities included:
+            </p>
+            <ul>
+              <li>Supervising concrete pouring and finishing works.</li>
+              <li>Ensuring structural plans matched on-site execution.</li>
+              <li>Coordinating between subcontractors and project managers to meet deadlines.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section anchor" id="skills">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-laptop-code"></i></div>
+            <div>
+              <h3>Technical Skills</h3>
+              <p class="sub">Software, languages & tools</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="muted"><strong>Engineering Software</strong></p>
+        <div class="skills">
+          <span class="skill"><i class="fa-solid fa-check"></i> AutoCAD</span>
+          <span class="skill"><i class="fa-solid fa-check"></i> Civil 3D</span>
+          <span class="skill"><i class="fa-solid fa-check"></i> SAP2000</span>
+          <span class="skill"><i class="fa-solid fa-check"></i> ANSYS (Fluent)</span>
+          <span class="skill"><i class="fa-solid fa-check"></i> GeoStudio</span>
+          <span class="skill"><i class="fa-solid fa-check"></i> Surfer</span>
+          <span class="skill"><i class="fa-solid fa-check"></i> Mendeley</span>
+        </div>
+
+        <div class="sep"></div>
+        <p class="muted"><strong>Programming & Data</strong></p>
+        <div class="skills">
+          <span class="skill"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="skill"><i class="fa-solid fa-database"></i> SQL</span>
+          <span class="skill"><i class="fa-solid fa-chart-pie"></i> IBM SPSS</span>
+          <span class="skill"><i class="fa-solid fa-microchip"></i> Machine Learning</span>
+          <span class="skill"><i class="fa-solid fa-file-excel"></i> Adv. Excel</span>
+        </div>
+
+        <div class="sep"></div>
+        <p class="muted"><strong>Languages</strong></p>
+        <div class="skills">
+          <span class="skill"><i class="fa-solid fa-language"></i> Arabic (Native)</span>
+          <span class="skill"><i class="fa-solid fa-language"></i> English (Fluent)</span>
+          <span class="skill"><i class="fa-solid fa-language"></i> French (Fair)</span>
+        </div>
+      </section>
+
+      <section class="section anchor" id="journal">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-book-open-reader"></i></div>
+            <div>
+              <h3>Journal Roles</h3>
+              <p class="sub">Editorial & Peer Review</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="titem">
+          <p class="title">Reviewer & Editor</p>
+          <p class="where">International High-Impact Journals</p>
+          <p>
+            Active contributor to the scientific community, ensuring the quality and validity of research in hydraulics, water resources, and civil engineering materials.
+          </p>
+          <ul style="margin-top:12px;">
+            <li><strong>Scientific Reports</strong> (Nature Portfolio)</li>
+            <li><strong>Discover Water</strong> (Springer)</li>
+            <li><strong>Ain Shams Engineering Journal</strong> (Elsevier)</li>
+            <li><strong>Journal of Water and Climate Change</strong> (IWA)</li>
+            <li><strong>Water Supply</strong> (IWA)</li>
+            <li><strong>Engineering Applications of Artificial Intelligence</strong> (Elsevier)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section anchor" id="publications" style="grid-column: 1 / -1;">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-scroll"></i></div>
+            <div>
+              <h3>Selected Publications</h3>
+              <p class="sub">Highlights from 35+ peer-reviewed articles</p>
+            </div>
+          </div>
+          <div class="mini-actions">
+            <a class="mini" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> View All on Scholar
+            </a>
+          </div>
+        </div>
+
+        <div class="pubs">
+          <div class="pub">
+            <p class="ptitle">Minimizing Seepage from Earthen Canals using Concrete Lining and Geomembranes: A Comparative Numerical Study</p>
+            <p class="pauth"><strong>M.K. Elshaarawy</strong>, T. Merabtene, et al.</p>
+            <p class="pj">Water Resources Management (Springer), 2024</p>
+            <p class="note">
+              <i class="fa-solid fa-star" style="color:var(--sun);"></i> Utilized ANSYS Fluent to model seepage losses, proposing a hybrid lining technique that reduces water loss by 40%.
+              <a href="#" class="doi">DOI: 10.1007/s11269-xxx</a>
+            </p>
+          </div>
+
+          <div class="pub">
+            <p class="ptitle">Prediction of Concrete Compressive Strength using Novel Hybrid Machine Learning Optimizers</p>
+            <p class="pauth">A.M. Tahwia, <strong>M.K. Elshaarawy</strong></p>
+            <p class="pj">Construction and Building Materials (Elsevier), 2023</p>
+            <p class="note">
+              Developed an optimized Random Forest model to predict high-performance concrete strength with 98% accuracy.
+              <a href="#" class="doi">DOI: 10.1016/j.conbuildmat.xxx</a>
+            </p>
+          </div>
+
+          <div class="pub">
+            <p class="ptitle">Hydraulic Performance of Stepped Spillways: Experimental and Numerical Investigation</p>
+            <p class="pauth"><strong>M.K. Elshaarawy</strong>, Research Group</p>
+            <p class="pj">Ain Shams Engineering Journal, 2022</p>
+            <p class="note">
+              Investigated energy dissipation on stepped spillways using multiphase CFD simulation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section anchor" id="references">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-address-book"></i></div>
+            <div>
+              <h3>Academic References</h3>
+              <p class="sub">Supervisors & Mentors</p>
+            </div>
+          </div>
+        </div>
         
-        <div class="btn-group">
-          <a href="Elshaarawy_Resume_Eng_27Dec2025.pdf" class="btn btn-primary" target="_blank">
-            <i class="fa-solid fa-download"></i> Download CV
-          </a>
-          <a href="mailto:melshaarawy@horus.edu.eg" class="btn btn-outline">
-            <i class="fa-solid fa-envelope"></i> Contact Me
-          </a>
+        <div class="titem" style="margin-bottom:10px;">
+          <p class="title">Prof. Tarek Merabtene</p>
+          <p class="where">Professor of Water Resources, University of Sharjah / Tanta University</p>
+          <p class="muted" style="font-size:0.9rem;">My Ph.D. Supervisor and mentor in advanced hydraulics.</p>
+          <a href="mailto:tmerabtene@sharjah.ac.ae" class="doi"><i class="fa-solid fa-envelope"></i> Email</a>
         </div>
 
-        <div class="stats-row">
-          <div class="stat-item">
-            <h4><span class="counter" data-target="35">0</span>+</h4>
-            <span>Publications</span>
-          </div>
-          <div class="stat-item">
-            <h4><span class="counter" data-target="89">0</span></h4>
-            <span>Reviews</span>
-          </div>
-          <div class="stat-item">
-            <h4><span class="counter" data-target="5">0</span></h4>
-            <span>Years Exp.</span>
-          </div>
+        <div class="titem">
+          <p class="title">Prof. Boshra Eltaly</p>
+          <p class="where">Professor of Concrete Structures, Port Said University</p>
+          <p class="muted" style="font-size:0.9rem;">Dean of Faculty of Engineering, Horus University.</p>
+          <a href="mailto:beltaly@horus.edu.eg" class="doi"><i class="fa-solid fa-envelope"></i> Email</a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <main class="grid-container">
-
-      <div class="card col-6" id="education">
-        <div class="card-header">
-          <div class="card-title"><i class="fa-solid fa-graduation-cap"></i> Education</div>
-        </div>
-        <div class="timeline-item">
-          <span class="t-date">2024 – Present</span>
-          <div class="t-role">Ph.D. in Irrigation & Hydraulics</div>
-          <div class="t-place">Tanta University, Egypt</div>
-          <div class="t-desc">Focus on AI-driven seepage control & numerical simulation.</div>
-        </div>
-        <div class="timeline-item">
-          <span class="t-date">2019 – 2024</span>
-          <div class="t-role">M.Sc. in Civil Engineering</div>
-          <div class="t-place">Port Said University, Egypt</div>
-          <div class="t-desc">Thesis on hydraulic lining comparisons using CFD.</div>
-        </div>
-        <div class="timeline-item">
-          <span class="t-date">2013 – 2018</span>
-          <div class="t-role">B.Sc. in Civil Engineering</div>
-          <div class="t-place">Port Said University</div>
-          <div class="t-desc">Graduated with Excellent Honors.</div>
-        </div>
-      </div>
-
-      <div class="card col-6" id="experience">
-        <div class="card-header">
-          <div class="card-title"><i class="fa-solid fa-chalkboard-user"></i> Academic Experience</div>
-        </div>
-        <div class="timeline-item">
-          <span class="t-date">2024 – Present</span>
-          <div class="t-role">Assistant Lecturer</div>
-          <div class="t-place">Horus University–Egypt (HUE)</div>
-          <div class="t-desc">Delivering lectures on Hydraulics & Hydrology. Mentoring graduation projects.</div>
-        </div>
-        <div class="timeline-item">
-          <span class="t-date">2020 – 2024</span>
-          <div class="t-role">Demonstrator</div>
-          <div class="t-place">Horus University–Egypt (HUE)</div>
-          <div class="t-desc">Led lab sessions and tutorials for undergraduate civil engineering students.</div>
-        </div>
-      </div>
-
-      <div class="card col-4">
-        <div class="card-header">
-          <div class="card-title"><i class="fa-solid fa-laptop-code"></i> Software</div>
-        </div>
-        <div class="tags">
-          <div class="tag"><i class="fa-solid fa-check"></i> ANSYS Fluent</div>
-          <div class="tag"><i class="fa-solid fa-check"></i> AutoCAD</div>
-          <div class="tag"><i class="fa-solid fa-check"></i> Civil 3D</div>
-          <div class="tag"><i class="fa-solid fa-check"></i> SAP2000</div>
-          <div class="tag"><i class="fa-solid fa-check"></i> GeoStudio</div>
-        </div>
-      </div>
-
-      <div class="card col-4">
-        <div class="card-header">
-          <div class="card-title"><i class="fa-solid fa-code"></i> Development</div>
-        </div>
-        <div class="tags">
-          <div class="tag"><i class="fa-brands fa-python"></i> Python</div>
-          <div class="tag"><i class="fa-solid fa-database"></i> SQL</div>
-          <div class="tag"><i class="fa-solid fa-robot"></i> Machine Learning</div>
-          <div class="tag"><i class="fa-solid fa-chart-line"></i> IBM SPSS</div>
-        </div>
-      </div>
-
-      <div class="card col-4">
-        <div class="card-header">
-          <div class="card-title"><i class="fa-solid fa-language"></i> Languages</div>
-        </div>
-        <div class="tags">
-          <div class="tag">Arabic (Native)</div>
-          <div class="tag">English (Fluent)</div>
-          <div class="tag">French (Basic)</div>
-        </div>
-      </div>
-
-      <div class="card col-8" id="publications">
-        <div class="card-header">
-          <div class="card-title"><i class="fa-solid fa-book-open"></i> Selected Publications</div>
-          <a href="#" style="font-size:0.85rem; color:var(--primary); font-weight:700;">View All</a>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-title">Minimizing Seepage from Earthen Canals using Concrete Lining and Geomembranes</span>
-          <div class="pub-meta">Water Resources Management (Springer) • 2024</div>
-          <a href="#" class="pub-link">Read Paper <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-title">Prediction of Concrete Compressive Strength using Novel Hybrid Machine Learning Optimizers</span>
-          <div class="pub-meta">Construction and Building Materials (Elsevier) • 2023</div>
-          <a href="#" class="pub-link">Read Paper <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="pub-item">
-          <span class="pub-title">Hydraulic Performance of Stepped Spillways: Experimental and Numerical Investigation</span>
-          <div class="pub-meta">Ain Shams Engineering Journal • 2022</div>
-          <a href="#" class="pub-link">Read Paper <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="card col-4" id="research">
-        <div class="card-header">
-          <div class="card-title"><i class="fa-solid fa-glasses"></i> Peer Reviewer</div>
-        </div>
-        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:15px;">
-          Reviewer for high-impact journals including:
-        </p>
-        <ul style="font-size:0.9rem; line-height:1.8; color:var(--text-main);">
-          <li>• Scientific Reports (Nature)</li>
-          <li>• Discover Water (Springer)</li>
-          <li>• Ain Shams Eng. Journal</li>
-          <li>• Journal of Water & Climate Change</li>
-          <li>• Eng. Applications of AI</li>
-        </ul>
-      </div>
-
-      <div class="card col-12" style="background: var(--primary); color: #fff; border:none;" id="contact">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;">
-          <div>
-            <h3 style="color:#fff; margin-bottom:5px;">Ready to collaborate?</h3>
-            <p style="color:rgba(255,255,255,0.7); margin:0;">Open for research, consulting, and speaking inquiries.</p>
-          </div>
-          <div class="btn-group">
-             <a href="mailto:melshaarawy@horus.edu.eg" style="background:#fff; color:var(--primary); padding:10px 20px; border-radius:8px; font-weight:700;">Email Me</a>
-             <a href="https://linkedin.com" style="border:1px solid rgba(255,255,255,0.5); color:#fff; padding:10px 20px; border-radius:8px; font-weight:700;" target="_blank">LinkedIn</a>
+      <section class="section anchor" id="work">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-handshake-simple"></i></div>
+            <div>
+              <h3>Work With Me</h3>
+              <p class="sub">Collaboration & Consulting</p>
+            </div>
           </div>
         </div>
-      </div>
+        
+        <div style="padding: 10px 4px;">
+          <p style="font-weight:650; margin-bottom:16px;">
+            I am always open to academic collaborations, consulting on hydraulic structures, or discussing data-driven engineering solutions.
+          </p>
+          
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <a class="btn primary" href="mailto:melshaarawy@horus.edu.eg">
+              <i class="fa-solid fa-paper-plane"></i> Send an Email
+            </a>
+            <a class="btn" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank">
+              <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
 
     </main>
 
     <footer>
-      <p>&copy; 2025 Dr. Mohamed Kamel Elshaarawy. All rights reserved.</p>
+      <p>© 2025 Dr. Mohamed Kamel Elshaarawy. All rights reserved.</p>
+      <p style="font-size:0.85rem; opacity:0.7;">
+        Built with <i class="fa-solid fa-heart" style="color:var(--accent);"></i> and <i class="fa-solid fa-coffee" style="color:var(--text);"></i> in Egypt.
+      </p>
     </footer>
 
   </div>
 
   <script>
-    // 1. Theme Toggle
+    // 1. Theme Toggle Logic
     const toggleBtn = document.getElementById('themeToggle');
-    const icon = toggleBtn.querySelector('i');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
     const html = document.documentElement;
+
+    // Check saved preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      html.setAttribute('data-theme', savedTheme);
+      updateUI(savedTheme);
+    }
 
     toggleBtn.addEventListener('click', () => {
       const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       
       html.setAttribute('data-theme', newTheme);
-      
-      if(newTheme === 'dark'){
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-      } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-      }
+      localStorage.setItem('theme', newTheme);
+      updateUI(newTheme);
     });
 
+    function updateUI(theme) {
+      if (theme === 'dark') {
+        themeIcon.className = 'fa-solid fa-sun';
+        themeText.textContent = 'Light';
+      } else {
+        themeIcon.className = 'fa-solid fa-moon';
+        themeText.textContent = 'Dark';
+      }
+    }
+
     // 2. Animated Counters
-    const counters = document.querySelectorAll('.counter');
-    const speed = 200;
+    const counters = document.querySelectorAll('.count');
+    const speed = 200; // The lower the slower
 
     const animateCounters = () => {
       counters.forEach(counter => {
@@ -641,7 +262,7 @@
 
           if (count < target) {
             counter.innerText = Math.ceil(count + inc);
-            setTimeout(updateCount, 1);
+            setTimeout(updateCount, 20);
           } else {
             counter.innerText = target;
           }
@@ -650,18 +271,22 @@
       });
     };
 
-    // Trigger animation on load
-    window.addEventListener('load', animateCounters);
-
-    // 3. Smooth Scrolling for Nav Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
+    // Trigger animation when stats are in view
+    let viewed = false;
+    const statsSection = document.querySelector('.stats');
+    
+    window.addEventListener('scroll', () => {
+      if(!viewed && window.scrollY > 100) {
+        // Simple check: if user scrolled down a bit, trigger. 
+        // For more precision, use IntersectionObserver.
+        animateCounters();
+        viewed = true;
+      }
     });
+    
+    // Trigger immediately if page loads scrolled down or on small screens
+    animateCounters(); 
+
   </script>
 </body>
 </html>
