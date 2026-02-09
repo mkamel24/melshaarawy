@@ -1,552 +1,774 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Mohamed Kamel Elshaarawy - Civil Engineer | Researcher</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #1a252f;
-            --gray: #7f8c8d;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Mohamed Kamel Elshaarawy - Civil Engineer | Assistant Lecturer | Researcher</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        body {
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
+  <style>
+    :root{
+      --primary:#2c3e50;
+      --secondary:#3498db;
+      --accent:#e74c3c;
+      --light:#ecf0f1;
+      --dark:#1a252f;
+      --gray:#7f8c8d;
+      --bg:#f8f9fa;
+      --card:#ffffff;
+      --shadow:0 5px 15px rgba(0,0,0,.06);
+      --radius:12px;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; }
 
-        /* Header Section */
-        .header {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            color: white;
-            padding: 40px 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
+    body{
+      background:var(--bg);
+      color:#2b2b2b;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 300px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 50%;
-            transform: translate(30%, -30%);
-        }
+    a{ color:inherit; }
+    .container{ max-width:1200px; margin:0 auto; padding:20px; }
 
-        .profile-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 30px;
-            position: relative;
-            z-index: 2;
-        }
+    /* Header */
+    .header{
+      background:linear-gradient(135deg,var(--primary),var(--dark));
+      color:#fff;
+      padding:42px 24px;
+      border-radius:var(--radius);
+      margin-bottom:22px;
+      box-shadow:0 10px 25px rgba(0,0,0,.12);
+      position:relative;
+      overflow:hidden;
+    }
+    .header::before{
+      content:'';
+      position:absolute;
+      top:-40px; right:-40px;
+      width:320px; height:320px;
+      background:rgba(255,255,255,.06);
+      border-radius:50%;
+    }
+    .header::after{
+      content:'';
+      position:absolute;
+      bottom:-60px; left:-60px;
+      width:360px; height:360px;
+      background:rgba(255,255,255,.04);
+      border-radius:50%;
+    }
 
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid rgba(255,255,255,0.2);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+    .profile-container{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:26px;
+      position:relative;
+      z-index:2;
+    }
+    .profile-img{
+      width:200px;
+      height:200px;
+      border-radius:50%;
+      object-fit:cover;
+      border:5px solid rgba(255,255,255,.22);
+      box-shadow:0 10px 25px rgba(0,0,0,.25);
+      background:rgba(255,255,255,.12);
+    }
+    .profile-info{ flex:1; min-width:280px; }
+    .profile-info h1{ font-size:2.55rem; line-height:1.2; margin-bottom:6px; font-weight:800; }
+    .profile-info h2{ font-size:1.25rem; color:rgba(255,255,255,.9); margin-bottom:14px; font-weight:500; }
+    .tagline{
+      font-size:1.05rem;
+      opacity:.95;
+      max-width:900px;
+    }
 
-        .profile-info {
-            flex: 1;
-            min-width: 300px;
-        }
+    .top-links{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .icon-link{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      text-decoration:none;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(6px);
+      transition:transform .2s ease, background .2s ease;
+      font-size:.95rem;
+      white-space:nowrap;
+    }
+    .icon-link:hover{ transform:translateY(-2px); background:rgba(255,255,255,.18); }
+    .icon-link i{ color:#fff; opacity:.95; }
 
-        .profile-info h1 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
+    .contact-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .badge{
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.10);
+      padding:9px 14px;
+      border-radius:999px;
+      font-size:.92rem;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      backdrop-filter: blur(6px);
+    }
 
-        .profile-info h2 {
-            font-size: 1.4rem;
-            color: var(--light);
-            margin-bottom: 15px;
-            font-weight: 400;
-        }
+    /* Sticky Nav */
+    .nav{
+      position:sticky;
+      top:12px;
+      z-index:10;
+      margin:18px 0 22px;
+      display:flex;
+      justify-content:center;
+    }
+    .nav-inner{
+      width:min(980px, 100%);
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:var(--shadow);
+      border-radius:999px;
+      padding:10px 12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      backdrop-filter: blur(8px);
+    }
+    .nav-inner a{
+      text-decoration:none;
+      font-weight:700;
+      color:var(--primary);
+      padding:8px 12px;
+      border-radius:999px;
+      transition:background .2s ease, color .2s ease;
+      font-size:.95rem;
+    }
+    .nav-inner a:hover{
+      background:rgba(52,152,219,.12);
+      color:var(--dark);
+    }
 
-        .tagline {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
+    /* Stats */
+    .stats{
+      display:flex;
+      justify-content:space-around;
+      flex-wrap:wrap;
+      gap:10px;
+      margin:0 0 24px;
+      padding:18px;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.04);
+    }
+    .stat-item{ text-align:center; padding:10px 12px; min-width:180px; }
+    .stat-number{
+      font-size:2.35rem;
+      font-weight:900;
+      color:var(--secondary);
+      margin-bottom:4px;
+    }
+    .stat-label{ color:var(--gray); font-size:.95rem; font-weight:650; }
 
-        .contact-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
+    /* Layout */
+    .main-content{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
+      align-items:start;
+    }
+    @media (max-width: 960px){
+      .main-content{ grid-template-columns:1fr; }
+      .nav{ top:8px; }
+      .profile-img{ width:170px; height:170px; }
+      .profile-info h1{ font-size:2.1rem; }
+    }
 
-        .badge {
-            background: rgba(255,255,255,0.15);
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            backdrop-filter: blur(5px);
-        }
+    /* Cards */
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.04);
+      margin-bottom:22px;
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 14px 35px rgba(0,0,0,.10);
+    }
+    .card-title{
+      color:var(--primary);
+      font-size:1.45rem;
+      margin-bottom:16px;
+      padding-bottom:10px;
+      border-bottom:3px solid var(--secondary);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+    }
+    .card-title i{ color:var(--secondary); }
 
-        /* Main Content */
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
+    /* Timeline */
+    .timeline-item{
+      margin-bottom:18px;
+      padding-left:18px;
+      border-left:3px solid rgba(52,152,219,.65);
+      position:relative;
+    }
+    .timeline-item:last-child{ margin-bottom:0; }
+    .timeline-item::before{
+      content:'';
+      position:absolute;
+      left:-8px; top:2px;
+      width:13px; height:13px;
+      border-radius:50%;
+      background:var(--secondary);
+      box-shadow:0 0 0 4px rgba(52,152,219,.15);
+    }
+    .timeline-date{
+      color:var(--accent);
+      font-weight:800;
+      font-size:.92rem;
+      margin-bottom:4px;
+    }
+    .timeline-title{
+      font-weight:900;
+      margin-bottom:4px;
+      color:var(--dark);
+    }
+    .timeline-subtitle{
+      color:var(--gray);
+      font-size:.98rem;
+      margin-bottom:8px;
+      font-weight:650;
+    }
 
-        @media (max-width: 900px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-        }
+    /* Skills */
+    .skills-container{ display:flex; flex-wrap:wrap; gap:10px; }
+    .skill-tag{
+      background:#eef5ff;
+      color:var(--primary);
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:.92rem;
+      border-left:4px solid var(--secondary);
+      font-weight:700;
+    }
 
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-            transition: transform 0.3s ease;
-        }
+    /* Publications */
+    .pub-item{
+      margin-bottom:14px;
+      padding-bottom:14px;
+      border-bottom:1px dashed #e9edf2;
+    }
+    .pub-item:last-child{ border-bottom:none; margin-bottom:0; padding-bottom:0; }
+    .pub-title{ font-weight:900; margin-bottom:4px; color:var(--dark); }
+    .pub-authors{ color:var(--gray); font-size:.92rem; margin-bottom:4px; }
+    .pub-journal{ color:var(--secondary); font-size:.92rem; font-style:italic; font-weight:700; }
+    .pub-note{ margin-top:7px; font-size:.92rem; color:#444; }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
+    /* Buttons */
+    .action-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:18px;
+      justify-content:center;
+    }
+    .btn{
+      padding:14px 22px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:900;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition:transform .2s ease, background .2s ease, color .2s ease, border .2s ease;
+      border:2px solid transparent;
+      box-shadow:0 10px 20px rgba(0,0,0,.07);
+    }
+    .btn-primary{ background:var(--secondary); color:#fff; }
+    .btn-primary:hover{ background:var(--primary); transform:translateY(-3px); }
+    .btn-outline{
+      background:transparent;
+      color:var(--primary);
+      border-color:rgba(44,62,80,.55);
+      box-shadow:none;
+    }
+    .btn-outline:hover{
+      background:var(--primary);
+      color:#fff;
+      transform:translateY(-3px);
+      border-color:var(--primary);
+    }
 
-        .card-title {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--secondary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    /* Lists inside cards */
+    .clean-list{
+      margin-left:20px;
+      margin-top:8px;
+      line-height:1.85;
+    }
 
-        .card-title i {
-            color: var(--secondary);
-        }
+    /* Footer */
+    .footer{
+      text-align:center;
+      margin-top:34px;
+      padding:18px 10px;
+      color:var(--gray);
+      font-size:.95rem;
+      border-top:1px solid rgba(0,0,0,.08);
+    }
+    .footer a{
+      color:var(--secondary);
+      text-decoration:none;
+      font-weight:800;
+      margin:0 10px;
+    }
+    .footer a:hover{ text-decoration:underline; }
 
-        /* Timeline for experience/education */
-        .timeline-item {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 3px solid var(--secondary);
-            position: relative;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background: var(--secondary);
-        }
-
-        .timeline-date {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-        }
-
-        .timeline-title {
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .timeline-subtitle {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 8px;
-        }
-
-        /* Skills */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background: #eef5ff;
-            color: var(--primary);
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            border-left: 4px solid var(--secondary);
-        }
-
-        /* Publications */
-        .pub-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed #eee;
-        }
-
-        .pub-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .pub-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-
-        .pub-authors {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-        }
-
-        .pub-journal {
-            color: var(--secondary);
-            font-size: 0.9rem;
-            font-style: italic;
-        }
-
-        /* Buttons */
-        .action-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background: var(--secondary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: var(--gray);
-            font-size: 0.9rem;
-            border-top: 1px solid #eee;
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 30px 0;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 15px;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-    </style>
+    /* Small helper */
+    .muted{ color:var(--gray); }
+    .section-anchor{ scroll-margin-top:90px; }
+    .mini-divider{ height:10px; }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <!-- Header Section with Profile -->
-        <header class="header">
-            <div class="profile-container">
-                <!-- Replace 'personal-photo.jpg' with your actual photo filename -->
-                <img src="profile.jpg" alt="Dr. Mohamed Kamel Elshaarawy" class="profile-img">
-                <div class="profile-info">
-                    <h1>Dr. Mohamed Kamel Elshaarawy</h1>
-                    <h2>Civil Engineer | Assistant Lecturer | Researcher</h2>
-                    <p class="tagline">Ph.D. candidate in Irrigation and Hydraulics Engineering specializing in machine learning applications for water resources, hydraulic structures, and concrete performance.</p>
-                    
-                    <div class="contact-badges">
-                        <div class="badge">
-                            <i class="fas fa-university"></i>
-                            <span>Horus University - Egypt</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Ph.D. Candidate - Tanta University</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>New Damietta, Egypt</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+  <div class="container">
 
-        <!-- Quick Stats -->
-        <div class="stats">
-            <div class="stat-item">
-                <div class="stat-number">35+</div>
-                <div class="stat-label">Peer-Reviewed Publications</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">89</div>
-                <div class="stat-label">Articles Reviewed</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">41</div>
-                <div class="stat-label">Journals Served</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">5</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
+    <!-- HEADER -->
+    <header class="header" id="top">
+      <div class="profile-container">
+        <!-- Put profile.jpg in your GitHub repo (same folder as index.html) -->
+        <img src="profile.jpg" alt="Dr. Mohamed Kamel Elshaarawy" class="profile-img" />
+
+        <div class="profile-info">
+          <h1>Dr. Mohamed Kamel Elshaarawy</h1>
+          <h2>Civil Engineer | Assistant Lecturer | Researcher</h2>
+
+          <p class="tagline">
+            I am a Ph.D. candidate in <strong>Irrigation and Hydraulics Engineering</strong> with a research focus on
+            <strong>machine learning–driven solutions for water resources systems</strong>.
+            My work bridges <em>theoretical hydraulics, numerical modeling, and data-driven intelligence</em> to solve
+            real-world engineering challenges related to irrigation canals, seepage control, groundwater systems,
+            hydraulic structures, and concrete performance.
+            <br><br>
+            As an academic instructor and researcher, I mentor undergraduate and postgraduate students, collaborate with
+            interdisciplinary teams, and contribute to peer-reviewed journals in civil, environmental, and computational
+            engineering.
+          </p>
+
+          <div class="contact-badges">
+            <div class="badge"><i class="fas fa-university"></i><span>Horus University - Egypt</span></div>
+            <div class="badge"><i class="fas fa-graduation-cap"></i><span>Ph.D. Candidate - Tanta University</span></div>
+            <div class="badge"><i class="fas fa-map-marker-alt"></i><span>New Damietta, Egypt</span></div>
+          </div>
+
+          <!-- Academic / Profile Links (replace # with your real links if you want) -->
+          <div class="top-links">
+            <a class="icon-link" href="#" title="Google Scholar (replace link)"><i class="fa-solid fa-graduation-cap"></i>Google Scholar</a>
+            <a class="icon-link" href="#" title="ORCID (replace link)"><i class="fa-brands fa-orcid"></i>ORCID</a>
+            <a class="icon-link" href="#" title="ResearchGate (replace link)"><i class="fa-brands fa-researchgate"></i>ResearchGate</a>
+            <a class="icon-link" href="#" title="LinkedIn (replace link)"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+            <a class="icon-link" href="#" title="Scopus Author (replace link)"><i class="fa-solid fa-database"></i>Scopus</a>
+          </div>
+
+          <div class="mini-divider"></div>
+          <p class="muted" style="opacity:.95; margin-top:8px;">
+            <i class="fa-solid fa-envelope"></i>
+            <!-- Replace with your real email -->
+            <strong>Email:</strong> <a href="mailto:your-email@example.com" style="text-decoration:none;">your-email@example.com</a>
+          </p>
         </div>
+      </div>
+    </header>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Left Column -->
-            <div class="left-column">
-                <!-- Education -->
-                <div class="card">
-                    <h2 class="card-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024 - Present</div>
-                        <div class="timeline-title">Ph.D. in Irrigation and Hydraulics Engineering</div>
-                        <div class="timeline-subtitle">Tanta University, Egypt</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2019 - 2024</div>
-                        <div class="timeline-title">M.Sc. in Civil Engineering</div>
-                        <div class="timeline-subtitle">Port Said University, Egypt</div>
-                        <p>Thesis: Hydraulic Comparison of Different Types of Lining for Irrigation Canals Using Computational Fluid Dynamics Models</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2013 - 2018</div>
-                        <div class="timeline-title">B.Sc. in Civil Engineering</div>
-                        <div class="timeline-subtitle">Port Said University, Egypt</div>
-                        <p>Grade: Excellent with Honors</p>
-                    </div>
-                </div>
-
-                <!-- Skills -->
-                <div class="card">
-                    <h2 class="card-title"><i class="fas fa-tools"></i> Technical Skills</h2>
-                    <div class="skills-container">
-                        <div class="skill-tag">Machine Learning</div>
-                        <div class="skill-tag">Computational Fluid Dynamics</div>
-                        <div class="skill-tag">Python</div>
-                        <div class="skill-tag">MATLAB</div>
-                        <div class="skill-tag">Data Analysis</div>
-                        <div class="skill-tag">Hydraulic Modeling</div>
-                        <div class="skill-tag">Structural Design</div>
-                        <div class="skill-tag">AutoCAD</div>
-                        <div class="skill-tag">GeoStudio</div>
-                        <div class="skill-tag">FLOW-3D</div>
-                        <div class="skill-tag">ETABS</div>
-                        <div class="skill-tag">Research Writing</div>
-                    </div>
-                </div>
-
-                <!-- Languages -->
-                <div class="card">
-                    <h2 class="card-title"><i class="fas fa-language"></i> Languages</h2>
-                    <div class="timeline-item">
-                        <div class="timeline-title">Arabic</div>
-                        <div class="timeline-subtitle">Native</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-title">English</div>
-                        <div class="timeline-subtitle">Professional Proficiency (IELTS 6.0, TOEFL ITP 510)</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column -->
-            <div class="right-column">
-                <!-- Experience -->
-                <div class="card">
-                    <h2 class="card-title"><i class="fas fa-briefcase"></i> Experience</h2>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2024 - Present</div>
-                        <div class="timeline-title">Assistant Lecturer</div>
-                        <div class="timeline-subtitle">Civil Engineering Dept., Horus University - Egypt</div>
-                        <p>Teaching hydraulic engineering courses, supervising research, and contributing to academic administration.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2020 - 2024</div>
-                        <div class="timeline-title">Demonstrator</div>
-                        <div class="timeline-subtitle">Civil Engineering Dept., Horus University - Egypt</div>
-                        <p>Assisted in teaching, lab supervision, and student guidance.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2019 - 2020</div>
-                        <div class="timeline-title">Technical Office Engineer</div>
-                        <div class="timeline-subtitle">Mearar Elhamd for Real Estate Development</div>
-                        <p>Prepared shop drawings, BOQs, and coordinated technical documentation for construction projects.</p>
-                    </div>
-                </div>
-
-                <!-- Research Interests -->
-                <div class="card">
-                    <h2 class="card-title"><i class="fas fa-flask"></i> Research Focus</h2>
-                    <p style="margin-bottom: 15px;">My research applies computational methods and machine learning to solve engineering challenges:</p>
-                    <div class="skills-container">
-                        <div class="skill-tag">Water Resources Management</div>
-                        <div class="skill-tag">Seepage Control</div>
-                        <div class="skill-tag">Saltwater Intrusion</div>
-                        <div class="skill-tag">Hydraulic Structures</div>
-                        <div class="skill-tag">Groundwater Systems</div>
-                        <div class="skill-tag">Concrete Performance</div>
-                        <div class="skill-tag">Optimization Algorithms</div>
-                        <div class="skill-tag">Predictive Modeling</div>
-                    </div>
-                </div>
-
-                <!-- Selected Publications -->
-                <div class="card">
-                    <h2 class="card-title"><i class="fas fa-file-alt"></i> Selected Publications</h2>
-                    <div class="pub-item">
-                        <div class="pub-title">Stacked-based hybrid gradient boosting models for estimating seepage from lined canals</div>
-                        <div class="pub-authors">Elshaarawy, M. K.</div>
-                        <div class="pub-journal">Journal of Water Process Engineering, 2024</div>
-                    </div>
-                    <div class="pub-item">
-                        <div class="pub-title">Predicting reference evapotranspiration in semi-arid regions using optimized machine learning models</div>
-                        <div class="pub-authors">Eltarabily, M. G., Elshaarawy, M. K., et al.</div>
-                        <div class="pub-journal">Journal of Water and Climate Change, 2025</div>
-                    </div>
-                    <div class="pub-item">
-                        <div class="pub-title">Machine learning and interactive GUI for concrete compressive strength prediction</div>
-                        <div class="pub-authors">Elshaarawy, M. K., Alsaadawi, M. M., & Hamed, A. K.</div>
-                        <div class="pub-journal">Scientific Reports, 2024</div>
-                    </div>
-                    <p style="margin-top: 15px; font-style: italic; color: var(--gray);">Total: 35+ peer-reviewed publications</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-            <!-- Replace 'Elshaarawy_Resume_Eng_27Dec2025.pdf' with your actual PDF filename -->
-            <a href="Mohamed_Elshaarawy_CV.pdf" class="btn btn-primary" target="_blank">
-                <i class="fas fa-download"></i> Download Full CV (PDF)
-            </a>
-            <a href="mailto:your-email@example.com" class="btn btn-outline">
-                <i class="fas fa-envelope"></i> Contact Me
-            </a>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>© <span id="currentYear"></span> Dr. Mohamed Kamel Elshaarawy | Civil Engineer | Researcher</p>
-            <p style="margin-top: 10px;">
-                <a href="#" style="color: var(--secondary); text-decoration: none; margin: 0 10px;">
-                    <i class="fas fa-user-tie"></i> Academic Profile
-                </a>
-                |
-                <a href="#" style="color: var(--secondary); text-decoration: none; margin: 0 10px;">
-                    <i class="fas fa-book"></i> Publications
-                </a>
-                |
-                <a href="#" style="color: var(--secondary); text-decoration: none; margin: 0 10px;">
-                    <i class="fas fa-project-diagram"></i> Research
-                </a>
-            </p>
-        </footer>
+    <!-- STICKY NAV -->
+    <div class="nav">
+      <div class="nav-inner">
+        <a href="#education">Education</a>
+        <a href="#experience">Teaching & Experience</a>
+        <a href="#skills">Technical Skills</a>
+        <a href="#research">Research Focus</a>
+        <a href="#publications">Publications</a>
+        <a href="#opportunities">Work With Me</a>
+        <a href="#download">CV</a>
+      </div>
     </div>
 
-    <script>
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Simple hover effect for cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-            });
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
+    <!-- STATS -->
+    <div class="stats" aria-label="Highlights">
+      <div class="stat-item">
+        <div class="stat-number" data-target="35">0</div>
+        <div class="stat-label">Peer-Reviewed Publications</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="89">0</div>
+        <div class="stat-label">Articles Reviewed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="41">0</div>
+        <div class="stat-label">Journals Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="5">0</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main-content">
+
+      <!-- LEFT COLUMN -->
+      <div class="left-column">
+
+        <!-- EDUCATION -->
+        <section class="card section-anchor" id="education">
+          <h2 class="card-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2024 – Present</div>
+            <div class="timeline-title">Ph.D. in Irrigation and Hydraulics Engineering</div>
+            <div class="timeline-subtitle">Tanta University, Egypt</div>
+            <p>
+              Ongoing doctoral research focused on integrating <strong>advanced computational methods</strong> and
+              <strong>machine learning</strong> into water engineering applications (irrigation systems, seepage control,
+              groundwater–surface water interaction, and decision-support tools for sustainable management).
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2019 – 2024</div>
+            <div class="timeline-title">M.Sc. in Civil Engineering</div>
+            <div class="timeline-subtitle">Port Said University, Egypt</div>
+            <p>
+              Thesis: <strong>Hydraulic Comparison of Different Types of Lining for Irrigation Canals</strong> using
+              <strong>Computational Fluid Dynamics (CFD)</strong> models. The work emphasized flow behavior, hydraulic
+              efficiency, and performance evaluation under different lining configurations to support practical canal
+              modernization decisions.
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2013 – 2018</div>
+            <div class="timeline-title">B.Sc. in Civil Engineering</div>
+            <div class="timeline-subtitle">Port Said University, Egypt</div>
+            <p><strong>Grade:</strong> Excellent with Honors</p>
+          </div>
+        </section>
+
+        <!-- TECHNICAL SKILLS -->
+        <section class="card section-anchor" id="skills">
+          <h2 class="card-title"><i class="fas fa-tools"></i> Technical Skills (Practical & Research)</h2>
+
+          <p class="muted" style="margin-bottom:12px;">
+            Tools and capabilities used in teaching, research, modeling, data analysis, and publication workflows:
+          </p>
+
+          <div class="skills-container">
+            <div class="skill-tag">Machine Learning</div>
+            <div class="skill-tag">Computational Fluid Dynamics (CFD)</div>
+            <div class="skill-tag">Python (Data/ML)</div>
+            <div class="skill-tag">MATLAB</div>
+            <div class="skill-tag">Hydraulic Modeling</div>
+            <div class="skill-tag">Data Analysis & Feature Engineering</div>
+            <div class="skill-tag">Optimization Algorithms</div>
+            <div class="skill-tag">Research Writing & Publishing</div>
+            <div class="skill-tag">AutoCAD</div>
+            <div class="skill-tag">ETABS</div>
+            <div class="skill-tag">GeoStudio</div>
+            <div class="skill-tag">FLOW-3D</div>
+            <div class="skill-tag">Structural Design</div>
+          </div>
+
+          <div style="margin-top:16px;">
+            <p><strong>Typical outputs:</strong> predictive models, validation & uncertainty checks, CFD simulations, technical reports, publication-ready figures, and reproducible research workflows.</p>
+          </div>
+        </section>
+
+        <!-- LANGUAGES -->
+        <section class="card">
+          <h2 class="card-title"><i class="fas fa-language"></i> Languages</h2>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Arabic</div>
+            <div class="timeline-subtitle">Native</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">English</div>
+            <div class="timeline-subtitle">Professional Proficiency (IELTS 6.0, TOEFL ITP 510)</div>
+            <p class="muted">Comfortable with academic writing, peer-review, and international collaboration.</p>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="right-column">
+
+        <!-- EXPERIENCE -->
+        <section class="card section-anchor" id="experience">
+          <h2 class="card-title"><i class="fas fa-briefcase"></i> Teaching & Professional Experience</h2>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2024 – Present</div>
+            <div class="timeline-title">Assistant Lecturer</div>
+            <div class="timeline-subtitle">Civil Engineering Department, Horus University - Egypt</div>
+            <p>
+              Teaching and coordinating undergraduate learning in <strong>Hydraulics, Fluid Mechanics, and Water Resources Engineering</strong>.
+              Main responsibilities include:
+            </p>
+            <ul class="clean-list">
+              <li>Delivering lectures, tutorials, and structured problem-solving sessions</li>
+              <li>Supervising laboratory experiments and project-based learning</li>
+              <li>Mentoring graduation projects and research-oriented student teams</li>
+              <li>Guiding students in numerical modeling, CFD fundamentals, and data analysis</li>
+              <li>Supporting academic quality processes and department development initiatives</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2020 – 2024</div>
+            <div class="timeline-title">Demonstrator</div>
+            <div class="timeline-subtitle">Civil Engineering Department, Horus University - Egypt</div>
+            <p>
+              Supported course delivery with strong emphasis on fundamentals, clear explanation, and practical engineering skills:
+            </p>
+            <ul class="clean-list">
+              <li>Explaining hydraulic concepts using real engineering examples and worked problems</li>
+              <li>Assisting students in lab measurements, calculations, and reporting</li>
+              <li>Providing individual guidance for exams, assignments, and project preparation</li>
+              <li>Introducing students to engineering software and computational thinking</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2019 – 2020</div>
+            <div class="timeline-title">Technical Office Engineer</div>
+            <div class="timeline-subtitle">Mearar Elhamd for Real Estate Development</div>
+            <p>
+              Contributed to construction project documentation and coordination:
+            </p>
+            <ul class="clean-list">
+              <li>Prepared shop drawings and coordinated technical submissions</li>
+              <li>Developed BOQs and supported quantity take-off activities</li>
+              <li>Maintained structured documentation for project execution and reporting</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- RESEARCH -->
+        <section class="card section-anchor" id="research">
+          <h2 class="card-title"><i class="fas fa-flask"></i> Research Focus & Themes</h2>
+
+          <p style="margin-bottom:12px;">
+            My research integrates <strong>hydraulic engineering principles</strong> with
+            <strong>machine learning, optimization algorithms, and numerical modeling</strong> to address complex challenges
+            in water and civil engineering systems.
+          </p>
+
+          <p style="margin-bottom:12px;">
+            The central objective is to improve <strong>prediction accuracy</strong>, reduce <strong>uncertainty</strong>,
+            and build practical <strong>decision-support tools</strong> for engineers, researchers, and policymakers.
+          </p>
+
+          <h4 style="margin:14px 0 10px; color:var(--primary); font-weight:900;">Water & Environmental Systems</h4>
+          <div class="skills-container">
+            <div class="skill-tag">Water Resources Management</div>
+            <div class="skill-tag">Irrigation Canals</div>
+            <div class="skill-tag">Seepage & Leakage Control</div>
+            <div class="skill-tag">Saltwater Intrusion</div>
+            <div class="skill-tag">Groundwater Modeling</div>
+            <div class="skill-tag">Hydraulic Structures</div>
+          </div>
+
+          <h4 style="margin:18px 0 10px; color:var(--primary); font-weight:900;">Computational & Data-Driven Methods</h4>
+          <div class="skills-container">
+            <div class="skill-tag">Hybrid & Ensemble Models</div>
+            <div class="skill-tag">Feature Engineering</div>
+            <div class="skill-tag">Model Validation</div>
+            <div class="skill-tag">Optimization Algorithms</div>
+            <div class="skill-tag">CFD & Numerical Simulation</div>
+            <div class="skill-tag">Predictive Modeling</div>
+          </div>
+
+          <p class="muted" style="margin-top:14px;">
+            <strong>Collaboration-ready:</strong> joint research papers, student co-supervision, software tools/GUI development,
+            and applied projects linked to real water systems and infrastructure performance.
+          </p>
+        </section>
+
+        <!-- PUBLICATIONS -->
+        <section class="card section-anchor" id="publications">
+          <h2 class="card-title"><i class="fas fa-file-alt"></i> Selected Publications (with Contributions)</h2>
+
+          <div class="pub-item">
+            <div class="pub-title">Stacked-based hybrid gradient boosting models for estimating seepage from lined canals</div>
+            <div class="pub-authors">Elshaarawy, M. K.</div>
+            <div class="pub-journal">Journal of Water Process Engineering, 2024</div>
+            <div class="pub-note">Contribution: Developed stacked ensemble ML models to improve seepage estimation accuracy for lined irrigation canals.</div>
+          </div>
+
+          <div class="pub-item">
+            <div class="pub-title">Predicting reference evapotranspiration in semi-arid regions using optimized machine learning models</div>
+            <div class="pub-authors">Eltarabily, M. G., Elshaarawy, M. K., et al.</div>
+            <div class="pub-journal">Journal of Water and Climate Change, 2025</div>
+            <div class="pub-note">Contribution: Built and optimized ML predictors for ETo to support irrigation scheduling and water-demand management.</div>
+          </div>
+
+          <div class="pub-item">
+            <div class="pub-title">Machine learning and interactive GUI for concrete compressive strength prediction</div>
+            <div class="pub-authors">Elshaarawy, M. K., Alsaadawi, M. M., &amp; Hamed, A. K.</div>
+            <div class="pub-journal">Scientific Reports, 2024</div>
+            <div class="pub-note">Contribution: Combined ML modeling with an interactive GUI to enable engineers to predict compressive strength efficiently.</div>
+          </div>
+
+          <p style="margin-top:14px; font-style:italic; color:var(--gray); font-weight:800;">
+            Total: 35+ peer-reviewed publications
+          </p>
+        </section>
+
+        <!-- OPPORTUNITIES -->
+        <section class="card section-anchor" id="opportunities">
+          <h2 class="card-title"><i class="fas fa-users"></i> Opportunities for Students & Collaborators</h2>
+
+          <p style="margin-bottom:12px;">
+            I actively welcome collaboration with motivated students and researchers. Typical opportunities include:
+          </p>
+
+          <ul class="clean-list">
+            <li><strong>B.Sc. &amp; M.Sc. graduation projects</strong> in hydraulics, irrigation canals, seepage, and groundwater</li>
+            <li><strong>Machine learning applications</strong> in civil/environmental engineering (prediction, classification, optimization)</li>
+            <li><strong>Joint research papers</strong> and international collaborations</li>
+            <li><strong>Numerical modeling</strong> using CFD and data-driven hybrid frameworks</li>
+            <li><strong>Research mentoring</strong>: idea development → methodology → validation → writing → submission</li>
+          </ul>
+
+          <p style="margin-top:14px;">
+            <strong>If you want to work with me:</strong> email a short message including your background, interests, and (if available)
+            your CV or project idea.
+          </p>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <section class="section-anchor" id="download">
+      <div class="action-buttons">
+        <!-- IMPORTANT:
+             Put your CV PDF in the repo and use the exact filename here.
+             If your file is Elshaarawy_Resume_Eng_27Dec2025.pdf, keep it like this.
+        -->
+        <a href="Elshaarawy_Resume_Eng_27Dec2025.pdf" class="btn btn-primary" target="_blank" rel="noopener">
+          <i class="fas fa-download"></i> Download Full CV (PDF)
+        </a>
+
+        <!-- Replace with your real email -->
+        <a href="mailto:your-email@example.com" class="btn btn-outline">
+          <i class="fas fa-envelope"></i> Contact Me
+        </a>
+
+        <a href="#top" class="btn btn-outline">
+          <i class="fas fa-arrow-up"></i> Back to Top
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>© <span id="currentYear"></span> Dr. Mohamed Kamel Elshaarawy | Civil Engineer | Researcher</p>
+      <p style="margin-top:10px;">
+        <a href="#experience"><i class="fas fa-user-tie"></i> Teaching</a> |
+        <a href="#publications"><i class="fas fa-book"></i> Publications</a> |
+        <a href="#research"><i class="fas fa-project-diagram"></i> Research</a> |
+        <a href="#opportunities"><i class="fas fa-users"></i> Work With Me</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Animated counters (stats)
+    const counters = document.querySelectorAll('.stat-number[data-target]');
+    const speed = 24; // smaller = faster
+    const runCounter = (el) => {
+      const target = parseInt(el.getAttribute('data-target'), 10);
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / speed));
+
+      const tick = () => {
+        current += step;
+        if (current >= target) {
+          el.textContent = target + (target >= 35 ? '+' : '');
+          return;
+        }
+        el.textContent = current;
+        requestAnimationFrame(tick);
+      };
+      tick();
+    };
+
+    // Start counters when stats are visible
+    const statsBox = document.querySelector('.stats');
+    if (statsBox && 'IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            counters.forEach(runCounter);
+            obs.disconnect();
+          }
         });
-    </script>
+      }, { threshold: 0.25 });
+      obs.observe(statsBox);
+    } else {
+      // Fallback
+      counters.forEach(runCounter);
+    }
+
+    // Card hover micro-interaction (kept minimal)
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mouseenter', function(){ this.style.transform = 'translateY(-4px)'; });
+      card.addEventListener('mouseleave', function(){ this.style.transform = 'translateY(0)'; });
+    });
+  </script>
 </body>
 </html>
-
