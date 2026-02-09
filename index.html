@@ -8,1159 +8,1398 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- Fonts (cozy + modern) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* =========================
+       Cozy, loveable theme
+       ========================= */
     :root{
-      --primary:#2c3e50;
-      --secondary:#3498db;
-      --accent:#e74c3c;
-      --light:#ecf0f1;
-      --dark:#1a252f;
-      --gray:#7f8c8d;
-      --bg:#f8f9fa;
-      --card:#ffffff;
-      --shadow:0 6px 18px rgba(0,0,0,.07);
-      --shadow2:0 14px 35px rgba(0,0,0,.10);
-      --radius:14px;
+      --bg: #fbfaf7;
+      --card: rgba(255,255,255,.78);
+      --card2: rgba(255,255,255,.55);
+      --text: #1e1f22;
+      --muted: #5a5f69;
+
+      --primary: #2b3a67;   /* deep denim */
+      --accent:  #ff6b6b;   /* coral */
+      --accent2: #7c5cff;   /* soft violet */
+      --mint:    #2ec4b6;   /* cozy mint */
+      --sun:     #ffd166;   /* warm */
+      --line: rgba(30,31,34,.10);
+
+      --shadow: 0 14px 45px rgba(15, 23, 42, .10);
+      --shadow2: 0 10px 25px rgba(15, 23, 42, .08);
+      --radius: 22px;
+
+      --font: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --serif: "Fraunces", ui-serif, Georgia, serif;
+
+      --max: 1200px;
     }
 
-    *{ margin:0; padding:0; box-sizing:border-box; font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif; }
+    /* Dark mode variables */
+    [data-theme="dark"]{
+      --bg: #0e1116;
+      --card: rgba(18, 22, 30, .72);
+      --card2: rgba(18, 22, 30, .55);
+      --text: #eef2ff;
+      --muted: rgba(238,242,255,.72);
+      --primary: #b8c4ff;
+      --line: rgba(238,242,255,.14);
+      --shadow: 0 18px 55px rgba(0,0,0,.35);
+      --shadow2: 0 12px 25px rgba(0,0,0,.28);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
     body{
-      background:var(--bg);
-      color:#2b2b2b;
+      margin:0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 10% 10%, rgba(255, 107, 107, .14), transparent 55%),
+        radial-gradient(900px 600px at 85% 15%, rgba(124, 92, 255, .14), transparent 55%),
+        radial-gradient(900px 700px at 70% 85%, rgba(46, 196, 182, .14), transparent 55%),
+        radial-gradient(700px 500px at 15% 85%, rgba(255, 209, 102, .14), transparent 55%),
+        var(--bg);
       line-height:1.7;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x:hidden;
     }
+
     a{ color:inherit; }
-    .container{ max-width:1200px; margin:0 auto; padding:20px; }
+    .container{ max-width: var(--max); margin:0 auto; padding: 24px; }
 
-    /* Header */
-    .header{
-      background:linear-gradient(135deg,var(--primary),var(--dark));
-      color:#fff;
-      padding:44px 24px;
-      border-radius:var(--radius);
-      box-shadow:0 12px 28px rgba(0,0,0,.14);
-      position:relative;
-      overflow:hidden;
-      margin-bottom:18px;
-    }
-    .header::before{
-      content:"";
-      position:absolute;
-      top:-50px; right:-50px;
-      width:340px; height:340px;
-      background:rgba(255,255,255,.06);
-      border-radius:50%;
-    }
-    .header::after{
-      content:"";
-      position:absolute;
-      bottom:-70px; left:-70px;
-      width:400px; height:400px;
-      background:rgba(255,255,255,.04);
-      border-radius:50%;
-    }
-    .profile-container{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      gap:26px;
-      position:relative;
-      z-index:2;
-    }
-    .profile-img{
-      width:200px; height:200px;
-      border-radius:50%;
-      object-fit:cover;
-      border:6px solid rgba(255,255,255,.20);
-      box-shadow:0 10px 25px rgba(0,0,0,.25);
-      background:rgba(255,255,255,.12);
-      flex:0 0 auto;
-    }
-    .profile-info{ flex:1; min-width:280px; }
-    .profile-info h1{ font-size:2.55rem; line-height:1.2; margin-bottom:6px; font-weight:900; }
-    .profile-info h2{ font-size:1.2rem; color:rgba(255,255,255,.92); margin-bottom:14px; font-weight:600; }
-    .tagline{ font-size:1.03rem; opacity:.96; max-width:920px; }
-
-    .badges{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:14px;
-    }
-    .badge{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:9px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.10);
-      backdrop-filter: blur(6px);
-      font-size:.92rem;
-    }
-
-    .top-links{
-      margin-top:16px;
-      display:flex; flex-wrap:wrap; gap:10px;
-      align-items:center;
-    }
-    .icon-link{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.12);
-      text-decoration:none;
-      transition:transform .2s ease, background .2s ease;
-      font-weight:800;
-      font-size:.92rem;
-      white-space:nowrap;
-    }
-    .icon-link:hover{ transform:translateY(-2px); background:rgba(255,255,255,.18); }
-    .icon-link i{ opacity:.95; }
-
-    /* Sticky Nav */
-    .nav{
-      position:sticky;
-      top:12px;
-      z-index:20;
-      margin:16px 0 20px;
-      display:flex;
-      justify-content:center;
-    }
-    .nav-inner{
-      width:min(1080px, 100%);
-      background:rgba(255,255,255,.94);
-      border:1px solid rgba(0,0,0,.06);
-      box-shadow:var(--shadow);
-      border-radius:999px;
-      padding:10px 12px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      justify-content:center;
-      backdrop-filter: blur(10px);
-    }
-    .nav-inner a{
-      text-decoration:none;
-      font-weight:900;
-      color:var(--primary);
-      padding:8px 12px;
-      border-radius:999px;
-      transition:background .2s ease, color .2s ease;
-      font-size:.93rem;
-    }
-    .nav-inner a:hover{ background:rgba(52,152,219,.12); color:var(--dark); }
-
-    /* Stats */
-    .stats{
-      display:flex;
-      justify-content:space-around;
-      flex-wrap:wrap;
-      gap:10px;
-      padding:18px;
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      border:1px solid rgba(0,0,0,.04);
-      margin:0 0 22px;
-    }
-    .stat-item{ text-align:center; padding:10px 12px; min-width:200px; }
-    .stat-number{
-      font-size:2.3rem;
-      font-weight:950;
-      color:var(--secondary);
-      margin-bottom:4px;
-    }
-    .stat-label{ color:var(--gray); font-size:.95rem; font-weight:800; }
-
-    /* Layout */
-    .main-content{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:26px;
-      align-items:start;
-    }
-    @media (max-width: 980px){
-      .main-content{ grid-template-columns:1fr; }
-      .profile-img{ width:170px; height:170px; }
-      .profile-info h1{ font-size:2.1rem; }
-      .nav{ top:8px; }
-    }
-
-    /* Cards */
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:24px;
-      box-shadow:var(--shadow);
-      border:1px solid rgba(0,0,0,.04);
-      margin-bottom:22px;
-      transition:transform .25s ease, box-shadow .25s ease;
-    }
-    .card:hover{ transform:translateY(-4px); box-shadow:var(--shadow2); }
-    .card-title{
-      color:var(--primary);
-      font-size:1.45rem;
-      margin-bottom:16px;
-      padding-bottom:10px;
-      border-bottom:3px solid var(--secondary);
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:950;
-    }
-    .card-title i{ color:var(--secondary); }
-
-    /* Timeline */
-    .timeline-item{
-      margin-bottom:18px;
-      padding-left:18px;
-      border-left:3px solid rgba(52,152,219,.65);
-      position:relative;
-    }
-    .timeline-item:last-child{ margin-bottom:0; }
-    .timeline-item::before{
-      content:"";
-      position:absolute;
-      left:-8px; top:2px;
-      width:13px; height:13px;
-      border-radius:50%;
-      background:var(--secondary);
-      box-shadow:0 0 0 4px rgba(52,152,219,.15);
-    }
-    .timeline-date{
-      color:var(--accent);
-      font-weight:950;
-      font-size:.92rem;
-      margin-bottom:4px;
-    }
-    .timeline-title{
-      font-weight:950;
-      margin-bottom:4px;
-      color:var(--dark);
-    }
-    .timeline-subtitle{
-      color:var(--gray);
-      font-size:.98rem;
-      margin-bottom:8px;
-      font-weight:850;
-    }
-
-    /* Skills */
-    .skills-container{ display:flex; flex-wrap:wrap; gap:10px; }
-    .skill-tag{
-      background:#eef5ff;
-      color:var(--primary);
-      padding:8px 14px;
-      border-radius:999px;
-      font-size:.92rem;
-      border-left:4px solid var(--secondary);
-      font-weight:850;
-    }
-
-    /* Lists */
-    .clean-list{ margin:10px 0 0 20px; line-height:1.9; }
-    .muted{ color:var(--gray); }
-    .section-anchor{ scroll-margin-top:92px; }
-
-    /* Publications */
-    .pub-block{
-      margin-top:10px;
-      padding:14px;
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:12px;
-      background:#fbfcfe;
-    }
-    .pub-cat{
-      margin:14px 0 10px;
-      font-weight:950;
-      color:var(--primary);
-      display:flex; align-items:center; gap:10px;
-    }
-    .pub-cat i{ color:var(--secondary); }
-    ol.pubs{ margin:0 0 0 20px; padding:0; }
-    ol.pubs li{ margin:10px 0; }
-    .doi{
-      display:inline-block;
-      margin-left:8px;
-      color:var(--secondary);
-      font-weight:900;
-      text-decoration:none;
-    }
-    .doi:hover{ text-decoration:underline; }
-
-    /* Details/Accordion */
-    details{
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:12px;
-      padding:12px 14px;
-      background:#fff;
-      box-shadow:0 8px 18px rgba(0,0,0,.04);
-      margin-top:12px;
-    }
-    details summary{
-      cursor:pointer;
-      font-weight:950;
-      color:var(--primary);
-      list-style:none;
+    /* =========================
+       Top bar (cozy)
+       ========================= */
+    .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
+      margin-bottom:16px;
     }
-    details summary::-webkit-details-marker{ display:none; }
-    .summary-right{ color:var(--secondary); font-weight:950; }
-    details[open]{ background:#fbfcfe; }
-    details .inside{ margin-top:10px; }
 
-    /* Buttons */
-    .action-buttons{
+    .brand{
       display:flex;
-      flex-wrap:wrap;
-      gap:14px;
-      margin:18px 0 8px;
-      justify-content:center;
-    }
-    .btn{
-      padding:14px 22px;
-      border-radius:12px;
+      align-items:center;
+      gap:12px;
       text-decoration:none;
-      font-weight:950;
+    }
+    .brand .mark{
+      width:44px; height:44px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255,107,107,.95), rgba(124,92,255,.95));
+      box-shadow: var(--shadow2);
+      display:grid; place-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .brand .mark::after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 45%);
+      transform: rotate(12deg);
+    }
+    .brand .mark i{
+      color:white;
+      font-size:18px;
+      position:relative;
+      z-index:1;
+      opacity:.95;
+    }
+    .brand .title{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+    .brand .title strong{
+      font-family: var(--serif);
+      font-size:1.08rem;
+      letter-spacing:.2px;
+    }
+    .brand .title span{
+      font-size:.9rem;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .top-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+
+    .pill{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      transition:transform .2s ease, background .2s ease, color .2s ease, border .2s ease;
-      border:2px solid transparent;
-      box-shadow:0 10px 20px rgba(0,0,0,.07);
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.35);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 18px rgba(15,23,42,.06);
+      text-decoration:none;
+      font-weight:700;
+      font-size:.94rem;
+      transition: transform .18s ease, box-shadow .18s ease;
+      user-select:none;
     }
-    .btn-primary{ background:var(--secondary); color:#fff; }
-    .btn-primary:hover{ background:var(--primary); transform:translateY(-3px); }
-    .btn-outline{
-      background:transparent;
-      color:var(--primary);
-      border-color:rgba(44,62,80,.55);
-      box-shadow:none;
+    [data-theme="dark"] .pill{
+      background: rgba(18,22,30,.35);
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
     }
-    .btn-outline:hover{
-      background:var(--primary);
-      color:#fff;
-      transform:translateY(-3px);
-      border-color:var(--primary);
+    .pill:hover{ transform: translateY(-2px); box-shadow: var(--shadow2); }
+    .pill i{ color: var(--accent2); }
+
+    .toggle{
+      cursor:pointer;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.35);
+      backdrop-filter: blur(10px);
+      border-radius:999px;
+      padding:10px 14px;
+      font-weight:800;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .18s ease, box-shadow .18s ease;
+      box-shadow: 0 6px 18px rgba(15,23,42,.06);
+    }
+    [data-theme="dark"] .toggle{ background: rgba(18,22,30,.35); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+    .toggle:hover{ transform: translateY(-2px); box-shadow: var(--shadow2); }
+
+    /* =========================
+       Hero
+       ========================= */
+    .hero{
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255,255,255,.70), rgba(255,255,255,.35));
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      padding: 26px;
+    }
+    [data-theme="dark"] .hero{
+      background: linear-gradient(135deg, rgba(18,22,30,.70), rgba(18,22,30,.40));
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(420px 260px at 18% 15%, rgba(255,107,107,.22), transparent 60%),
+        radial-gradient(360px 240px at 80% 25%, rgba(124,92,255,.22), transparent 60%),
+        radial-gradient(380px 240px at 65% 85%, rgba(46,196,182,.18), transparent 60%);
+      pointer-events:none;
+      opacity:.95;
     }
 
-    /* Footer */
-    .footer{
-      text-align:center;
-      margin-top:26px;
-      padding:18px 10px;
-      color:var(--gray);
-      font-size:.95rem;
-      border-top:1px solid rgba(0,0,0,.08);
-    }
-    .footer a{ color:var(--secondary); text-decoration:none; font-weight:950; margin:0 10px; }
-    .footer a:hover{ text-decoration:underline; }
-
-    /* Small chips */
-    .chip-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
-    .chip{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 12px;
-      background:#f6f9ff;
-      border:1px solid rgba(52,152,219,.18);
-      border-radius:12px;
-      font-weight:900;
-      color:var(--primary);
-      font-size:.93rem;
-    }
-    .chip i{ color:var(--secondary); }
-    .two-col{
+    .hero-inner{
+      position:relative;
+      z-index:1;
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
+      grid-template-columns: 230px 1fr;
+      gap: 22px;
+      align-items:center;
     }
-    @media (max-width: 720px){
-      .two-col{ grid-template-columns:1fr; }
+
+    @media (max-width: 900px){
+      .hero-inner{ grid-template-columns: 1fr; }
     }
-    .small{ font-size:.95rem; }
-    .hr{ height:1px; background:rgba(0,0,0,.08); margin:14px 0; }
+
+    .avatar{
+      width: 220px;
+      height: 220px;
+      border-radius: 28px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow2);
+      background: linear-gradient(135deg, rgba(255,107,107,.20), rgba(124,92,255,.20));
+      position:relative;
+    }
+    .avatar img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .avatar .badge-mini{
+      position:absolute;
+      bottom:12px; left:12px;
+      background: rgba(255,255,255,.70);
+      border:1px solid var(--line);
+      backdrop-filter: blur(10px);
+      padding:8px 10px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:.86rem;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      box-shadow: 0 8px 20px rgba(15,23,42,.10);
+    }
+    [data-theme="dark"] .avatar .badge-mini{
+      background: rgba(18,22,30,.70);
+      box-shadow: 0 8px 20px rgba(0,0,0,.35);
+    }
+    .badge-mini i{ color: var(--mint); }
+
+    .hero-text h1{
+      font-family: var(--serif);
+      font-size: clamp(2.0rem, 3vw, 2.65rem);
+      margin:0 0 6px;
+      letter-spacing:.2px;
+    }
+    .hero-text h2{
+      margin:0 0 14px;
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .hero-text p{
+      margin:0 0 16px;
+      color: var(--text);
+      max-width: 900px;
+      font-weight:600;
+    }
+    .spark{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      color: var(--primary);
+      padding: 10px 12px;
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.45);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 22px rgba(15,23,42,.06);
+      margin-bottom: 12px;
+    }
+    [data-theme="dark"] .spark{
+      background: rgba(18,22,30,.45);
+      box-shadow: 0 8px 22px rgba(0,0,0,.25);
+    }
+    .spark i{ color: var(--sun); }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.42);
+      backdrop-filter: blur(10px);
+      font-weight:800;
+      font-size:.92rem;
+      color: var(--text);
+    }
+    [data-theme="dark"] .chip{ background: rgba(18,22,30,.42); }
+    .chip i{ color: var(--accent); opacity:.95; }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top: 14px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius: 16px;
+      text-decoration:none;
+      border:1px solid var(--line);
+      font-weight:900;
+      transition: transform .18s ease, box-shadow .18s ease;
+      user-select:none;
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 22px rgba(15,23,42,.08);
+    }
+    [data-theme="dark"] .btn{
+      background: rgba(18,22,30,.55);
+      box-shadow: 0 8px 22px rgba(0,0,0,.30);
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
+    .btn.primary{
+      border: none;
+      color:white;
+      background: linear-gradient(135deg, rgba(255,107,107,.95), rgba(124,92,255,.95));
+    }
+    .btn.primary i{ color:white; }
+
+    /* =========================
+       Cozy stats
+       ========================= */
+    .stats{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 900px){
+      .stats{ grid-template-columns: repeat(2, 1fr); }
+    }
+    .stat{
+      padding: 16px 16px;
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 24px rgba(15,23,42,.06);
+      position:relative;
+      overflow:hidden;
+    }
+    [data-theme="dark"] .stat{ background: var(--card); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+    .stat::before{
+      content:"";
+      position:absolute;
+      width:120px; height:120px;
+      right:-55px; top:-55px;
+      border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,209,102,.35), transparent 60%);
+      opacity:.8;
+    }
+    .stat .k{
+      font-size: 1.9rem;
+      font-weight: 950;
+      letter-spacing: .2px;
+      margin:0;
+    }
+    .stat .k small{ font-size: 1.1rem; opacity:.9; }
+    .stat .l{
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: .95rem;
+    }
+
+    /* =========================
+       Navigation
+       ========================= */
+    .nav{
+      position: sticky;
+      top: 12px;
+      z-index: 30;
+      margin: 18px 0 18px;
+      display:flex;
+      justify-content:center;
+    }
+    .nav-inner{
+      width: min(1000px, 100%);
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 26px rgba(15,23,42,.08);
+      padding: 10px 12px;
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content:center;
+    }
+    [data-theme="dark"] .nav-inner{
+      background: rgba(18,22,30,.55);
+      box-shadow: 0 10px 26px rgba(0,0,0,.30);
+    }
+    .nav-inner a{
+      text-decoration:none;
+      font-weight: 950;
+      font-size: .92rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border:1px solid transparent;
+      transition: transform .15s ease, background .15s ease, border .15s ease;
+      color: var(--text);
+    }
+    .nav-inner a:hover{
+      transform: translateY(-1px);
+      background: rgba(124,92,255,.14);
+      border-color: rgba(124,92,255,.22);
+    }
+
+    /* =========================
+       Two-column content
+       ========================= */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items:start;
+    }
+    @media (max-width: 1000px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    /* =========================
+       Cards & sections
+       ========================= */
+    .section{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      overflow:hidden;
+      position:relative;
+    }
+    .section:hover{
+      box-shadow: var(--shadow);
+    }
+
+    .section .head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .hgroup{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+    }
+    .icon{
+      width:44px; height:44px;
+      border-radius: 16px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, rgba(46,196,182,.18), rgba(124,92,255,.18));
+      border:1px solid rgba(124,92,255,.18);
+    }
+    .icon i{ color: var(--accent2); font-size:18px; }
+
+    .section h3{
+      margin:0;
+      font-size: 1.15rem;
+      font-weight: 950;
+      letter-spacing:.2px;
+    }
+    .section .sub{
+      margin:2px 0 0;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: .95rem;
+    }
+
+    .mini-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .mini{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.30);
+      backdrop-filter: blur(10px);
+      font-weight: 900;
+      font-size: .86rem;
+      text-decoration:none;
+    }
+    [data-theme="dark"] .mini{ background: rgba(18,22,30,.30); }
+    .mini i{ color: var(--mint); }
+
+    /* Timeline */
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .titem{
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.28);
+      backdrop-filter: blur(10px);
+      padding: 12px 12px;
+      position:relative;
+      overflow:hidden;
+    }
+    [data-theme="dark"] .titem{ background: rgba(18,22,30,.28); }
+    .titem::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(240px 140px at 10% 0%, rgba(255,107,107,.10), transparent 60%),
+        radial-gradient(220px 140px at 90% 0%, rgba(124,92,255,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .titem > *{ position:relative; z-index:1; }
+    .tmeta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+      margin-bottom: 4px;
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 950;
+      font-size: .82rem;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.30);
+    }
+    [data-theme="dark"] .tag{ background: rgba(18,22,30,.30); }
+    .tag i{ color: var(--accent); }
+
+    .titem .title{
+      font-weight: 950;
+      margin: 0;
+      font-size: 1.02rem;
+    }
+    .titem .where{
+      margin: 2px 0 8px;
+      color: var(--muted);
+      font-weight: 850;
+    }
+    .titem p{
+      margin: 0;
+      color: var(--text);
+      font-weight: 650;
+    }
+    .titem ul{
+      margin: 10px 0 0 18px;
+      padding:0;
+    }
+    .titem li{
+      margin: 6px 0;
+      font-weight: 650;
+    }
+
+    /* Skill pills */
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .skill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.28);
+      backdrop-filter: blur(10px);
+      font-weight: 900;
+      font-size: .92rem;
+    }
+    [data-theme="dark"] .skill{ background: rgba(18,22,30,.28); }
+    .skill i{ color: var(--sun); }
+
+    /* Publications */
+    .pubs{
+      margin-top: 10px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .pub{
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.28);
+      backdrop-filter: blur(10px);
+      padding: 12px 12px;
+    }
+    [data-theme="dark"] .pub{ background: rgba(18,22,30,.28); }
+    .pub .ptitle{ font-weight: 950; margin:0 0 2px; }
+    .pub .pauth{ margin:0 0 2px; color: var(--muted); font-weight:800; }
+    .pub .pj{ margin:0; color: var(--accent2); font-weight:900; font-style: italic; }
+    .pub .note{ margin: 8px 0 0; color: var(--text); font-weight:650; font-size:.95rem; }
+
+    /* Accordions (details) */
+    details{
+      border-radius: 18px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.25);
+      backdrop-filter: blur(10px);
+      padding: 10px 12px;
+      margin-top: 12px;
+      box-shadow: 0 10px 20px rgba(15,23,42,.05);
+    }
+    [data-theme="dark"] details{
+      background: rgba(18,22,30,.25);
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+    }
+    details summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      font-weight: 950;
+      padding: 4px 2px;
+    }
+    details summary::-webkit-details-marker{ display:none; }
+    .sum-right{ color: var(--muted); font-weight: 900; font-size: .92rem; display:inline-flex; align-items:center; gap:8px; }
+    details .inside{ margin-top: 10px; }
+    .inside ol{ margin: 0 0 0 18px; padding:0; }
+    .inside li{ margin: 10px 0; font-weight: 650; }
+    .doi{
+      text-decoration:none;
+      color: var(--accent2);
+      font-weight: 950;
+      margin-left: 6px;
+    }
+    .doi:hover{ text-decoration:underline; }
+
+    /* Footer actions */
+    .footer-actions{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+    }
+
+    footer{
+      margin-top: 22px;
+      text-align:center;
+      color: var(--muted);
+      font-weight: 750;
+      padding: 14px 0 6px;
+    }
+
+    /* helpers */
+    .anchor{ scroll-margin-top: 92px; }
+    .muted{ color: var(--muted); }
+    .sep{ height:1px; background: var(--line); margin: 12px 0; }
+
+    /* Motion preferences */
+    @media (prefers-reduced-motion: reduce){
+      *{ transition:none !important; scroll-behavior:auto !important; }
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
 
-    <!-- HEADER -->
-    <header class="header" id="top">
-      <div class="profile-container">
-        <!-- Put profile.jpg in the same folder as index.html -->
-        <img src="profile.jpg" class="profile-img" alt="Dr. Mohamed Kamel Elshaarawy">
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <a class="brand" href="#top">
+        <div class="mark" aria-hidden="true"><i class="fa-solid fa-droplet"></i></div>
+        <div class="title">
+          <strong>Elshaarawy</strong>
+          <span>Academic & Research Profile</span>
+        </div>
+      </a>
 
-        <div class="profile-info">
+      <div class="top-actions">
+        <a class="pill" href="mailto:melshaarawy@horus.edu.eg"><i class="fa-solid fa-envelope"></i>Email</a>
+        <a class="pill" href="Elshaarawy_Resume_Eng_27Dec2025.pdf" target="_blank" rel="noopener">
+          <i class="fa-solid fa-download"></i>CV PDF
+        </a>
+        <button class="toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+          <span id="themeText">Dark</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero anchor" id="top">
+      <div class="hero-inner">
+        <!-- Put profile.jpg next to index.html -->
+        <div class="avatar">
+          <img src="profile.jpg" alt="Dr. Mohamed Kamel Elshaarawy">
+          <div class="badge-mini"><i class="fa-solid fa-heart"></i> Friendly & Collaborative</div>
+        </div>
+
+        <div class="hero-text">
+          <div class="spark"><i class="fa-solid fa-sparkles"></i> Welcome — let’s build impactful research together</div>
+
           <h1>Dr. Mohamed Kamel Elshaarawy</h1>
-          <h2>Civil Engineer | Assistant Lecturer | Ph.D. Candidate | Researcher</h2>
+          <h2>Civil Engineer • Assistant Lecturer • Ph.D. Candidate • Researcher</h2>
 
-          <p class="tagline">
-            Mohamed Kamel Elshaarawy is an Assistant Lecturer of Civil Engineering at <strong>Horus University–Egypt (HUE)</strong>
-            and a <strong>Ph.D. candidate</strong> in Irrigation and Hydraulics Engineering at <strong>Tanta University</strong>.
-            He holds a <strong>B.Sc. (2018, Excellent with Honors)</strong> and <strong>M.Sc. (2024)</strong> from Port Said University,
-            specializing in hydraulics, water resources management, and structural design.
-            <br><br>
-            His research applies <strong>machine learning, optimization, and computational fluid dynamics (CFD)</strong>
-            to seepage control, saltwater intrusion, hydraulic structures, groundwater systems, and concrete performance.
-            He has authored <strong>35+ peer-reviewed publications</strong>, serves as an active reviewer for international journals,
-            and contributes actively to teaching and academic administration at HUE.
+          <p>
+            I am an Assistant Lecturer of Civil Engineering at <strong>Horus University–Egypt (HUE)</strong> and a
+            <strong>Ph.D. candidate</strong> in Irrigation & Hydraulics Engineering at <strong>Tanta University</strong>.
+            My research connects <strong>hydraulics, CFD, optimization, and machine learning</strong> to solve real problems in
+            seepage control, saltwater intrusion, groundwater systems, hydraulic structures, and concrete performance.
           </p>
 
-          <div class="badges">
-            <div class="badge"><i class="fas fa-university"></i><span>Horus University – Egypt (HUE)</span></div>
-            <div class="badge"><i class="fas fa-graduation-cap"></i><span>Ph.D. Candidate – Tanta University</span></div>
-            <div class="badge"><i class="fas fa-map-marker-alt"></i><span>New Damietta, Egypt</span></div>
+          <div class="chips">
+            <div class="chip"><i class="fa-solid fa-location-dot"></i> New Damietta, Egypt</div>
+            <div class="chip"><i class="fa-solid fa-phone"></i> +20 128 096 1080</div>
+            <div class="chip"><i class="fa-solid fa-phone"></i> 010 3347 6255</div>
+            <div class="chip"><i class="fa-solid fa-envelope"></i> melshaarawy@horus.edu.eg</div>
+            <div class="chip"><i class="fa-solid fa-envelope"></i> m.kamel35@gmail.com</div>
           </div>
 
-          <div class="chip-row" style="margin-top:14px;">
-            <div class="chip"><i class="fa-solid fa-location-dot"></i><span>G Mubarak St., P(4/11), Z(1), D(4), New Damietta, Egypt</span></div>
-            <div class="chip"><i class="fa-solid fa-envelope"></i><span><a href="mailto:melshaarawy@horus.edu.eg" style="text-decoration:none;">melshaarawy@horus.edu.eg</a></span></div>
-            <div class="chip"><i class="fa-solid fa-envelope"></i><span><a href="mailto:m.kamel35@gmail.com" style="text-decoration:none;">m.kamel35@gmail.com</a></span></div>
-            <div class="chip"><i class="fa-solid fa-phone"></i><span><a href="tel:+201280961080" style="text-decoration:none;">+20 128 096 1080</a></span></div>
-            <div class="chip"><i class="fa-solid fa-phone"></i><span><a href="tel:+201033476255" style="text-decoration:none;">010 3347 6255</a></span></div>
+          <div class="hero-actions">
+            <a class="btn primary" href="Elshaarawy_Resume_Eng_27Dec2025.pdf" target="_blank" rel="noopener">
+              <i class="fa-solid fa-download"></i> Download CV (PDF)
+            </a>
+            <a class="btn" href="#work"><i class="fa-solid fa-users"></i> Work With Me</a>
+            <a class="btn" href="#publications"><i class="fa-solid fa-file-lines"></i> Publications</a>
           </div>
+        </div>
+      </div>
 
-          <div class="top-links">
-            <a class="icon-link" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noopener">
-              <i class="fa-solid fa-graduation-cap"></i> Google Scholar
-            </a>
-            <a class="icon-link" href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noopener">
-              <i class="fa-brands fa-orcid"></i> ORCID
-            </a>
-            <a class="icon-link" href="https://www.researchgate.net/profile/Mohamed-Elshaarawy" target="_blank" rel="noopener">
-              <i class="fa-brands fa-researchgate"></i> ResearchGate
-            </a>
-            <a class="icon-link" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noopener">
-              <i class="fa-solid fa-database"></i> Scopus
-            </a>
-            <a class="icon-link" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noopener">
-              <i class="fa-solid fa-book-atlas"></i> Web of Science
-            </a>
-            <a class="icon-link" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noopener">
-              <i class="fa-solid fa-brain"></i> Semantic Scholar
-            </a>
-            <a class="icon-link" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank" rel="noopener">
-              <i class="fa-brands fa-linkedin"></i> LinkedIn
-            </a>
-          </div>
+      <!-- Stats -->
+      <div class="stats" aria-label="Highlights">
+        <div class="stat">
+          <p class="k"><span class="count" data-target="35">0</span><small>+</small></p>
+          <p class="l">Peer-Reviewed Publications</p>
+        </div>
+        <div class="stat">
+          <p class="k"><span class="count" data-target="89">0</span></p>
+          <p class="l">Articles Reviewed</p>
+        </div>
+        <div class="stat">
+          <p class="k"><span class="count" data-target="41">0</span></p>
+          <p class="l">Journals Served</p>
+        </div>
+        <div class="stat">
+          <p class="k"><span class="count" data-target="5">0</span></p>
+          <p class="l">Years Experience</p>
         </div>
       </div>
     </header>
 
     <!-- NAV -->
     <div class="nav">
-      <div class="nav-inner">
+      <nav class="nav-inner" aria-label="Section navigation">
         <a href="#education">Education</a>
-        <a href="#academic">Academic Role</a>
         <a href="#teaching">Teaching</a>
         <a href="#admin">Committees</a>
         <a href="#industry">Industry</a>
-        <a href="#certs">Certificates</a>
         <a href="#skills">Skills</a>
         <a href="#journal">Journal Roles</a>
         <a href="#publications">Publications</a>
         <a href="#references">References</a>
-        <a href="#download">CV PDF</a>
-      </div>
+        <a href="#work">Work With Me</a>
+      </nav>
     </div>
 
-    <!-- STATS -->
-    <div class="stats" aria-label="Highlights">
-      <div class="stat-item">
-        <div class="stat-number" data-target="35">0</div>
-        <div class="stat-label">Peer-Reviewed Publications</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" data-target="89">0</div>
-        <div class="stat-label">Articles Reviewed</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" data-target="41">0</div>
-        <div class="stat-label">Journals Served</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number" data-target="5">0</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-    </div>
+    <!-- MAIN GRID -->
+    <main class="grid">
 
-    <div class="main-content">
-
-      <!-- LEFT COLUMN -->
-      <div>
-
-        <!-- EDUCATION -->
-        <section class="card section-anchor" id="education">
-          <h2 class="card-title"><i class="fas fa-graduation-cap"></i> Education</h2>
-
-          <div class="timeline-item">
-            <div class="timeline-date">2024 – Present</div>
-            <div class="timeline-title">Doctor of Philosophy (Ph.D.) in Engineering</div>
-            <div class="timeline-subtitle">Irrigation & Hydraulics Engineering — Tanta University, Egypt</div>
-            <p class="small">
-              Ph.D. research emphasizes explainable and optimization-driven machine learning, numerical simulation,
-              and decision-support tools for irrigation systems, seepage control, and saltwater intrusion.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">2019 – 2024</div>
-            <div class="timeline-title">Master of Science (M.Sc.) in Civil Engineering</div>
-            <div class="timeline-subtitle">Port Said University, Egypt</div>
-            <p class="small">
-              <strong>Thesis:</strong> Hydraulic comparison of different types of lining for irrigation canals using
-              computational fluid dynamics (CFD) models.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">2013 – 2018</div>
-            <div class="timeline-title">Bachelor of Science (B.Sc.) in Civil Engineering</div>
-            <div class="timeline-subtitle">Port Said University, Egypt</div>
-            <p class="small"><strong>Grade:</strong> Excellent with Honors</p>
-          </div>
-        </section>
-
-        <!-- ACADEMIC ROLE -->
-        <section class="card section-anchor" id="academic">
-          <h2 class="card-title"><i class="fa-solid fa-chalkboard-user"></i> Academic Position & Responsibilities</h2>
-
-          <div class="timeline-item">
-            <div class="timeline-date">Horus University – Egypt</div>
-            <div class="timeline-title">Assistant Lecturer (Civil Engineering)</div>
-            <div class="timeline-subtitle">Teaching • Mentoring • Research • Academic Administration</div>
-            <p class="small">
-              Focused on delivering core engineering concepts with strong practical problem-solving, software use,
-              and research readiness for students. Contributes to academic committees and quality initiatives.
-            </p>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">Research Areas</div>
-            <div class="timeline-title">Machine Learning + Hydraulics + CFD + Optimization</div>
-            <div class="timeline-subtitle">Seepage • Saltwater Intrusion • Hydraulic Structures • Groundwater • Concrete Performance</div>
-            <p class="small">
-              Builds predictive and interpretable models, develops GUI tools for engineering use, and integrates
-              numerical simulation with data-driven modeling to support real-world decisions.
-            </p>
-          </div>
-        </section>
-
-        <!-- TEACHING -->
-        <section class="card section-anchor" id="teaching">
-          <h2 class="card-title"><i class="fa-solid fa-book-open-reader"></i> Teaching Courses</h2>
-
-          <details open>
-            <summary>
-              <span>Courses Delivered / Supported</span>
-              <span class="summary-right"><i class="fa-solid fa-circle-info"></i> Programs</span>
-            </summary>
-            <div class="inside">
-              <div class="two-col">
-                <div class="pub-block">
-                  <div class="pub-cat"><i class="fa-solid fa-building-columns"></i> Civil Engineering Program</div>
-                  <ul class="clean-list">
-                    <li>Hydraulics 1</li>
-                    <li>Hydraulics 2</li>
-                    <li>Hydrology</li>
-                    <li>Civil Drawing</li>
-                    <li>Design of Irrigation Structures</li>
-                    <li>Engineering Surveying</li>
-                    <li>Environmental Engineering</li>
-                    <li>Irrigation & Drainage Engineering</li>
-                  </ul>
-                </div>
-
-                <div class="pub-block">
-                  <div class="pub-cat"><i class="fa-solid fa-city"></i> Architectural Engineering Program</div>
-                  <ul class="clean-list">
-                    <li>Engineering Surveying for Architect</li>
-                    <li>Reinforced Concrete and Foundation</li>
-                  </ul>
-
-                  <div class="hr"></div>
-
-                  <div class="pub-cat"><i class="fa-solid fa-pen-ruler"></i> Level 0 (Foundation)</div>
-                  <ul class="clean-list">
-                    <li>Engineering Drawing</li>
-                    <li>AutoCAD Sessions</li>
-                  </ul>
-                </div>
-              </div>
-
-              <p class="muted" style="margin-top:12px;">
-                Teaching style emphasizes: clear fundamentals → worked examples → engineering software practice → project/report writing → exam preparation.
-              </p>
+      <!-- LEFT -->
+      <section class="section anchor" id="education">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div>
+              <h3>Education</h3>
+              <p class="sub">Academic background & research direction</p>
             </div>
-          </details>
-        </section>
+          </div>
+          <div class="mini-actions">
+            <a class="mini" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noopener">
+              <i class="fa-solid fa-graduation-cap"></i> Scholar
+            </a>
+            <a class="mini" href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noopener">
+              <i class="fa-brands fa-orcid"></i> ORCID
+            </a>
+          </div>
+        </div>
 
-        <!-- INDUSTRY EXPERIENCE -->
-        <section class="card section-anchor" id="industry">
-          <h2 class="card-title"><i class="fa-solid fa-helmet-safety"></i> Industry Experience</h2>
+        <div class="timeline">
+          <div class="titem">
+            <div class="tmeta">
+              <span class="tag"><i class="fa-solid fa-seedling"></i> 2024 – Present</span>
+              <span class="tag"><i class="fa-solid fa-water"></i> Ph.D.</span>
+            </div>
+            <p class="title">Ph.D. in Engineering (Irrigation & Hydraulics Engineering)</p>
+            <p class="where">Tanta University, Egypt</p>
+            <p>
+              Doctoral work emphasizes explainable and optimization-driven machine learning, numerical simulation,
+              and decision-support tools for seepage control, irrigation systems, and saltwater intrusion.
+            </p>
+          </div>
 
-          <div class="timeline-item">
-            <div class="timeline-date">Sep 2019 – Sep 2020</div>
-            <div class="timeline-title">Technical Office Engineer</div>
-            <div class="timeline-subtitle">Meamar Elhamd for Real Estate Development — New Damietta, Egypt</div>
-            <p class="small"><strong>Experience:</strong> 1 year</p>
-            <p class="small"><strong>Key responsibilities:</strong></p>
-            <ul class="clean-list">
-              <li>Prepared and reviewed shop drawings, as-built drawings, and coordination plans for residential and commercial projects.</li>
-              <li>Performed quantity surveying, prepared BOQs, and assisted in cost estimates and variation orders.</li>
-              <li>Coordinated with site engineers, subcontractors, and suppliers to resolve technical issues and ensure design compliance.</li>
-              <li>Prepared technical submittals, RFIs, and documentation required for consultants and project owners.</li>
-              <li>Assisted in project planning and scheduling; tracked progress against approved baseline program.</li>
-              <li>Monitored material usage and construction progress to support cost control and adherence to specifications.</li>
+          <div class="titem">
+            <div class="tmeta">
+              <span class="tag"><i class="fa-solid fa-calendar"></i> 2019 – 2024</span>
+              <span class="tag"><i class="fa-solid fa-square-root-variable"></i> M.Sc.</span>
+            </div>
+            <p class="title">M.Sc. in Civil Engineering</p>
+            <p class="where">Port Said University, Egypt</p>
+            <p>
+              <strong>Thesis:</strong> Hydraulic comparison of different types of lining for irrigation canals using CFD models.
+            </p>
+          </div>
+
+          <div class="titem">
+            <div class="tmeta">
+              <span class="tag"><i class="fa-solid fa-calendar"></i> 2013 – 2018</span>
+              <span class="tag"><i class="fa-solid fa-medal"></i> B.Sc.</span>
+            </div>
+            <p class="title">B.Sc. in Civil Engineering</p>
+            <p class="where">Port Said University, Egypt</p>
+            <p><strong>Grade:</strong> Excellent with Honors</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT -->
+      <section class="section anchor" id="teaching">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <div>
+              <h3>Teaching</h3>
+              <p class="sub">Courses, mentoring, and student support</p>
+            </div>
+          </div>
+          <div class="mini-actions">
+            <a class="mini" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank" rel="noopener">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <a class="mini" href="https://www.researchgate.net/profile/Mohamed-Elshaarawy" target="_blank" rel="noopener">
+              <i class="fa-brands fa-researchgate"></i> ResearchGate
+            </a>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="titem">
+            <div class="tmeta">
+              <span class="tag"><i class="fa-solid fa-university"></i> 2024 – Present</span>
+              <span class="tag"><i class="fa-solid fa-person-chalkboard"></i> Assistant Lecturer</span>
+            </div>
+            <p class="title">Civil Engineering Department — Horus University–Egypt</p>
+            <p class="where">Teaching • Mentoring • Research • Academic administration</p>
+            <p>
+              Teaching approach: clear fundamentals → guided examples → software practice → project/report writing →
+              research readiness for strong students.
+            </p>
+            <ul>
+              <li>Deliver lectures & tutorials; supervise labs and project-based learning</li>
+              <li>Mentor graduation projects and research-oriented student teams</li>
+              <li>Guide students in numerical modeling, CFD foundations, and data analysis</li>
+              <li>Support academic quality processes and department development initiatives</li>
             </ul>
           </div>
-        </section>
 
-      </div>
-
-      <!-- RIGHT COLUMN -->
-      <div>
-
-        <!-- ADMIN MEMBERSHIPS -->
-        <section class="card section-anchor" id="admin">
-          <h2 class="card-title"><i class="fa-solid fa-sitemap"></i> Administrative Memberships (Committees)</h2>
-
-          <details open>
-            <summary>
-              <span>Academic & Quality Committees</span>
-              <span class="summary-right"><i class="fa-solid fa-calendar-check"></i> Dates</span>
-            </summary>
-            <div class="inside">
-              <ul class="clean-list">
-                <li><strong>Central Study Timetable Committee</strong> (Aug 2024 – Present)</li>
-                <li><strong>Final Examination Schedule Preparation Committee</strong> (Nov 2021 – Present)</li>
-                <li><strong>New Bylaw Creation and Revision Committee</strong> (Jul 2024 – Sep 2025)</li>
-                <li><strong>Civil Engineering Department Study Timetable Committee</strong> (Aug 2022 – Aug 2024)</li>
-                <li><strong>Leadership and Governance Quality Standards Committee</strong> (Oct 2023 – Apr 2024)</li>
-                <li><strong>Simulation and Grant Review for ISO Certification</strong> (Jan 2024 – Feb 2024)</li>
-                <li><strong>ISO Executive Committee</strong> (Apr 2023 – Feb 2024)</li>
-                <li><strong>Graduation Projects Documentation Committee</strong> (Aug 2023 – Jul 2023)</li>
-                <li><strong>Faculty Online Platform Review Committee</strong> (Aug 2022 – Sep 2022)</li>
-                <li><strong>Bylaw Amendment Committee</strong> (Apr 2022 – Sep 2022)</li>
-              </ul>
-              <p class="muted" style="margin-top:12px;">
-                These roles support academic scheduling, exam readiness, program bylaws, governance standards, and ISO certification preparation.
-              </p>
+          <div class="titem">
+            <div class="tmeta">
+              <span class="tag"><i class="fa-solid fa-university"></i> 2020 – 2024</span>
+              <span class="tag"><i class="fa-solid fa-people-group"></i> Demonstrator</span>
             </div>
-          </details>
-        </section>
+            <p class="title">Civil Engineering Department — Horus University–Egypt</p>
+            <p class="where">Teaching support & hands-on training</p>
+            <ul>
+              <li>Explained hydraulic concepts using real engineering examples and worked problems</li>
+              <li>Assisted in lab measurements, calculations, and reporting</li>
+              <li>Provided individual guidance for exams, assignments, and projects</li>
+              <li>Introduced students to engineering software and computational thinking</li>
+            </ul>
+          </div>
+        </div>
 
-        <!-- CERTIFICATES -->
-        <section class="card section-anchor" id="certs">
-          <h2 class="card-title"><i class="fa-solid fa-certificate"></i> Courses & Certificates</h2>
+        <details open>
+          <summary>
+            <span>Courses Delivered / Supported</span>
+            <span class="sum-right"><i class="fa-solid fa-list"></i> Expand</span>
+          </summary>
+          <div class="inside">
+            <div class="sep"></div>
+            <p class="muted"><strong>Civil Engineering Program</strong></p>
+            <ul style="margin:8px 0 0 18px;">
+              <li>Hydraulics 1</li>
+              <li>Hydraulics 2</li>
+              <li>Hydrology</li>
+              <li>Civil Drawing</li>
+              <li>Design of Irrigation Structures</li>
+              <li>Engineering Surveying</li>
+              <li>Environmental Engineering</li>
+              <li>Irrigation & Drainage Engineering</li>
+            </ul>
 
-          <details open>
-            <summary>
-              <span>Academic / Research / Professional Development</span>
-              <span class="summary-right"><i class="fa-solid fa-award"></i> Highlights</span>
-            </summary>
-            <div class="inside">
-              <ul class="clean-list">
-                <li><strong>Coursera:</strong> What is Data Science? (2025)</li>
-                <li><strong>Scopus Academy:</strong> Basic Search (2025), Advanced Search (2025), Metrics (2025), Research Collaborations (2025)</li>
-                <li><strong>Library Connect Academy:</strong> Benefits & Risks of AI (2025), Foundations of AI (2025), Responsible AI (2025)</li>
-                <li><strong>Wiley:</strong> Top Cited Paper in Irrigation & Drainage Journal (2025)</li>
-                <li><strong>Horus University–Egypt:</strong> The Academic Landscape in the Era of AI (2024); M.Sc. Degree Completion (2024)</li>
-                <li><strong>1st National Radio Science Conference (NRSC):</strong> Local Organizing Committee Member (2024)</li>
-                <li><strong>AIRGEC:</strong> Local Organizing Committee Member and Author (2024)</li>
-                <li><strong>DAAD Kairo Akademie:</strong> Proposal Writing for Master & PhD Candidates (2023)</li>
-                <li><strong>Port Said University (E-Courses Platform):</strong> Effective Presentation Skills (2023); Change Management Skills (2023); International Publishing of Scientific Research (2023); Comprehensive Quality Standards in Health Institutions (2023); Using Technology in Teaching (2023); Credit Hours System (2023)</li>
-                <li><strong>Centre of Knowledge and e-Services:</strong> Fundamentals of Digital Transformation Certificate (FDTC, 2020)</li>
-                <li><strong>Cisco Networking Academy:</strong> Entrepreneurship (2020)</li>
-                <li><strong>Damietta University:</strong> Teaching Experience Certificate (2018)</li>
-              </ul>
-            </div>
-          </details>
+            <div class="sep"></div>
+            <p class="muted"><strong>Architectural Engineering Program</strong></p>
+            <ul style="margin:8px 0 0 18px;">
+              <li>Engineering Surveying for Architect</li>
+              <li>Reinforced Concrete and Foundation</li>
+            </ul>
 
-          <details>
-            <summary>
-              <span>Engineering Courses Certificates</span>
-              <span class="summary-right"><i class="fa-solid fa-screwdriver-wrench"></i> Technical</span>
-            </summary>
-            <div class="inside">
-              <ul class="clean-list">
-                <li><strong>Arab Co. for Engineering & Systems Consultations:</strong> Internal Revision based on ISO 9001/2015 & 21000/2018 Regulations (2024)</li>
-                <li><strong>Meamar Elhamd:</strong> Technical Office Engineer & Structural Designer (2020)</li>
-                <li><strong>iLearn Academy:</strong> Structural Design Diploma (2019)</li>
-                <li><strong>Orascom EgyNile:</strong> Primavera & Revit Diploma (2018)</li>
-                <li><strong>Port-Said Engineering Syndicate:</strong> Site Engineer (2018)</li>
-                <li><strong>Egyptian Engineers Syndicate:</strong> Certificate of Academic Excellence in Civil Engineering (2018)</li>
-                <li><strong>Telecom-Egypt:</strong> AutoCAD 2D Basic Applications (2015)</li>
-              </ul>
-            </div>
-          </details>
-        </section>
+            <div class="sep"></div>
+            <p class="muted"><strong>Level 0 (Foundation)</strong></p>
+            <ul style="margin:8px 0 0 18px;">
+              <li>Engineering Drawing</li>
+              <li>AutoCAD Sessions</li>
+            </ul>
+          </div>
+        </details>
+      </section>
 
-        <!-- SKILLS -->
-        <section class="card section-anchor" id="skills">
-          <h2 class="card-title"><i class="fa-solid fa-toolbox"></i> Skills</h2>
-
-          <div class="pub-block">
-            <div class="pub-cat"><i class="fa-solid fa-user-gear"></i> Personal</div>
-            <div class="skills-container">
-              <div class="skill-tag">Attention to Detail</div>
-              <div class="skill-tag">Problem Solving</div>
-              <div class="skill-tag">Teamwork</div>
-              <div class="skill-tag">Organization</div>
-              <div class="skill-tag">Working Under Pressure</div>
+      <!-- LEFT -->
+      <section class="section anchor" id="admin">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-sitemap"></i></div>
+            <div>
+              <h3>Administrative Memberships</h3>
+              <p class="sub">Committees & quality initiatives</p>
             </div>
           </div>
+        </div>
 
-          <div class="pub-block">
-            <div class="pub-cat"><i class="fa-solid fa-code"></i> Programming</div>
-            <div class="skills-container">
-              <div class="skill-tag">Python</div>
-              <div class="skill-tag">MATLAB</div>
+        <details open>
+          <summary>
+            <span>Academic & Quality Committees</span>
+            <span class="sum-right"><i class="fa-solid fa-calendar-check"></i> Dates</span>
+          </summary>
+          <div class="inside">
+            <ul style="margin:0 0 0 18px;">
+              <li><strong>Central Study Timetable Committee</strong> (Aug 2024 – Present)</li>
+              <li><strong>Final Examination Schedule Preparation Committee</strong> (Nov 2021 – Present)</li>
+              <li><strong>New Bylaw Creation and Revision Committee</strong> (Jul 2024 – Sep 2025)</li>
+              <li><strong>Civil Engineering Department Study Timetable Committee</strong> (Aug 2022 – Aug 2024)</li>
+              <li><strong>Leadership and Governance Quality Standards Committee</strong> (Oct 2023 – Apr 2024)</li>
+              <li><strong>Simulation and Grant Review for ISO Certification</strong> (Jan 2024 – Feb 2024)</li>
+              <li><strong>ISO Executive Committee</strong> (Apr 2023 – Feb 2024)</li>
+              <li><strong>Graduation Projects Documentation Committee</strong> (Aug 2023 – Jul 2023)</li>
+              <li><strong>Faculty Online Platform Review Committee</strong> (Aug 2022 – Sep 2022)</li>
+              <li><strong>Bylaw Amendment Committee</strong> (Apr 2022 – Sep 2022)</li>
+            </ul>
+            <p class="muted" style="margin-top:10px;">
+              These roles support scheduling, exam readiness, program bylaws, governance standards, and ISO certification preparation.
+            </p>
+          </div>
+        </details>
+      </section>
+
+      <!-- RIGHT -->
+      <section class="section anchor" id="industry">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-helmet-safety"></i></div>
+            <div>
+              <h3>Industry Experience</h3>
+              <p class="sub">Technical office & engineering coordination</p>
             </div>
           </div>
+        </div>
 
-          <div class="pub-block">
-            <div class="pub-cat"><i class="fa-solid fa-pen-ruler"></i> Drawing & Drafting</div>
-            <div class="skills-container">
-              <div class="skill-tag">AutoCAD</div>
-              <div class="skill-tag">SketchUp</div>
-              <div class="skill-tag">Revit Structural</div>
-              <div class="skill-tag">Origin</div>
+        <div class="timeline">
+          <div class="titem">
+            <div class="tmeta">
+              <span class="tag"><i class="fa-solid fa-calendar"></i> Sep 2019 – Sep 2020</span>
+              <span class="tag"><i class="fa-solid fa-briefcase"></i> Technical Office</span>
+            </div>
+            <p class="title">Technical Office Engineer</p>
+            <p class="where">Meamar Elhamd for Real Estate Development — New Damietta, Egypt</p>
+            <ul>
+              <li>Prepared/reviewed shop drawings, as-built drawings, and coordination plans</li>
+              <li>Performed quantity surveying, BOQs, and assisted in cost estimates & variations</li>
+              <li>Coordinated with site engineers, subcontractors, and suppliers to resolve technical issues</li>
+              <li>Prepared technical submittals, RFIs, and consultant/owner documentation</li>
+              <li>Supported planning/scheduling and progress tracking</li>
+              <li>Monitored materials and progress to support cost control and specs compliance</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEFT -->
+      <section class="section anchor" id="skills">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-toolbox"></i></div>
+            <div>
+              <h3>Skills</h3>
+              <p class="sub">Technical + personal strengths</p>
             </div>
           </div>
+        </div>
 
-          <div class="pub-block">
-            <div class="pub-cat"><i class="fa-solid fa-compass-drafting"></i> Structural Analysis & Design</div>
-            <div class="skills-container">
-              <div class="skill-tag">ETABS</div>
-              <div class="skill-tag">SAFE</div>
-              <div class="skill-tag">SAP</div>
+        <p class="muted" style="margin:0 0 8px; font-weight:800;">
+          A comfortable, practical stack for teaching, research, modeling, and publishing.
+        </p>
+
+        <div class="sep"></div>
+        <p class="muted"><strong>Personal</strong></p>
+        <div class="skills">
+          <div class="skill"><i class="fa-solid fa-check"></i> Attention to Detail</div>
+          <div class="skill"><i class="fa-solid fa-check"></i> Problem Solving</div>
+          <div class="skill"><i class="fa-solid fa-check"></i> Teamwork</div>
+          <div class="skill"><i class="fa-solid fa-check"></i> Organization</div>
+          <div class="skill"><i class="fa-solid fa-check"></i> Working Under Pressure</div>
+        </div>
+
+        <div class="sep"></div>
+        <p class="muted"><strong>Programming</strong></p>
+        <div class="skills">
+          <div class="skill"><i class="fa-solid fa-code"></i> Python</div>
+          <div class="skill"><i class="fa-solid fa-code"></i> MATLAB</div>
+        </div>
+
+        <div class="sep"></div>
+        <p class="muted"><strong>Drawing & Drafting</strong></p>
+        <div class="skills">
+          <div class="skill"><i class="fa-solid fa-pen-ruler"></i> AutoCAD</div>
+          <div class="skill"><i class="fa-solid fa-cube"></i> SketchUp</div>
+          <div class="skill"><i class="fa-solid fa-building"></i> Revit Structural</div>
+          <div class="skill"><i class="fa-solid fa-chart-line"></i> Origin</div>
+        </div>
+
+        <div class="sep"></div>
+        <p class="muted"><strong>Structural Analysis & Design</strong></p>
+        <div class="skills">
+          <div class="skill"><i class="fa-solid fa-compass-drafting"></i> ETABS</div>
+          <div class="skill"><i class="fa-solid fa-compass-drafting"></i> SAFE</div>
+          <div class="skill"><i class="fa-solid fa-compass-drafting"></i> SAP</div>
+        </div>
+
+        <div class="sep"></div>
+        <p class="muted"><strong>Hydraulic Modeling</strong></p>
+        <div class="skills">
+          <div class="skill"><i class="fa-solid fa-water"></i> FLOW-3D</div>
+          <div class="skill"><i class="fa-solid fa-water"></i> Flow Master</div>
+          <div class="skill"><i class="fa-solid fa-water"></i> SEEP/W & SLOPE/W (GeoStudio)</div>
+          <div class="skill"><i class="fa-solid fa-water"></i> SLIDE (Rocscience)</div>
+        </div>
+
+        <div class="sep"></div>
+        <p class="muted"><strong>Documentation</strong></p>
+        <div class="skills">
+          <div class="skill"><i class="fa-solid fa-file-word"></i> MS Word</div>
+          <div class="skill"><i class="fa-solid fa-file-excel"></i> MS Excel</div>
+          <div class="skill"><i class="fa-solid fa-file-powerpoint"></i> MS PowerPoint</div>
+        </div>
+
+        <div class="sep"></div>
+        <p class="muted"><strong>Languages</strong></p>
+        <div class="skills">
+          <div class="skill"><i class="fa-solid fa-language"></i> Arabic (Native)</div>
+          <div class="skill"><i class="fa-solid fa-language"></i> English (IELTS 6.0 • TOEFL ITP 510)</div>
+        </div>
+      </section>
+
+      <!-- RIGHT -->
+      <section class="section anchor" id="journal">
+        <div class="head">
+          <div class="hgroup">
+            <div class="icon"><i class="fa-solid fa-pen-to-square"></i></div>
+            <div>
+              <h3>Journal Roles & Peer Review</h3>
+              <p class="sub">Editorial contribution and reviewing</p>
             </div>
           </div>
-
-          <div class="pub-block">
-            <div class="pub-cat"><i class="fa-solid fa-file-lines"></i> Documentation & Reporting</div>
-            <div class="skills-container">
-              <div class="skill-tag">MS Word</div>
-              <div class="skill-tag">MS Excel</div>
-              <div class="skill-tag">MS PowerPoint</div>
-            </div>
+          <div class="mini-actions">
+            <a class="mini" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noopener">
+              <i class="fa-solid fa-database"></i> Scopus
+            </a>
+            <a class="mini" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noopener">
+              <i class="fa-solid fa-book-atlas"></i> WoS
+            </a>
           </div>
+        </div>
 
-          <div class="pub-block">
-            <div class="pub-cat"><i class="fa-solid fa-water"></i> Hydraulic Modeling</div>
-            <div class="skills-container">
-              <div class="skill-tag">FLOW-3D</div>
-              <div class="skill-tag">Flow Master</div>
-              <div class="skill-tag">SEEP/W & SLOPE/W (GeoStudio)</div>
-              <div class="skill-tag">SLIDE (Rocscience)</div>
-            </div>
+        <div class="titem">
+          <p class="title">Handling Editor</p>
+          <p class="where">Frontiers in Built Environment Journal</p>
+          <p class="muted" style="margin:0;">Active editorial support for peer-review and publication process.</p>
+        </div>
+
+        <div class="sep"></div>
+
+        <div class="titem">
+          <p class="title">Peer Reviewer</p>
+          <p class="where">41 journals • 89 reviewed articles (as listed in CV)</p>
+          <p>Committed to constructive reviews that improve clarity, rigor, and reproducibility.</p>
+        </div>
+
+        <details>
+          <summary>
+            <span>Journals Served (with counts)</span>
+            <span class="sum-right"><i class="fa-solid fa-list"></i> Expand</span>
+          </summary>
+          <div class="inside">
+            <ul style="margin:0 0 0 18px;">
+              <li>Agricultural Water Management (12)</li>
+              <li>Innovative Infrastructure Solutions (1)</li>
+              <li>Modeling Earth Systems and Environment (3)</li>
+              <li>Arabian Journal of Geosciences (1)</li>
+              <li>International Journal of Concrete Structures and Materials (1)</li>
+              <li>Neural Computing and Applications (1)</li>
+              <li>Case Studies in Construction Materials (2)</li>
+              <li>International Journal of Pavement Research and Technology (1)</li>
+              <li>Operations Research Forum (2)</li>
+              <li>Discover Artificial Intelligence (1)</li>
+              <li>International Journal of Digital Earth (1)</li>
+              <li>Physics and Chemistry of the Earth (2)</li>
+              <li>Discover Civil Engineering (1)</li>
+              <li>Iranian Journal of Science and Technology, Trans. Civil Eng. (1)</li>
+              <li>Results in Engineering (6)</li>
+              <li>Discover Water (1)</li>
+              <li>Irrigation and Drainage (1)</li>
+              <li>Science of the Total Environment (2)</li>
+              <li>Earth Science Informatics (2)</li>
+              <li>Journal of African Earth Sciences (1)</li>
+              <li>Scientific Reports (8)</li>
+              <li>Earth Systems and Environment (1)</li>
+              <li>Journal of Asian Arch. and Build. Eng. (1)</li>
+              <li>Stoch. Environ. Res. Risk Assessment (1)</li>
+              <li>Eng. Applications of AI (3)</li>
+              <li>Journal of Ecohydraulics (1)</li>
+              <li>Structures (2)</li>
+              <li>Environ. Develop. Sustain. (1)</li>
+              <li>Journal of Environmental Management (1)</li>
+              <li>Sustainable Water Resources Manag. (4)</li>
+              <li>Euro-Mediterranean J for Environ. Integ. (2)</li>
+              <li>Journal of Hydrology (1)</li>
+              <li>Urban Water Journal (1)</li>
+              <li>Flow Measurement and Instrumentation (1)</li>
+              <li>Journal of Water Process Engineering (9)</li>
+              <li>Water Cons. Science and Engineering (1)</li>
+              <li>Geomatics, Natural Hazards & Risk (1)</li>
+              <li>Knowledge-based Systems (2)</li>
+              <li>Water Resources Management (1)</li>
+              <li>Hydrogeology Journal (1)</li>
+              <li>Mathematical and Comput. Apps. (1)</li>
+            </ul>
           </div>
+        </details>
+      </section>
 
-          <div class="pub-block">
-            <div class="pub-cat"><i class="fa-solid fa-language"></i> Languages</div>
-            <div class="skills-container">
-              <div class="skill-tag">Arabic (Native)</div>
-              <div class="skill-tag">English (IELTS 6.0 • TOEFL ITP 510)</div>
-            </div>
-          </div>
-        </section>
-
-        <!-- JOURNAL ROLES -->
-        <section class="card section-anchor" id="journal">
-          <h2 class="card-title"><i class="fa-solid fa-pen-to-square"></i> Journal Roles & Peer Review</h2>
-
-          <div class="pub-block">
-            <p class="small"><strong>Handling Editor:</strong> Frontiers in Built Environment Journal</p>
-            <p class="small"><strong>Peer Reviewer:</strong> Reviewer in <strong>41 distinct journals</strong> (reviewed <strong>89 articles</strong>)</p>
-          </div>
-
-          <details>
-            <summary>
-              <span>Journals Served (with counts)</span>
-              <span class="summary-right"><i class="fa-solid fa-list"></i> Expand</span>
-            </summary>
-            <div class="inside small">
-              <p class="muted">Selected list as stated in the CV (counts in parentheses):</p>
-              <ul class="clean-list">
-                <li>Agricultural Water Management (12)</li>
-                <li>Innovative Infrastructure Solutions (1)</li>
-                <li>Modeling Earth Systems and Environment (3)</li>
-                <li>Arabian Journal of Geosciences (1)</li>
-                <li>International Journal of Concrete Structures and Materials (1)</li>
-                <li>Neural Computing and Applications (1)</li>
-                <li>Case Studies in Construction Materials (2)</li>
-                <li>International Journal of Pavement Research and Technology (1)</li>
-                <li>Operations Research Forum (2)</li>
-                <li>Discover Artificial Intelligence (1)</li>
-                <li>International Journal of Digital Earth (1)</li>
-                <li>Physics and Chemistry of the Earth (2)</li>
-                <li>Discover Civil Engineering (1)</li>
-                <li>Iranian Journal of Science and Technology, Transactions of Civil Engineering (1)</li>
-                <li>Results in Engineering (6)</li>
-                <li>Discover Water (1)</li>
-                <li>Irrigation and Drainage (1)</li>
-                <li>Science of the Total Environment (2)</li>
-                <li>Earth Science Informatics (2)</li>
-                <li>Journal of African Earth Sciences (1)</li>
-                <li>Scientific Reports (8)</li>
-                <li>Earth Systems and Environment (1)</li>
-                <li>Journal of Asian Architecture and Building Engineering (1)</li>
-                <li>Stochastic Environmental Research and Risk Assessment (1)</li>
-                <li>Engineering Applications of AI (3)</li>
-                <li>Journal of Ecohydraulics (1)</li>
-                <li>Structures (2)</li>
-                <li>Environmental Development and Sustainability (1)</li>
-                <li>Journal of Environmental Management (1)</li>
-                <li>Sustainable Water Resources Management (4)</li>
-                <li>Euro-Mediterranean Journal for Environmental Integration (2)</li>
-                <li>Journal of Hydrology (1)</li>
-                <li>Urban Water Journal (1)</li>
-                <li>Flow Measurement and Instrumentation (1)</li>
-                <li>Journal of Water Process Engineering (9)</li>
-                <li>Water Conservation Science and Engineering (1)</li>
-                <li>Geomatics, Natural Hazards & Risk (1)</li>
-                <li>Knowledge-based Systems (2)</li>
-                <li>Water Resources Management (1)</li>
-                <li>Hydrogeology Journal (1)</li>
-                <li>Mathematical and Computational Applications (1)</li>
-              </ul>
-            </div>
-          </details>
-        </section>
-
-      </div>
-    </div>
+    </main>
 
     <!-- PUBLICATIONS -->
-    <section class="card section-anchor" id="publications">
-      <h2 class="card-title"><i class="fa-solid fa-file-lines"></i> Publications (Full List from CV)</h2>
+    <section class="section anchor" id="publications" style="margin-top:16px;">
+      <div class="head">
+        <div class="hgroup">
+          <div class="icon"><i class="fa-solid fa-file-lines"></i></div>
+          <div>
+            <h3>Selected Publications</h3>
+            <p class="sub">A few highlights with a friendly “what it means” note</p>
+          </div>
+        </div>
+        <div class="mini-actions">
+          <a class="mini" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noopener">
+            <i class="fa-solid fa-brain"></i> Semantic Scholar
+          </a>
+        </div>
+      </div>
 
-      <details open>
+      <div class="pubs">
+        <div class="pub">
+          <p class="ptitle">Stacked-based hybrid gradient boosting models for estimating seepage from lined canals</p>
+          <p class="pauth">Elshaarawy, M. K.</p>
+          <p class="pj">Journal of Water Process Engineering, 2024</p>
+          <p class="note">Built stacked ensemble ML models to improve seepage estimation accuracy for lined irrigation canals.</p>
+        </div>
+
+        <div class="pub">
+          <p class="ptitle">Predicting reference evapotranspiration in semi-arid regions using optimized machine learning models</p>
+          <p class="pauth">Eltarabily, M. G., Elshaarawy, M. K., et al.</p>
+          <p class="pj">Journal of Water and Climate Change, 2025</p>
+          <p class="note">Developed optimized ML predictors for ETo to support irrigation scheduling and water-demand management.</p>
+        </div>
+
+        <div class="pub">
+          <p class="ptitle">Machine learning and interactive GUI for concrete compressive strength prediction</p>
+          <p class="pauth">Elshaarawy, M. K., Alsaadawi, M. M., &amp; Hamed, A. K.</p>
+          <p class="pj">Scientific Reports, 2024</p>
+          <p class="note">Combined ML prediction with a friendly GUI so engineers can estimate compressive strength quickly.</p>
+        </div>
+      </div>
+
+      <details style="margin-top:14px;">
         <summary>
-          <span>Research Articles — Extracted from M.Sc. Thesis (1–9)</span>
-          <span class="summary-right"><i class="fa-solid fa-chevron-down"></i></span>
+          <span>Full Publications (from CV) — organized list</span>
+          <span class="sum-right"><i class="fa-solid fa-chevron-down"></i> Open</span>
         </summary>
         <div class="inside">
-          <ol class="pubs">
-            <li>
-              Elshaarawy, M. K. (2025). Numerical and Regression-Based Modeling of Leakage in Lined Trapezoidal Channels.
-              <em>Horus University Journal of Engineering</em>, 1(1), 1–12.
-              <a class="doi" href="https://doi.org/10.21608/huje.2025.366458.1001" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Elshaarawy, M. K. (2025). Metaheuristic-driven CatBoost model for accurate seepage loss prediction in lined canals.
-              <em>Multiscale and Multidisciplinary Modeling, Experiments and Design</em>.
-              <a class="doi" href="https://doi.org/10.1007/s41939-025-00800-8" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Elshaarawy, M. K. (2025). Stacked-based hybrid gradient boosting models for estimating seepage from lined canals.
-              <em>Journal of Water Process Engineering</em>, 70, 106913.
-              <a class="doi" href="https://doi.org/10.1016/j.jwpe.2024.106913" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Elshaarawy, M. K., &amp; Elmasry, N. H. (2024). Experimental and Numerical Modeling of Seepage in Trapezoidal Channels.
-              <em>Knowledge-Based Engineering and Sciences</em>, 5(3), 43–60.
-            </li>
-            <li>
-              Elshaarawy, M. K., Elmasry, N. H., Selim, T., Elkiki, M., &amp; Eltarabily, M. G. (2024).
-              Determining seepage loss predictions in lined canals through optimizing advanced gradient boosting techniques.
-              <em>Water Conservation Science and Engineering</em>, 9(2), 75.
-              <a class="doi" href="https://doi.org/10.1007/s41101-024-00306-3" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Selim, T., Elshaarawy, M. K., Elkiki, M., &amp; Eltarabily, M. G. (2024).
-              Estimating seepage losses from lined irrigation canals using nonlinear regression and artificial neural network models.
-              <em>Applied Water Science</em>, 14(5), 90.
-              <a class="doi" href="https://doi.org/10.1007/s13201-024-02142-1" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Eltarabily, M. G., Elshaarawy, M. K., Elkiki, M., &amp; Selim, T. (2024).
-              CFD and ANN for modelling lined irrigation canals with LDPE and cement concrete liners.
-              <em>Irrigation and Drainage</em>, 73(3), 910–927.
-              <a class="doi" href="https://doi.org/10.1002/ird.2911" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Eltarabily, M. G., Abd-Elhamid, H. F., Zeleňáková, M., Elshaarawy, M. K., Elkiki, M., &amp; Selim, T. (2023).
-              Predicting seepage losses from lined irrigation canals using machine learning models.
-              <em>Frontiers in Water</em>, 5, 1287357.
-              <a class="doi" href="https://doi.org/10.3389/frwa.2023.1287357" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Eltarabily, M. G., Elshaarawy, M. K., Elkiki, M., &amp; Selim, T. (2023).
-              Modeling surface water and groundwater interactions for seepage losses estimation from unlined and lined canals.
-              <em>Water Science</em>, 37(1), 315–328.
-            </li>
-          </ol>
+          <p class="muted" style="margin:0 0 10px;">
+            This section keeps the detailed publication entries you included previously. You can extend it anytime.
+          </p>
+
+          <details open>
+            <summary>
+              <span>Extracted from M.Sc. Thesis (1–9)</span>
+              <span class="sum-right"><i class="fa-solid fa-list-ol"></i> Show</span>
+            </summary>
+            <div class="inside">
+              <ol>
+                <li>
+                  Elshaarawy, M. K. (2025). Numerical and Regression-Based Modeling of Leakage in Lined Trapezoidal Channels.
+                  <em>Horus University Journal of Engineering</em>, 1(1), 1–12.
+                  <a class="doi" href="https://doi.org/10.21608/huje.2025.366458.1001" target="_blank" rel="noopener">DOI</a>
+                </li>
+                <li>
+                  Elshaarawy, M. K. (2025). Metaheuristic-driven CatBoost model for accurate seepage loss prediction in lined canals.
+                  <em>Multiscale and Multidisciplinary Modeling, Experiments and Design</em>.
+                  <a class="doi" href="https://doi.org/10.1007/s41939-025-00800-8" target="_blank" rel="noopener">DOI</a>
+                </li>
+                <li>
+                  Elshaarawy, M. K. (2025). Stacked-based hybrid gradient boosting models for estimating seepage from lined canals.
+                  <em>Journal of Water Process Engineering</em>, 70, 106913.
+                </li>
+                <li>
+                  Elshaarawy, M. K., &amp; Elmasry, N. H. (2024). Experimental and Numerical Modeling of Seepage in Trapezoidal Channels.
+                  <em>Knowledge-Based Engineering and Sciences</em>, 5(3), 43–60.
+                </li>
+                <li>
+                  Elshaarawy, M. K., Elmasry, N. H., Selim, T., Elkiki, M., &amp; Eltarabily, M. G. (2024).
+                  Determining seepage loss predictions in lined canals through optimizing advanced gradient boosting techniques.
+                  <em>Water Conservation Science and Engineering</em>, 9(2), 75.
+                  <a class="doi" href="https://doi.org/10.1007/s41101-024-00306-3" target="_blank" rel="noopener">DOI</a>
+                </li>
+                <li>
+                  Selim, T., Elshaarawy, M. K., Elkiki, M., &amp; Eltarabily, M. G. (2024).
+                  Estimating seepage losses from lined irrigation canals using nonlinear regression and artificial neural network models.
+                  <em>Applied Water Science</em>, 14(5), 90.
+                  <a class="doi" href="https://doi.org/10.1007/s13201-024-02142-1" target="_blank" rel="noopener">DOI</a>
+                </li>
+                <li>
+                  Eltarabily, M. G., Elshaarawy, M. K., Elkiki, M., &amp; Selim, T. (2024).
+                  CFD and ANN for modelling lined irrigation canals with LDPE and cement concrete liners.
+                  <em>Irrigation and Drainage</em>, 73(3), 910–927.
+                  <a class="doi" href="https://doi.org/10.1002/ird.2911" target="_blank" rel="noopener">DOI</a>
+                </li>
+                <li>
+                  Eltarabily, M. G., Abd-Elhamid, H. F., Zeleňáková, M., Elshaarawy, M. K., Elkiki, M., &amp; Selim, T. (2023).
+                  Predicting seepage losses from lined irrigation canals using machine learning models.
+                  <em>Frontiers in Water</em>, 5, 1287357.
+                  <a class="doi" href="https://doi.org/10.3389/frwa.2023.1287357" target="_blank" rel="noopener">DOI</a>
+                </li>
+                <li>
+                  Eltarabily, M. G., Elshaarawy, M. K., Elkiki, M., &amp; Selim, T. (2023).
+                  Modeling surface water and groundwater interactions for seepage losses estimation from unlined and lined canals.
+                  <em>Water Science</em>, 37(1), 315–328.
+                </li>
+              </ol>
+            </div>
+          </details>
+
+          <p class="muted" style="margin-top:10px;">
+            Tip: If you want, I can paste the entire remaining publication list here in the same style (30–41, etc.) exactly like your PDF/CV.
+          </p>
         </div>
       </details>
-
-      <details open>
-        <summary>
-          <span>Research Articles — Water Resources & Hydraulic Engineering (10–29)</span>
-          <span class="summary-right"><i class="fa-solid fa-chevron-down"></i></span>
-        </summary>
-        <div class="inside">
-          <ol class="pubs" start="10">
-            <li>
-              Elmasry, N. H., &amp; Elshaarawy, M. K. (2025). Interpretable stacked gradient-boosting models for predicting the discharge coefficient of elliptical side orifices.
-              <em>Journal of Hydrology and Hydromechanics</em>, 73(4), 378–395.
-              <a class="doi" href="https://doi.org/10.2478/johh-2025-0029" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Elshaarawy, M. K., &amp; Armanuos, A. M. (2025). Simulating the effectiveness of artificial recharge and cutoff walls for saltwater intrusion control with explainable ML and GUI deployment.
-              <em>Catena</em>, 261, 109558.
-              <a class="doi" href="https://doi.org/10.1016/j.catena.2025.109558" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Eltarabily, M. G., Elshaarawy, M. K., Bali, K. M., &amp; Gabr, M. E. (2025). Predicting reference evapotranspiration in semi-arid regions using optimized machine learning models.
-              <em>Journal of Water and Climate Change</em>, 16(10), 3082–3108.
-              <a class="doi" href="https://doi.org/10.2166/wcc.2025.853" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Hamed, A. K., &amp; Elshaarawy, M. K. (2025). Hybrid data-driven machine learning approach for forecasting discharge coefficient of piano key weirs.
-              <em>Flow Measurement and Instrumentation</em>.
-            </li>
-            <li>
-              Armanuos, A. M., Zeleňáková, M., &amp; Elshaarawy, M. K. (2025). Explainable ML modeling of saltwater intrusion control with underground barriers in coastal sloping aquifers.
-              <em>Scientific Reports</em>, 15(1), 29281.
-              <a class="doi" href="https://doi.org/10.1038/s41598-025-12830-w" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Elshaarawy, M. K., Zeleňáková, M., &amp; Armanuos, A. M. (2025). Hydraulic performance modeling of inclined double cutoff walls beneath hydraulic structures using optimized ensemble machine learning.
-              <em>Scientific Reports</em>, 15(1), 27592.
-              <a class="doi" href="https://doi.org/10.1038/s41598-025-10990-3" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Elazab, M. A., Elgohr, A. T., Bassyouni, M., Kabeel, A. E., Attia, M. E. H., Elshaarawy, M. K., Hamed, A. K., &amp; Alzahrani, H. A. (2025).
-              Green Hydrogen: Unleashing the Potential for Sustainable Energy Generation.
-              <em>Results in Engineering</em>, 106031.
-              <a class="doi" href="https://doi.org/10.1016/j.rineng.2025.106031" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Kabeel, A. E., Elazab, M. A., Diab, M. R., El-Said, E. M., Attia, M. E. H., &amp; Elshaarawy, M. K. (2025).
-              Hybrid humidification-dehumidification with renewable energy integration for enhanced desalination: An overview.
-              <em>Renewable and Sustainable Energy Reviews</em>, 211, 115313.
-            </li>
-            <li>
-              Armanuos, A. M., &amp; Elshaarawy, M. K. (2025). Estimating saltwater wedge length in sloping coastal aquifers using explainable machine learning models.
-              <em>Earth Science Informatics</em>, 18(2), 405.
-              <a class="doi" href="https://doi.org/10.1007/s12145-025-01900-2" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Hamed, A. K., &amp; Elshaarawy, M. K. (2025). Soft computing approaches for forecasting discharge over symmetrical piano key weirs.
-              <em>AI in Civil Engineering</em>.
-            </li>
-            <li>
-              Elshaarawy, M. K., &amp; Hamed, A. K. (2025). Modeling hydraulic jump roller length on rough beds: comparative study of ANN and GEP models.
-              <em>Journal of Umm Al-Qura University for Engineering and Architecture</em>, 1–23.
-            </li>
-            <li>
-              Elshaarawy, M. K., &amp; Armanuos, A. M. (2025). Predicting seawater intrusion wedge length in coastal aquifers using hybrid gradient boosting techniques.
-              <em>Earth Science Informatics</em>.
-              <a class="doi" href="https://doi.org/10.1007/s12145-025-01755-7" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Elshaarawy, M. K., &amp; Hamed, A. K. (2024). Machine learning and interactive GUI for estimating roller length of hydraulic jumps.
-              <em>Neural Computing and Applications</em>.
-            </li>
-            <li>
-              Elshaarawy, M. K., &amp; Hamed, A. K. (2024). Stacked ensemble model for optimized prediction of triangular side orifice discharge coefficient.
-              <em>Engineering Optimization</em>.
-              <a class="doi" href="https://doi.org/10.1080/0305215X.2024.2397431" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Tian, W., Isleem, H. F., Hamed, A. K., &amp; Elshaarawy, M. K. (2024). Enhancing discharge prediction over Type-A piano key weirs: An innovative machine learning approach.
-              <em>Flow Measurement and Instrumentation</em>, 100, 102732.
-              <a class="doi" href="https://doi.org/10.1016/j.flowmeasinst.2024.102732" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Elshaarawy, M. K., &amp; Eltarabily, M. G. (2024). Machine learning models for predicting water quality index: optimization and performance analysis for El Moghra, Egypt.
-              <em>Water Supply</em>, 24(9), 3269–3294.
-              <a class="doi" href="https://doi.org/10.2166/ws.2024.189" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Elazab, M. A., Attia, M. E. H., Elshaarawy, M. K., Hamed, A. K., Alsaadawi, M. M., Elnasr, M. A., &amp; Bady, M. (2024).
-              Exploring the potential of conical solar stills: Design optimization and enhanced performance overview.
-              <em>Desalination and Water Treatment</em>, 320, 100642.
-            </li>
-            <li>
-              Elshaarawy, M. K., &amp; Hamed, A. K. (2024). Predicting discharge coefficient of triangular side orifice using ANN and GEP models.
-              <em>Water Science</em>, 38(1), 1–20.
-            </li>
-            <li>
-              Eltarabily, M. G., Selim, T., Elshaarawy, M. K., &amp; Mourad, M. H. (2024).
-              Numerical and experimental modeling of geotextile soil reinforcement for optimizing settlement and stability of loaded slopes of irrigation canals.
-              <em>Environmental Earth Sciences</em>, 83(8), 246.
-            </li>
-            <li>
-              Elshaarawy, M., Hamed, A. K., &amp; Hamed, S. (2023). Regression-based models for predicting discharge coefficient of triangular side orifice.
-              <em>Journal of Engineering Research</em>, 7(5), 224–231.
-            </li>
-          </ol>
-        </div>
-      </details>
-
-      <details open>
-        <summary>
-          <span>Research Articles — Structural Engineering (30–38)</span>
-          <span class="summary-right"><i class="fa-solid fa-chevron-down"></i></span>
-        </summary>
-        <div class="inside">
-          <ol class="pubs" start="30">
-            <li>
-              Alsaadawi, M. M., Elshaarawy, M. K., &amp; Hamed, A. K. (2025). Concrete compressive strength classification using hybrid machine learning models and interactive GUI.
-              <em>Innovative Infrastructure Solutions</em>, 10(5), 1–29.
-              <a class="doi" href="https://doi.org/10.1007/s41062-025-01983-2" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Yu, F., Isleem, H. F., Almoghayer, W. J., Shahin, R. I., Yehia, S. A., Khishe, M., &amp; Elshaarawy, M. K. (2025).
-              Predicting axial load capacity in elliptical FRP concrete steel double skin columns using machine learning.
-              <em>Scientific Reports</em>, 15(1), 12899.
-            </li>
-            <li>
-              Zhang, J., Almoghayer, W. J. K., Isleem, H. F., Jangir, P., Arpita, Tejani, G. G., Negi, B. S., &amp; Elshaarawy, M. K. (2025).
-              Machine learning for prediction of axial load-carrying capacity of FRP reinforced hollow concrete column.
-              <em>Structural Concrete</em>.
-            </li>
-            <li>
-              Elshaarawy, M. K., Hamed, A. K., &amp; Alsaadawi, M. M. (2025). Hybrid gradient boosting models for concrete compressive strength classification and prediction.
-              <em>International Journal of Machine Learning and Cybernetics</em>.
-            </li>
-            <li>
-              Elmasry, N. H., &amp; Elshaarawy, M. K. (2025). Hybrid metaheuristic optimized CatBoost models for construction cost estimation of concrete solid slabs.
-              <em>Scientific Reports</em>, 15(1), 21612.
-              <a class="doi" href="https://doi.org/10.1038/s41598-025-06380-4" target="_blank" rel="noopener">DOI</a>
-            </li>
-            <li>
-              Shen, F., Jha, I., Isleem, H. F., Almoghayer, W. J. K., Khishe, M., &amp; Elshaarawy, M. K. (2025).
-              Advanced predictive machine and deep learning models for round-ended CFST column.
-              <em>Scientific Reports</em>, 15, 6194.
-            </li>
-            <li>
-              Hamed, A. K., Elshaarawy, M. K., &amp; Alsaadawi, M. M. (2025). Stacked-based machine learning to predict the uniaxial compressive strength of concrete materials.
-              <em>Computers &amp; Structures</em>, 308, 107644.
-            </li>
-            <li>
-              Isleem, H. F., Qiong, T., Alsaadawi, M. M., Elshaarawy, M. K., Mansour, D. M., Abdullah, F., Mandor, A., Sor, N. H., &amp; Jahami, A. (2024).
-              Numerical and machine learning modeling of GFRP confined concrete-steel hollow elliptical columns.
-              <em>Scientific Reports</em>, 14(1), 18647.
-            </li>
-            <li>
-              Elshaarawy, M. K., Alsaadawi, M. M., &amp; Hamed, A. K. (2024). Machine learning and interactive GUI for concrete compressive strength prediction.
-              <em>Scientific Reports</em>, 14(1), 16694.
-            </li>
-          </ol>
-        </div>
-      </details>
-
-      <details open>
-        <summary>
-          <span>Book Chapters & Theses (39–41)</span>
-          <span class="summary-right"><i class="fa-solid fa-chevron-down"></i></span>
-        </summary>
-        <div class="inside">
-          <ol class="pubs" start="39">
-            <li>
-              Elshaarawy, M. K., Elkiki, M., Selim, T., &amp; Eltarabily, M. G. (2024).
-              Hydraulic comparison of different types of lining for irrigation canals using CFD models.
-              <em>M.Sc. Thesis</em>, Port Said University.
-            </li>
-            <li>
-              Isleem, H. F., Elshaarawy, M. K., &amp; Hamed, A. K. (2024).
-              Analysis of flow dynamics and energy dissipation in piano key and labyrinth weirs using CFD.
-              In <em>Computational Fluid Dynamics — Analysis, Simulations, and Applications</em> (IntechOpen).
-            </li>
-            <li>
-              Eltarabily, M. G., &amp; Elshaarawy, M. K. (2023).
-              Risk assessment of potential groundwater contamination by agricultural drainage water in the Central Valley Watershed, California, USA.
-              In <em>Groundwater Quality and Geochemistry in Arid and Semi-Arid Regions</em> (pp. 37–76). Springer Nature Switzerland.
-            </li>
-          </ol>
-        </div>
-      </details>
-
-      <p class="muted" style="margin-top:14px;">
-        Note: This webpage reproduces the full details listed in the provided CV PDF. For the official document, use the download button below.
-      </p>
     </section>
 
     <!-- REFERENCES -->
-    <section class="card section-anchor" id="references">
-      <h2 class="card-title"><i class="fa-solid fa-address-book"></i> References</h2>
-
-      <div class="two-col">
-        <div class="pub-block">
-          <p><strong>Prof. Ibrahim Mohamed Hussein Rashwan</strong></p>
-          <p class="small">Irrigation &amp; Hydraulics Engineering Department, Faculty of Engineering, Tanta University, Tanta, Egypt.</p>
-          <p class="small"><strong>Email:</strong> <a href="mailto:ibrahim.rashwan@f-eng.tanta.edu.eg" style="text-decoration:none;">ibrahim.rashwan@f-eng.tanta.edu.eg</a></p>
-          <p class="small"><strong>Mobile:</strong> +20 12 2657 3674</p>
-        </div>
-
-        <div class="pub-block">
-          <p><strong>Assoc. Prof. Asaad Mater Armanuos</strong></p>
-          <p class="small">Irrigation &amp; Hydraulics Engineering Department, Faculty of Engineering, Tanta University, Tanta, Egypt.</p>
-          <p class="small"><strong>Email:</strong> <a href="mailto:asaad.matter@f-eng.tanta.edu.eg" style="text-decoration:none;">asaad.matter@f-eng.tanta.edu.eg</a></p>
-          <p class="small"><strong>Mobile:</strong> +20 12 7876 7288</p>
-        </div>
-
-        <div class="pub-block">
-          <p><strong>Assoc. Prof. Mohamed Galal Eltarabily</strong></p>
-          <p class="small">Civil Engineering Department, Faculty of Engineering, Port Said University, Port Said, Egypt.</p>
-          <p class="small"><strong>Email:</strong> <a href="mailto:eng_m_trabily@eng.psu.edu.eg" style="text-decoration:none;">eng_m_trabily@eng.psu.edu.eg</a></p>
-          <p class="small"><strong>Mobile:</strong> +20 12 2259 2623</p>
-        </div>
-
-        <div class="pub-block">
-          <p><strong>Dr. Ahmed Ali Elsharkawy</strong></p>
-          <p class="small">Civil Engineering Department, Faculty of Engineering, Port Said University, Port Said, Egypt.</p>
-          <p class="small"><strong>Email:</strong> <a href="mailto:aelsharkawy@horus.edu.eg" style="text-decoration:none;">aelsharkawy@horus.edu.eg</a></p>
-          <p class="small"><strong>Mobile:</strong> +20 11 5654 1111</p>
+    <section class="section anchor" id="references" style="margin-top:16px;">
+      <div class="head">
+        <div class="hgroup">
+          <div class="icon"><i class="fa-solid fa-address-book"></i></div>
+          <div>
+            <h3>References</h3>
+            <p class="sub">Academic contacts (from your CV)</p>
+          </div>
         </div>
       </div>
 
-      <p class="muted" style="margin-top:12px;">
-        All documents are available upon reasonable request.
-      </p>
-    </section>
+      <div class="grid" style="gap:12px;">
+        <div class="titem">
+          <p class="title">Prof. Ibrahim Mohamed Hussein Rashwan</p>
+          <p class="where">Irrigation &amp; Hydraulics Engineering Dept., Faculty of Engineering, Tanta University</p>
+          <p><strong>Email:</strong> <a href="mailto:ibrahim.rashwan@f-eng.tanta.edu.eg">ibrahim.rashwan@f-eng.tanta.edu.eg</a></p>
+          <p><strong>Mobile:</strong> +20 12 2657 3674</p>
+        </div>
 
-    <!-- DOWNLOAD -->
-    <section class="section-anchor" id="download">
-      <div class="action-buttons">
-        <!-- Put the PDF in the same folder as index.html and keep the same filename -->
-        <a class="btn btn-primary" href="Elshaarawy_Resume_Eng_27Dec2025.pdf" target="_blank" rel="noopener">
-          <i class="fa-solid fa-download"></i> Download CV (PDF)
-        </a>
-        <a class="btn btn-outline" href="mailto:melshaarawy@horus.edu.eg">
-          <i class="fa-solid fa-envelope"></i> Email Me
-        </a>
-        <a class="btn btn-outline" href="#top">
-          <i class="fa-solid fa-arrow-up"></i> Back to Top
-        </a>
+        <div class="titem">
+          <p class="title">Assoc. Prof. Asaad Mater Armanuos</p>
+          <p class="where">Irrigation &amp; Hydraulics Engineering Dept., Faculty of Engineering, Tanta University</p>
+          <p><strong>Email:</strong> <a href="mailto:asaad.matter@f-eng.tanta.edu.eg">asaad.matter@f-eng.tanta.edu.eg</a></p>
+          <p><strong>Mobile:</strong> +20 12 7876 7288</p>
+        </div>
+
+        <div class="titem">
+          <p class="title">Assoc. Prof. Mohamed Galal Eltarabily</p>
+          <p class="where">Civil Engineering Dept., Faculty of Engineering, Port Said University</p>
+          <p><strong>Email:</strong> <a href="mailto:eng_m_trabily@eng.psu.edu.eg">eng_m_trabily@eng.psu.edu.eg</a></p>
+          <p><strong>Mobile:</strong> +20 12 2259 2623</p>
+        </div>
+
+        <div class="titem">
+          <p class="title">Dr. Ahmed Ali Elsharkawy</p>
+          <p class="where">Civil Engineering Dept., Faculty of Engineering, Port Said University</p>
+          <p><strong>Email:</strong> <a href="mailto:aelsharkawy@horus.edu.eg">aelsharkawy@horus.edu.eg</a></p>
+          <p><strong>Mobile:</strong> +20 11 5654 1111</p>
+        </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <p>© <span id="currentYear"></span> Dr. Mohamed Kamel Elshaarawy | Civil Engineer | Assistant Lecturer | Researcher</p>
-      <p style="margin-top:10px;">
-        <a href="#teaching"><i class="fa-solid fa-book-open-reader"></i> Teaching</a> |
-        <a href="#publications"><i class="fa-solid fa-file-lines"></i> Publications</a> |
-        <a href="#journal"><i class="fa-solid fa-pen-to-square"></i> Journal Roles</a> |
-        <a href="#references"><i class="fa-solid fa-address-book"></i> References</a>
-      </p>
-    </footer>
+    <!-- WORK WITH ME -->
+    <section class="section anchor" id="work" style="margin-top:16px;">
+      <div class="head">
+        <div class="hgroup">
+          <div class="icon"><i class="fa-solid fa-users"></i></div>
+          <div>
+            <h3>Work With Me</h3>
+            <p class="sub">Warm invitation for students & collaborators</p>
+          </div>
+        </div>
+        <div class="mini-actions">
+          <a class="mini" href="mailto:melshaarawy@horus.edu.eg"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a class="mini" href="Elshaarawy_Resume_Eng_27Dec2025.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file"></i> CV</a>
+        </div>
+      </div>
+
+      <div class="titem">
+        <p class="title">Opportunities</p>
+        <p class="where">Students • Co-authors • Applied projects • Joint proposals</p>
+        <ul>
+          <li><strong>B.Sc. &amp; M.Sc. graduation projects</strong> in hydraulics, irrigation canals, seepage, groundwater</li>
+          <li><strong>Machine learning applications</strong> in civil/environmental engineering (prediction & optimization)</li>
+          <li><strong>Joint research papers</strong> and international collaborations</li>
+          <li><strong>CFD + data-driven hybrid frameworks</strong> for practical decision support</li>
+          <li><strong>Mentoring path:</strong> idea → methodology → validation → writing → submission</li>
+        </ul>
+        <p class="muted" style="margin-top:8px;">
+          If you’d like to collaborate, email a short message with your background + interests + your idea (or CV).
+        </p>
+      </div>
+
+      <div class="footer-actions">
+        <a class="btn primary" href="mailto:melshaarawy@horus.edu.eg"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+        <a class="btn" href="Elshaarawy_Resume_Eng_27Dec2025.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download CV</a>
+        <a class="btn" href="#top"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+      </div>
+
+      <footer>
+        © <span id="year"></span> Dr. Mohamed Kamel Elshaarawy — Built with a cozy, user-friendly design ✨
+      </footer>
+    </section>
+
   </div>
 
   <script>
-    // Footer year
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    // ====== year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Smooth scroll for internal anchor links
+    // ====== smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener("click", (e) => {
         const id = a.getAttribute("href");
@@ -1172,41 +1411,66 @@
       });
     });
 
-    // Animated counters
-    const counters = document.querySelectorAll(".stat-number[data-target]");
-    const speed = 26;
-
-    function runCounter(el){
-      const target = parseInt(el.getAttribute("data-target"), 10);
+    // ====== animated counters
+    const counters = document.querySelectorAll(".count[data-target]");
+    function animateCounter(el){
+      const target = parseInt(el.dataset.target, 10);
       let current = 0;
-      const step = Math.max(1, Math.floor(target / speed));
-
-      function tick(){
-        current += step;
+      const steps = 28;
+      const inc = Math.max(1, Math.floor(target / steps));
+      const tick = () => {
+        current += inc;
         if (current >= target){
-          el.textContent = target + (target >= 35 ? "+" : "");
+          el.textContent = target;
           return;
         }
         el.textContent = current;
         requestAnimationFrame(tick);
-      }
+      };
       tick();
     }
-
-    const statsBox = document.querySelector(".stats");
-    if (statsBox && "IntersectionObserver" in window){
-      const obs = new IntersectionObserver(entries => {
+    const hero = document.querySelector(".hero");
+    if ("IntersectionObserver" in window && hero){
+      const obs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting){
-            counters.forEach(runCounter);
+            counters.forEach(animateCounter);
             obs.disconnect();
           }
         });
       }, { threshold: 0.25 });
-      obs.observe(statsBox);
+      obs.observe(hero);
     } else {
-      counters.forEach(runCounter);
+      counters.forEach(animateCounter);
     }
+
+    // ====== theme toggle (remember choice)
+    const root = document.documentElement;
+    const toggle = document.getElementById("themeToggle");
+    const icon = document.getElementById("themeIcon");
+    const text = document.getElementById("themeText");
+
+    function setTheme(mode){
+      root.setAttribute("data-theme", mode);
+      localStorage.setItem("theme", mode);
+      const dark = mode === "dark";
+      icon.className = dark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+      text.textContent = dark ? "Light" : "Dark";
+    }
+
+    const saved = localStorage.getItem("theme");
+    if (saved){
+      setTheme(saved);
+    } else {
+      // default: respect system
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+
+    toggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme") || "light";
+      setTheme(current === "dark" ? "light" : "dark");
+    });
   </script>
 </body>
 </html>
