@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Mohamed Kamel Elshaarawy — Assistant Lecturer | Civil Engineer — Academic Portfolio" />
+  <title>Mohamed Kamel Elshaarawy | Academic Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Mobile Topbar -->
+  <header class="topbar" role="banner">
+    <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <div class="topbar-title">Mohamed Elshaarawy</div>
+    <a class="icon-btn" href="#contact" aria-label="Go to contact">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+  </header>
+
+  <!-- Overlay for mobile drawer -->
+  <div class="overlay" id="overlay" hidden></div>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary">
+      <div class="sidebar-head">
+        <div class="profile-photo">
+          <img src="assets/profile.jpg" alt="Mohamed Kamel Elshaarawy portrait" />
+        </div>
+
+        <h1 class="name">Mohamed Kamel Elshaarawy</h1>
+        <p class="titles">
+          Assistant Lecturer | Civil Engineer<br />
+          Horus University-Egypt
+        </p>
+
+        <div class="logos" aria-label="Affiliations">
+          <!-- Placeholder logos (replace with images later if you want) -->
+          <div class="logo-chip" title="Horus University-Egypt">HUE</div>
+          <div class="logo-chip" title="Faculty of Engineering">ENG</div>
+        </div>
+
+        <div class="quick-actions">
+          <a class="btn btn-light" href="assets/Elshaarawy_Resume_Feb2026.pdf" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-arrow-down"></i>
+            Download CV
+          </a>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-link" href="#about"><i class="fa-regular fa-user"></i><span>About</span></a>
+        <a class="nav-link" href="#education"><i class="fa-solid fa-graduation-cap"></i><span>Education</span></a>
+        <a class="nav-link" href="#experience"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a>
+        <a class="nav-link" href="#publications"><i class="fa-solid fa-book-open"></i><span>Publications</span></a>
+        <a class="nav-link" href="#contact"><i class="fa-regular fa-paper-plane"></i><span>Contact</span></a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="social">
+          <a href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noopener" aria-label="ORCID">
+            <i class="fa-brands fa-orcid"></i>
+          </a>
+          <a href="https://www.researchgate.net/profile/Mohamed-Elshaarawy" target="_blank" rel="noopener" aria-label="ResearchGate">
+            <i class="fa-brands fa-researchgate"></i>
+          </a>
+          <a href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noopener" aria-label="Scopus">
+            <i class="fa-solid fa-database"></i>
+          </a>
+          <a href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noopener" aria-label="Web of Science">
+            <i class="fa-solid fa-globe"></i>
+          </a>
+          <a href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noopener" aria-label="Semantic Scholar">
+            <i class="fa-solid fa-brain"></i>
+          </a>
+        </div>
+
+        <p class="mini-note">
+          Last updated: Feb 2026
+        </p>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="content" id="main" role="main">
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="section-head">
+          <h2 class="section-title">About</h2>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="card">
+          <p class="lead">
+            Mohamed Kamel Elshaarawy is an Assistant Lecturer of Civil Engineering at Horus University-Egypt (HUE) and a Ph.D.
+            candidate in Irrigation and Hydraulics Engineering at Tanta University. He holds B.Sc. (2018, Excellent with Honors)
+            and M.Sc. (2024) degrees from Port Said University, specializing in hydraulics, water resources management, and
+            structural design. His research applies machine learning, optimization, and computational fluid dynamics to seepage
+            control, saltwater intrusion, hydraulic structures, groundwater systems, and concrete performance. Mohamed has
+            authored more than 40 peer-reviewed publications, serves as an active reviewer for several international journals, and
+            contributes actively to teaching and research at HUE.
+          </p>
+
+          <div class="chips">
+            <span class="chip">Machine Learning</span>
+            <span class="chip">Water Resources</span>
+            <span class="chip">Groundwater Modeling</span>
+            <span class="chip">Hydraulic Engineering</span>
+            <span class="chip">Structural Engineering</span>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><span class="stat-k">Citations</span><span class="stat-v">1033</span></div>
+            <div class="stat"><span class="stat-k">h-index</span><span class="stat-v">24</span></div>
+            <div class="stat"><span class="stat-k">i10-index</span><span class="stat-v">34</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="section" id="education">
+        <div class="section-head">
+          <h2 class="section-title">Education</h2>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3 class="card-title">Ph.D. in Engineering (Irrigation & Hydraulics)</h3>
+            <p class="muted">Tanta University, Tanta, Egypt</p>
+            <p class="meta"><i class="fa-regular fa-calendar"></i> Dec 2024 — Present</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">M.Sc. in Civil Engineering (Irrigation & Hydraulics)</h3>
+            <p class="muted">Port Said University, Port Said, Egypt</p>
+            <p class="meta"><i class="fa-regular fa-calendar"></i> Aug 2019 — Apr 2024</p>
+            <p class="small">
+              Thesis: Hydraulic Comparison of Different Types of Lining for Irrigation Canals Using CFD Models
+            </p>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">B.Sc. in Engineering (Civil Engineering)</h3>
+            <p class="muted">Port Said University, Port Said, Egypt</p>
+            <p class="meta"><i class="fa-regular fa-calendar"></i> Sep 2013 — Jul 2018</p>
+            <p class="small">Overall Grade: Excellent with Honors</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience">
+        <div class="section-head">
+          <h2 class="section-title">Experience</h2>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="stack">
+          <article class="card">
+            <div class="card-top">
+              <h3 class="card-title">Horus University-Egypt (HUE) — Faculty of Engineering</h3>
+              <span class="badge">Academic</span>
+            </div>
+            <p class="muted">Civil Engineering Department, New Damietta, Egypt</p>
+            <p class="meta">
+              <i class="fa-regular fa-calendar"></i>
+              Demonstrator (Oct 2020 — Jul 2024) · Assistant Lecturer (Jul 2024 — Current)
+            </p>
+            <ul class="bullets">
+              <li>Support course instructors: practical sessions, engineering software, and lab demonstrations.</li>
+              <li>Evaluate assignments/exams and provide constructive feedback.</li>
+              <li>Hold office hours, answer student inquiries, and run review sessions.</li>
+              <li>Collaborate on teaching materials and maintain lab equipment.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <h3 class="card-title">Meamar Elhamd for Real Estate Development</h3>
+              <span class="badge badge-dark">Industry</span>
+            </div>
+            <p class="muted">New Damietta, Egypt</p>
+            <p class="meta"><i class="fa-regular fa-calendar"></i> Technical Office Engineer (Sep 2019 — Sep 2020)</p>
+            <ul class="bullets">
+              <li>Prepared/reviewed shop drawings, as-built drawings, and coordination plans.</li>
+              <li>Quantity surveying, BOQs, cost estimates, and variation orders.</li>
+              <li>Coordinated with site engineers/subcontractors/suppliers for design compliance.</li>
+              <li>Prepared RFIs, technical submittals, and consultant/owner documentation.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- PUBLICATIONS -->
+      <section class="section" id="publications">
+        <div class="section-head">
+          <h2 class="section-title">Publications</h2>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="card">
+          <div class="pub-top">
+            <p class="muted">
+              Browse all publications (filter by year/category, or search by title/venue).<br />
+              <a class="link" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noopener">
+                View on Google Scholar <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </p>
+
+            <div class="pub-controls" role="region" aria-label="Publication filters">
+              <div class="pub-control">
+                <label for="q" class="label">Search</label>
+                <input id="q" class="input" type="search" placeholder="Search title / venue / author…" autocomplete="off" />
+              </div>
+
+              <div class="pub-control">
+                <label class="label">Year</label>
+                <div class="chip-row" id="yearChips" aria-label="Year filter"></div>
+              </div>
+
+              <div class="pub-control">
+                <label class="label">Category</label>
+                <div class="chip-row" id="catChips" aria-label="Category filter"></div>
+              </div>
+
+              <div class="pub-actions">
+                <button class="btn btn-outline" id="resetBtn" type="button">
+                  <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+                <div class="pub-count" id="countText" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-list" id="pubList" aria-label="Publication list"></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="section-head">
+          <h2 class="section-title">Contact</h2>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 class="card-title">Direct</h3>
+            <ul class="contact-list">
+              <li>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>9 Mubarak Street, New Damietta, Egypt</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                <a class="link" href="mailto:melshaarawy@horus.edu.eg">melshaarawy@horus.edu.eg</a>
+              </li>
+              <li>
+                <i class="fa-regular fa-envelope"></i>
+                <a class="link" href="mailto:mkamel35@gmail.com">mkamel35@gmail.com</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <a class="link" href="tel:+201280961080">+20 128 096 1080</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <a class="link" href="tel:+201033476255">01033476255</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Research profiles</h3>
+            <div class="profile-links">
+              <a class="pill" target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en">
+                <i class="fa-solid fa-graduation-cap"></i> Google Scholar
+              </a>
+              <a class="pill" target="_blank" rel="noopener" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </a>
+              <a class="pill" target="_blank" rel="noopener" href="https://orcid.org/0000-0002-1793-5617">
+                <i class="fa-brands fa-orcid"></i> ORCID
+              </a>
+              <a class="pill" target="_blank" rel="noopener" href="https://www.researchgate.net/profile/Mohamed-Elshaarawy">
+                <i class="fa-brands fa-researchgate"></i> ResearchGate
+              </a>
+              <a class="pill" target="_blank" rel="noopener" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500">
+                <i class="fa-solid fa-database"></i> Scopus
+              </a>
+              <a class="pill" target="_blank" rel="noopener" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023">
+                <i class="fa-solid fa-globe"></i> Web of Science
+              </a>
+              <a class="pill" target="_blank" rel="noopener" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583">
+                <i class="fa-solid fa-brain"></i> Semantic Scholar
+              </a>
+            </div>
+
+            <div class="footer-note">
+              <a class="link" href="#about"><i class="fa-solid fa-arrow-up"></i> Back to top</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <span>© <span id="yearNow"></span> Mohamed Kamel Elshaarawy</span>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // ===== Mobile drawer =====
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    function openNav() {
+      document.body.classList.add('nav-open');
+      overlay.hidden = false;
+      menuBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeNav() {
+      document.body.classList.remove('nav-open');
+      overlay.hidden = true;
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = document.body.classList.contains('nav-open');
+      isOpen ? closeNav() : openNav();
+    });
+
+    overlay.addEventListener('click', closeNav);
+
+    // Close nav after clicking a sidebar link (mobile)
+    document.querySelectorAll('.nav-link').forEach(a => {
+      a.addEventListener('click', () => {
+        if (window.matchMedia('(max-width: 900px)').matches) closeNav();
+      });
+    });
+
+    // ESC to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
+
+    // ===== Publications data =====
+    const PUBLICATIONS = [
+      {
+        "id": 10,
+        "year": 2026,
+        "authors": "Kabeel, A. E., Elazab, M. A., Almetwally, E. M., Al-Moisheer, A. S., Ayman, M., & Elshaarawy, M. K",
+        "title": "Solar Distiller Efficiency Enhancement via Optical Concentration and Thermal Storage: Challenges, Materials, and Future Directions",
+        "venue": "Case Studies in Thermal Engineering, 107659",
+        "url": "https://doi.org/10.1016/j.csite.2026.107659",
+        "category": "Energy & Sustainability"
+      },
+      {
+        "id": 31,
+        "year": 2026,
+        "authors": "Hamed, A. K.; Alsaadawi, M. M.; Elshaarawy, M. K.",
+        "title": "Interpretable Deep Neural Network Deployment for Concrete Compressive Strength Prediction",
+        "venue": "Journal of Building Rehabilitation (J Build Rehabil), 11, 98",
+        "url": "https://doi.org/10.1007/s41024-025-00752-z",
+        "category": "Structural & Materials"
+      },
+      {
+        "id": 32,
+        "year": 2026,
+        "authors": "Alsaadawi, M. M., Hamed, A. K., & Elshaarawy, M. K",
+        "title": "Enhanced prediction of fly ash concrete compressive strength using machine learning models",
+        "venue": "Engineering Computations, 1-29",
+        "url": "https://doi.org/10.1108/EC-08-2024-0774",
+        "category": "Structural & Materials"
+      },
+      {
+        "id": 1,
+        "year": 2025,
+        "authors": "Elshaarawy, M. K",
+        "title": "Numerical and Regression-Based Modeling of Leakage in Lined Trapezoidal Channels",
+        "venue": "Horus University Journal of Engineering, 1(1), 1-12",
+        "url": "https://doi.org/10.21608/huje.2025.366458.1001",
+        "category": "Water Resources & Hydraulics"
+      },
+      {
+        "id": 2,
+        "year": 2025,
+        "authors": "Elshaarawy, M. K",
+        "title": "Metaheuristic-driven CatBoost model for accurate seepage loss prediction in lined canals",
+        "venue": "Multiscale and Multidisciplinary Modeling, Experiments and Design, 8(5), 235",
+        "url": "https://doi.org/10.1007/s41939-025-00800-8",
+        "category": "Water Resources & Hydraulics"
+      },
+      {
+        "id": 3,
+        "year": 2025,
+        "authors": "Elshaarawy, M. K",
+        "title": "Stacked-based hybrid gradient boosting models for estimating seepage from lined canals",
+        "venue": "Journal of Water Process Engineering, 70, 106913",
+        "url": "https://doi.org/10.1016/j.jwpe.2024.106913",
+        "category": "Water Resources & Hydraulics"
+      },
+      {
+        "
