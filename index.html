@@ -4,32 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mohamed Kamel Elshaarawy | Academic Portfolio</title>
-  <meta name="description" content="Academic portfolio of Mohamed Kamel Elshaarawy (Assistant Lecturer | Civil Engineer). Education, experience, publications, contact." />
+  <meta name="description" content="Academic portfolio of Mohamed Kamel Elshaarawy: research interests, education, experience, teaching, admin roles, skills, certificates, journal roles, publications, and contact." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Your CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <!-- Decorative background blobs (modern “generative” feel) -->
+  <div class="bg" aria-hidden="true">
+    <span class="blob blob--navy"></span>
+    <span class="blob blob--orange"></span>
+    <span class="blob blob--sky"></span>
+  </div>
+
   <!-- Mobile top bar -->
   <header class="topbar">
     <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-controls="sidebar" aria-expanded="false">
       <i class="fa-solid fa-bars"></i>
     </button>
+
     <div class="topbar__title">
       <span class="topbar__name">Mohamed Kamel Elshaarawy</span>
       <span class="topbar__role">Assistant Lecturer | Civil Engineer</span>
     </div>
+
     <a class="icon-btn" href="#contact" aria-label="Go to contact">
-      <i class="fa-solid fa-envelope"></i>
+      <i class="fa-regular fa-envelope"></i>
     </a>
   </header>
 
@@ -39,72 +47,81 @@
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Sidebar">
     <div class="sidebar__inner">
-      <div class="sidebar__header">
-        <img class="avatar" src="assets/profile.jpg" alt="Mohamed Kamel Elshaarawy portrait" />
+      <div class="profile">
+        <div class="avatar-wrap">
+          <img class="avatar" src="assets/profile.jpg" alt="Mohamed Kamel Elshaarawy portrait" />
+          <span class="avatar-ring" aria-hidden="true"></span>
+        </div>
 
         <h1 class="name">Mohamed Kamel Elshaarawy</h1>
-        <p class="titles">Assistant Lecturer | Civil Engineer</p>
+        <p class="subtitle">Assistant Lecturer | Civil Engineer</p>
         <p class="affil">Horus University-Egypt</p>
 
-        <div class="logos" aria-label="Logos">
-          <!-- Replace these placeholders with real logos later if you want -->
-          <div class="logo-box" title="Horus University-Egypt Logo">HUE</div>
-          <div class="logo-box" title="Faculty of Engineering Logo">ENG</div>
+        <div class="logo-row" aria-label="Logos">
+          <!-- Replace with real logo images if you want -->
+          <div class="logo-box" title="Horus University-Egypt">HUE</div>
+          <div class="logo-box" title="Faculty of Engineering">ENG</div>
         </div>
 
-        <div class="stats" aria-label="Research stats">
-          <div class="stat">
-            <span class="stat__num">1033</span>
-            <span class="stat__label">Citations</span>
+        <div class="mini-stats" aria-label="Stats">
+          <div class="mini">
+            <div class="mini__num">1033</div>
+            <div class="mini__label">Citations</div>
           </div>
-          <div class="stat">
-            <span class="stat__num">24</span>
-            <span class="stat__label">h-index</span>
+          <div class="mini">
+            <div class="mini__num">24</div>
+            <div class="mini__label">h-index</div>
           </div>
-          <div class="stat">
-            <span class="stat__num">34</span>
-            <span class="stat__label">i10-index</span>
+          <div class="mini">
+            <div class="mini__num">34</div>
+            <div class="mini__label">i10-index</div>
           </div>
-          <div class="stat__note">(Feb 2026)</div>
         </div>
 
-        <a class="btn btn--cv" href="assets/cv.pdf" target="_blank" rel="noopener">
-          <i class="fa-solid fa-file-arrow-down"></i>
-          Download CV
+        <a class="btn btn--primary" href="assets/cv.pdf" target="_blank" rel="noopener">
+          <i class="fa-regular fa-file-pdf"></i>
+          Open CV (PDF)
         </a>
+
+        <div class="social" aria-label="Research profiles">
+          <a class="social__icon" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </a>
+          <a class="social__icon" href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noopener" title="ORCID">
+            <i class="fa-brands fa-orcid"></i>
+          </a>
+          <a class="social__icon" href="https://www.researchgate.net/profile/Mohamed-Elshaarawy" target="_blank" rel="noopener" title="ResearchGate">
+            <i class="fa-brands fa-researchgate"></i>
+          </a>
+          <a class="social__icon" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noopener" title="Scopus">
+            <i class="fa-solid fa-database"></i>
+          </a>
+          <a class="social__icon" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noopener" title="Web of Science">
+            <i class="fa-solid fa-chart-line"></i>
+          </a>
+          <a class="social__icon" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noopener" title="Semantic Scholar">
+            <i class="fa-solid fa-book-open"></i>
+          </a>
+          <a class="social__icon" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank" rel="noopener" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
       </div>
 
       <nav class="nav" aria-label="Primary navigation">
         <a class="nav__link" href="#about"><i class="fa-regular fa-user"></i><span>About</span></a>
+        <a class="nav__link" href="#interests"><i class="fa-solid fa-bullseye"></i><span>Research Interests</span></a>
         <a class="nav__link" href="#education"><i class="fa-solid fa-graduation-cap"></i><span>Education</span></a>
-        <a class="nav__link" href="#experience"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a>
+        <a class="nav__link" href="#experience"><i class="fa-solid fa-briefcase"></i><span>Work Experience</span></a>
+        <a class="nav__link" href="#teaching"><i class="fa-solid fa-chalkboard-user"></i><span>Teaching</span></a>
+        <a class="nav__link" href="#admin"><i class="fa-solid fa-sitemap"></i><span>Administrative</span></a>
+        <a class="nav__link" href="#skills"><i class="fa-solid fa-wand-magic-sparkles"></i><span>Skills</span></a>
+        <a class="nav__link" href="#certs"><i class="fa-solid fa-certificate"></i><span>Certificates</span></a>
+        <a class="nav__link" href="#journal"><i class="fa-solid fa-pen-nib"></i><span>Journal Roles</span></a>
         <a class="nav__link" href="#publications"><i class="fa-regular fa-newspaper"></i><span>Publications</span></a>
+        <a class="nav__link" href="#references"><i class="fa-solid fa-people-group"></i><span>References</span></a>
         <a class="nav__link" href="#contact"><i class="fa-regular fa-envelope"></i><span>Contact</span></a>
       </nav>
-
-      <div class="social" aria-label="Research profiles">
-        <a class="social__icon" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </a>
-        <a class="social__icon" href="https://orcid.org/0000-0002-1793-5617" target="_blank" rel="noopener" title="ORCID">
-          <i class="fa-brands fa-orcid"></i>
-        </a>
-        <a class="social__icon" href="https://www.researchgate.net/profile/Mohamed-Elshaarawy" target="_blank" rel="noopener" title="ResearchGate">
-          <i class="fa-brands fa-researchgate"></i>
-        </a>
-        <a class="social__icon" href="https://www.scopus.com/authid/detail.uri?authorId=58557199500" target="_blank" rel="noopener" title="Scopus">
-          <i class="fa-solid fa-database"></i>
-        </a>
-        <a class="social__icon" href="https://www.webofscience.com/wos/author/record/JQW-2973-2023" target="_blank" rel="noopener" title="Web of Science">
-          <i class="fa-solid fa-chart-line"></i>
-        </a>
-        <a class="social__icon" href="https://www.semanticscholar.org/author/M.-Elshaarawy/2237034583" target="_blank" rel="noopener" title="Semantic Scholar">
-          <i class="fa-solid fa-book-open"></i>
-        </a>
-        <a class="social__icon" href="https://www.linkedin.com/in/mohamed-kamel-elshaarawy-543444132/" target="_blank" rel="noopener" title="LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-      </div>
 
       <footer class="sidebar__footer">
         <small>© <span id="yearNow"></span> Mohamed Kamel Elshaarawy</small>
@@ -112,123 +129,451 @@
     </div>
   </aside>
 
-  <!-- Main content -->
-  <main class="main" id="main">
+  <!-- Main -->
+  <main class="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__card">
+        <div class="kicker">Academic Portfolio</div>
+        <h2 class="hero__title">Civil Engineering • Hydraulics • Water Resources • ML/AI Modeling</h2>
+        <p class="hero__desc">
+          Fast to scan. Easy to filter. Built for hiring committees, collaborators, and students.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#publications"><i class="fa-regular fa-newspaper"></i> Browse Publications</a>
+          <a class="btn btn--ghost" href="assets/cv.pdf" target="_blank" rel="noopener"><i class="fa-regular fa-file-pdf"></i> Open CV</a>
+        </div>
+      </div>
+    </section>
+
     <!-- About -->
     <section class="section" id="about">
-      <div class="section__title">
-        <h2>About</h2>
-      </div>
-      <div class="card">
+      <header class="section__head">
+        <h2><span class="accent"></span>About</h2>
+        <p class="section__sub">Short bio</p>
+      </header>
+
+      <article class="card">
         <p class="lead">
-          Mohamed Kamel Elshaarawy is an Assistant Lecturer of Civil Engineering at Horus University-Egypt (HUE) and a Ph.D.
-          candidate in Irrigation and Hydraulics Engineering at Tanta University. He holds B.Sc. (2018, Excellent with Honors)
-          and M.Sc. (2024) degrees from Port Said University, specializing in hydraulics, water resources management, and structural
-          design. His research applies machine learning, optimization, and computational fluid dynamics to seepage control, saltwater
-          intrusion, hydraulic structures, groundwater systems, and concrete performance. Mohamed has authored more than 40 peer-reviewed
-          publications, serves as an active reviewer for several international journals, and contributes actively to teaching and research at HUE.
+          Mohamed Kamel Elshaarawy is an Assistant Lecturer of Civil Engineering at Horus University-Egypt (HUE)
+          and a Ph.D. candidate in Irrigation and Hydraulics Engineering at Tanta University. He holds B.Sc. (2018,
+          Excellent with Honors) and M.Sc. (2024) degrees from Port Said University. His research applies machine learning,
+          optimization, and computational modeling to seepage control, groundwater systems, hydraulic structures,
+          and concrete performance.
         </p>
-      </div>
+      </article>
+    </section>
+
+    <!-- Research Interests -->
+    <section class="section" id="interests">
+      <header class="section__head">
+        <h2><span class="accent"></span>Research Interests</h2>
+        <p class="section__sub">Main focus areas</p>
+      </header>
+
+      <article class="card">
+        <div class="pillset">
+          <span class="pill">Machine Learning</span>
+          <span class="pill">Water Resources Management</span>
+          <span class="pill">Groundwater Modeling</span>
+          <span class="pill">Hydraulic Engineering</span>
+          <span class="pill">Structural Engineering</span>
+        </div>
+      </article>
     </section>
 
     <!-- Education -->
     <section class="section" id="education">
-      <div class="section__title">
-        <h2>Education</h2>
-      </div>
+      <header class="section__head">
+        <h2><span class="accent"></span>Education</h2>
+        <p class="section__sub">Degrees</p>
+      </header>
 
       <div class="grid">
         <article class="card">
           <h3>Ph.D. in Engineering (Irrigation & Hydraulics)</h3>
-          <p class="muted"><i class="fa-regular fa-calendar"></i> Dec 2024 – Present</p>
+          <p class="meta"><i class="fa-regular fa-calendar"></i> Dec 2024 – Present</p>
           <p><strong>University:</strong> Tanta University, Tanta, Egypt</p>
         </article>
 
         <article class="card">
           <h3>M.Sc. in Civil Engineering (Irrigation & Hydraulics)</h3>
-          <p class="muted"><i class="fa-regular fa-calendar"></i> Aug 2019 – Apr 2024</p>
+          <p class="meta"><i class="fa-regular fa-calendar"></i> Aug 2019 – Apr 2024</p>
           <p><strong>University:</strong> Port Said University, Port Said, Egypt</p>
           <p><strong>Thesis:</strong> Hydraulic Comparison of Different Types of Lining for Irrigation Canals Using CFD Models</p>
         </article>
 
         <article class="card">
-          <h3>B.Sc. in Engineering (Civil Engineering)</h3>
-          <p class="muted"><i class="fa-regular fa-calendar"></i> Sep 2013 – Jul 2018</p>
+          <h3>B.Sc. in Civil Engineering</h3>
+          <p class="meta"><i class="fa-regular fa-calendar"></i> Sep 2013 – Jul 2018</p>
           <p><strong>University:</strong> Port Said University, Port Said, Egypt</p>
-          <p><strong>Overall Grade:</strong> Excellent with Honors</p>
+          <p><strong>Grade:</strong> Excellent with Honors</p>
         </article>
       </div>
     </section>
 
-    <!-- Experience -->
+    <!-- Work Experience -->
     <section class="section" id="experience">
-      <div class="section__title">
-        <h2>Experience</h2>
-      </div>
+      <header class="section__head">
+        <h2><span class="accent"></span>Work Experience</h2>
+        <p class="section__sub">Academic + industry</p>
+      </header>
 
       <div class="stack">
         <article class="card">
-          <div class="card__head">
-            <h3>Horus University-Egypt (HUE) — Faculty of Engineering</h3>
-            <p class="muted">Civil Engineering Department • New Damietta, Egypt</p>
+          <div class="card__top">
+            <h3>Civil Engineering Department, Faculty of Engineering, Horus University-Egypt (HUE)</h3>
+            <span class="tag">5 years</span>
           </div>
-          <p class="pill-row">
-            <span class="pill">Demonstrator (Oct 2020 – Jul 2024)</span>
-            <span class="pill">Assistant Lecturer (Jul 2024 – Present)</span>
-          </p>
+          <p class="meta">New Damietta 34517, Egypt</p>
+          <p class="meta"><strong>Job:</strong> Demonstrator (Oct 2020 – Jul 2024) • Assistant Lecturer (Jul 2024 – Current)</p>
+
+          <h4 class="minihead">Key responsibilities</h4>
           <ul class="bullets">
-            <li>Assist academic registration and advise students on course requirements and development.</li>
-            <li>Support instructors with course content, practical sessions, and engineering software demonstrations.</li>
-            <li>Evaluate assignments/exams/lab reports and provide constructive feedback.</li>
-            <li>Maintain office hours, respond to student inquiries, and facilitate review sessions.</li>
-            <li>Collaborate on teaching materials and maintain lab equipment.</li>
+            <li>Assist in academic registration and advise students on course requirements and academic development.</li>
+            <li>Support course instructors with course content, practical sessions, and engineering equipment/software demonstrations.</li>
+            <li>Evaluate and grade assignments/exams/quizzes/lab reports and provide constructive feedback.</li>
+            <li>Maintain office hours, respond to inquiries, and facilitate review sessions to aid comprehension.</li>
+            <li>Collaborate with faculty on teaching materials and maintain lab equipment.</li>
           </ul>
         </article>
 
         <article class="card">
-          <div class="card__head">
+          <div class="card__top">
             <h3>Meamar Elhamd for Real Estate Development</h3>
-            <p class="muted">Technical Office Engineer • New Damietta, Egypt</p>
+            <span class="tag">Sep 2019 – Sep 2020</span>
           </div>
-          <p class="pill-row">
-            <span class="pill">Sep 2019 – Sep 2020</span>
-          </p>
+          <p class="meta">Technical Office Engineer • New Damietta, Egypt</p>
+
           <ul class="bullets">
-            <li>Prepared and reviewed shop drawings, as-built drawings, and coordination plans for projects.</li>
-            <li>Performed quantity surveying, prepared BOQs, and supported cost estimates and variation orders.</li>
-            <li>Coordinated with site engineers, subcontractors, and suppliers to resolve technical issues.</li>
-            <li>Prepared technical submittals, RFIs, and documentation for consultants and owners.</li>
-            <li>Assisted planning and scheduling; tracked progress against baseline programs.</li>
-            <li>Monitored material usage and progress to support cost control and compliance.</li>
+            <li>Prepared shop/as-built drawings and coordination plans.</li>
+            <li>Quantity surveying and BOQs; supported cost estimates.</li>
+            <li>Prepared technical submittals and RFIs and maintained project documentation.</li>
+            <li>Supported planning/scheduling and progress tracking.</li>
           </ul>
         </article>
       </div>
+    </section>
+
+    <!-- Teaching -->
+    <section class="section" id="teaching">
+      <header class="section__head">
+        <h2><span class="accent"></span>Teaching Courses</h2>
+        <p class="section__sub">Courses taught / assisted</p>
+      </header>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Civil Engineering Program</h3>
+          <ul class="bullets">
+            <li>Hydraulics 1</li>
+            <li>Hydraulics 2</li>
+            <li>Hydrology</li>
+            <li>Civil Drawing</li>
+            <li>Design of Irrigation Structures</li>
+            <li>Engineering Surveying</li>
+            <li>Environmental Engineering</li>
+            <li>Irrigation and Drainage Engineering</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Architectural Engineering Program</h3>
+          <ul class="bullets">
+            <li>Engineering Surveying for Architect</li>
+            <li>Reinforced Concrete and Foundation</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Level 0</h3>
+          <ul class="bullets">
+            <li>Engineering Drawing</li>
+            <li>AutoCAD sessions</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Administrative memberships -->
+    <section class="section" id="admin">
+      <header class="section__head">
+        <h2><span class="accent"></span>Administrative Memberships</h2>
+        <p class="section__sub">Committees & roles</p>
+      </header>
+
+      <article class="card">
+        <ul class="bullets">
+          <li>Central Study Timetable Committee (Aug 2024 – Present)</li>
+          <li>Final Examination Schedule Preparation Committee (Nov 2021 – Present)</li>
+          <li>New Bylaw Creation and Revision Committee (Jul 2024 – Sep 2025)</li>
+          <li>Civil Engineering Department Study Timetable Committee (Aug 2022 – Aug 2024)</li>
+          <li>Leadership and Governance Quality Standards Committee (Oct 2023 – Apr 2024)</li>
+          <li>Simulation and Grant Review for ISO Certification (Jan 2024 – Feb 2024)</li>
+          <li>ISO Executive Committee (Apr 2023 – Feb 2024)</li>
+          <li>Graduation Projects Documentation Committee (Aug 2023 – Jul 2023)</li>
+          <li>Faculty Online Platform Review Committee (Aug 2022 – Sep 2022)</li>
+          <li>Bylaw Amendment Committee (Apr 2022 – Sep 2022)</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Skills + Languages -->
+    <section class="section" id="skills">
+      <header class="section__head">
+        <h2><span class="accent"></span>Skills</h2>
+        <p class="section__sub">Technical + personal</p>
+      </header>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Personal</h3>
+          <div class="pillset">
+            <span class="pill">Attention to Detail</span>
+            <span class="pill">Problem Solving</span>
+            <span class="pill">Teamwork</span>
+            <span class="pill">Organization</span>
+            <span class="pill">Working Under Pressure</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Programming</h3>
+          <div class="pillset">
+            <span class="pill">MATLAB</span>
+            <span class="pill">Python</span>
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">SQL</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Drawing & Drafting</h3>
+          <div class="pillset">
+            <span class="pill">AutoCAD</span>
+            <span class="pill">SketchUp</span>
+            <span class="pill">Revit Structural</span>
+            <span class="pill">Origin</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Structural Analysis & Design</h3>
+          <div class="pillset">
+            <span class="pill">ETABS</span>
+            <span class="pill">SAFE</span>
+            <span class="pill">SAP</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Hydraulic Modeling</h3>
+          <div class="pillset">
+            <span class="pill">FLOW-3D</span>
+            <span class="pill">Flow Master</span>
+            <span class="pill">SEEP/W</span>
+            <span class="pill">SLOPE/W</span>
+            <span class="pill">SLIDE (Rocscience)</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>GIS</h3>
+          <div class="pillset">
+            <span class="pill">ArcGIS</span>
+            <span class="pill">QGIS</span>
+            <span class="pill">Spatial Data Analysis</span>
+            <span class="pill">Mapping & Visualization</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Documentation & Reporting</h3>
+          <div class="pillset">
+            <span class="pill">MS Word</span>
+            <span class="pill">MS Excel</span>
+            <span class="pill">MS PowerPoint</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Languages</h3>
+          <div class="pillset">
+            <span class="pill">Arabic (Native)</span>
+            <span class="pill">English (IELTS 6.0 • TOEFL ITP 510)</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Certificates -->
+    <section class="section" id="certs">
+      <header class="section__head">
+        <h2><span class="accent"></span>Certificates</h2>
+        <p class="section__sub">Academic + engineering</p>
+      </header>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Academic Courses Certificates</h3>
+          <ul class="bullets">
+            <li>Information Technology Institute (ITI): Geographic Information Systems (GIS) (2026)</li>
+            <li>Coursera: What is Data Science? (2025)</li>
+            <li>Scopus Academy: Basic Search (2025), Advanced Search (2025), Metrics (2025), Research Collaborations (2025)</li>
+            <li>Library Connect Academy: Benefits & Risks of AI (2025), Foundations of AI (2025), Responsible AI (2025)</li>
+            <li>Wiley: Top Cited Paper in Irrigation & Drainage Journal (2025)</li>
+            <li>Horus University-Egypt: The Academic Landscape in the Era of AI (2024); MSc Degree Completion (2024)</li>
+            <li>41st National Radio Science Conference (NRSC): Local Organizing Committee Member (2024)</li>
+            <li>AIRGEC: Local Organizing Committee Member and Author (2024)</li>
+            <li>DAAD Kairo Akademie: Proposal Writing for Master & PhD Candidates (2023)</li>
+            <li>Centre of Knowledge and e-Services: Fundamentals of Digital Transformation Certificate (FDTC) (2020)</li>
+            <li>Cisco Networking Academy: Entrepreneurship course (2020)</li>
+            <li>Damietta University: Teaching Experience Certificate (2018)</li>
+          </ul>
+
+          <details class="details">
+            <summary>Electronic Courses Platform (Port Said University) — 2023</summary>
+            <div class="details__body">
+              <ul class="bullets">
+                <li>Effective Presentation Skills</li>
+                <li>International Publishing of Scientific Research</li>
+                <li>Using Technology in Teaching</li>
+                <li>Change Management Skills</li>
+                <li>Comprehensive Quality Standards in Health Institutions</li>
+                <li>Credit Hours System</li>
+              </ul>
+            </div>
+          </details>
+        </article>
+
+        <article class="card">
+          <h3>Engineering Courses Certificates</h3>
+          <ul class="bullets">
+            <li>Arab Co. for Engineering & Systems Consultations: Internal Revision (ISO 9001:2015 & 21000/2018) (2024)</li>
+            <li>Meamar Elhamd for Real Estate Development: Technical Office Engineer & Structural Designer (2020)</li>
+            <li>iLearn Academy: Structural Design Diploma (2019)</li>
+            <li>Orascom EgyNile: Primavera & Revit Diploma (2018)</li>
+            <li>Port-Said Engineering Syndicate: Site Engineer (2018)</li>
+            <li>Egyptian Engineers Syndicate: Certificate of Academic Excellence in Civil Engineering (2018)</li>
+            <li>Telecom-Egypt: AutoCAD 2D Basic Applications (2015)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Note</h3>
+          <p class="meta">All documents are available upon reasonable request.</p>
+          <p class="meta">Tip: Keep certificates as PDFs in an “assets/certificates/” folder later (optional).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Journal Roles -->
+    <section class="section" id="journal">
+      <header class="section__head">
+        <h2><span class="accent"></span>Journal Roles</h2>
+        <p class="section__sub">Editorial + reviewing activity</p>
+      </header>
+
+      <article class="card">
+        <div class="callout">
+          <div class="callout__icon"><i class="fa-solid fa-pen-nib"></i></div>
+          <div>
+            <div class="callout__title">Summary</div>
+            <div class="callout__text">
+              <strong>Handling Editor:</strong> Frontiers in Built Environment Journal<br/>
+              <strong>Peer Reviewer:</strong> 41 distinct journals (90 articles)
+            </div>
+          </div>
+        </div>
+
+        <details class="details">
+          <summary>Show reviewer journals (with counts)</summary>
+          <div class="details__body">
+            <div class="journal-grid">
+              <div>Agricultural Water Management (12)</div>
+              <div>Innovative Infrastructure Solutions (1)</div>
+              <div>Modeling Earth Systems and Environment (3)</div>
+
+              <div>Arabian Journal of Geosciences (1)</div>
+              <div>International Journal of Concrete Structures and Materials (1)</div>
+              <div>Neural Computing and Applications (1)</div>
+
+              <div>Case Studies in Construction Materials (2)</div>
+              <div>International Journal of Pavement Research and Technology (1)</div>
+              <div>Operations Research Forum (2)</div>
+
+              <div>Discover Artificial Intelligence (1)</div>
+              <div>International Journal of Digital Earth (1)</div>
+              <div>Physics and Chemistry of the Earth (2)</div>
+
+              <div>Discover Civil Engineering (1)</div>
+              <div>Iranian Journal of Science and Technology, Transactions of Civil Engineering (1)</div>
+              <div>Results in Engineering (7)</div>
+
+              <div>Discover Water (1)</div>
+              <div>Irrigation and Drainage (1)</div>
+              <div>Science of the Total Environment (2)</div>
+
+              <div>Earth Science Informatics (2)</div>
+              <div>Journal of African Earth Sciences (1)</div>
+              <div>Scientific Reports (8)</div>
+
+              <div>Earth Systems and Environment (1)</div>
+              <div>Journal of Asian Architecture and Building Engineering (1)</div>
+              <div>Stochastic Environmental Research and Risk Assessment (1)</div>
+
+              <div>Engineering Applications of AI (3)</div>
+              <div>Journal of Ecohydraulics (1)</div>
+              <div>Structures (2)</div>
+
+              <div>Environment, Development and Sustainability (1)</div>
+              <div>Journal of Environmental Management (1)</div>
+              <div>Sustainable Water Resources Management (4)</div>
+
+              <div>Euro-Mediterranean Journal for Environmental Integration (2)</div>
+              <div>Journal of Hydrology (1)</div>
+              <div>Urban Water Journal (1)</div>
+
+              <div>Flow Measurement and Instrumentation (1)</div>
+              <div>Journal of Water Process Engineering (9)</div>
+              <div>Water Conservation Science and Engineering (1)</div>
+
+              <div>Geomatics, Natural Hazards & Risk (1)</div>
+              <div>Knowledge-Based Systems (2)</div>
+              <div>Water Resources Management (1)</div>
+            </div>
+          </div>
+        </details>
+      </article>
     </section>
 
     <!-- Publications -->
     <section class="section" id="publications">
-      <div class="section__title">
-        <h2>Publications</h2>
-      </div>
+      <header class="section__head">
+        <h2><span class="accent"></span>Publications</h2>
+        <p class="section__sub">All links • filter by year/type • search</p>
+      </header>
 
-      <div class="card">
+      <article class="card">
         <div class="pub-toolbar">
-          <div class="pub-toolbar__left">
-            <label class="sr-only" for="pubSearch">Search publications</label>
+          <div class="pub-left">
             <div class="search">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input id="pubSearch" type="search" placeholder="Search title, journal, keywords…" autocomplete="off" />
+              <input id="pubSearch" type="search" placeholder="Search DOI / link / keyword…" autocomplete="off" />
             </div>
 
-            <div class="type-tabs" role="tablist" aria-label="Publication type">
+            <div class="tabs" role="tablist" aria-label="Publication type">
               <button class="tab is-active" data-type="All" type="button">All</button>
               <button class="tab" data-type="Journal article" type="button">Journal</button>
               <button class="tab" data-type="Book chapter" type="button">Book chapters</button>
               <button class="tab" data-type="Thesis" type="button">Thesis</button>
+              <button class="tab" data-type="Other" type="button">Other</button>
             </div>
           </div>
 
-          <div class="pub-toolbar__right">
+          <div class="pub-right">
             <a class="btn btn--ghost" href="https://scholar.google.com/citations?user=ovYdeAgAAAAJ&hl=en" target="_blank" rel="noopener">
               <i class="fa-solid fa-graduation-cap"></i> Google Scholar
             </a>
@@ -239,51 +584,91 @@
         </div>
 
         <div class="year-chips" id="yearChips" aria-label="Filter by year"></div>
-
         <div class="pub-meta">
           <span id="pubCount">Showing…</span>
         </div>
 
         <ol class="pub-list" id="pubList"></ol>
 
-        <div class="hint">
-          Tip: Use <strong>Year</strong> chips + <strong>Search</strong> to find papers in seconds.
-        </div>
+        <p class="hint">
+          Tip: year is auto-detected from the link (when possible). Missing year goes to “Unknown”.
+        </p>
+      </article>
+    </section>
+
+    <!-- References (NO phone numbers) -->
+    <section class="section" id="references">
+      <header class="section__head">
+        <h2><span class="accent"></span>References</h2>
+        <p class="section__sub">All documents are available upon reasonable request</p>
+      </header>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Prof. Ibrahim Mohamed Hussein Rashwan</h3>
+          <p class="meta">Irrigation & Hydraulics Engineering Dept., Faculty of Engineering, Tanta University, Tanta, Egypt</p>
+          <p class="meta"><i class="fa-regular fa-envelope"></i> <a href="mailto:ibrahim.rashwan@f-eng.tanta.edu.eg">ibrahim.rashwan@f-eng.tanta.edu.eg</a></p>
+        </article>
+
+        <article class="card">
+          <h3>Assoc. Prof. Asaad Mater Armanuos</h3>
+          <p class="meta">Irrigation & Hydraulics Engineering Dept., Faculty of Engineering, Tanta University, Tanta, Egypt</p>
+          <p class="meta"><i class="fa-regular fa-envelope"></i> <a href="mailto:asaad.matter@f-eng.tanta.edu.eg">asaad.matter@f-eng.tanta.edu.eg</a></p>
+        </article>
+
+        <article class="card">
+          <h3>Assoc. Prof. Mohamed Galal Eltarabily</h3>
+          <p class="meta">Civil Engineering Dept., Faculty of Engineering, Port Said University, Port Said, Egypt</p>
+          <p class="meta"><i class="fa-regular fa-envelope"></i> <a href="mailto:eng_m_trabily@eng.psu.edu.eg">eng_m_trabily@eng.psu.edu.eg</a></p>
+        </article>
+
+        <article class="card">
+          <h3>Dr. Ahmed Ali Elsharkawy</h3>
+          <p class="meta">Civil Engineering Dept., Faculty of Engineering, Port Said University / Horus University</p>
+          <p class="meta"><i class="fa-regular fa-envelope"></i> <a href="mailto:aelsharkawy@horus.edu.eg">aelsharkawy@horus.edu.eg</a></p>
+        </article>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact (NO phone numbers) -->
     <section class="section" id="contact">
-      <div class="section__title">
-        <h2>Contact</h2>
-      </div>
+      <header class="section__head">
+        <h2><span class="accent"></span>Contact</h2>
+        <p class="section__sub">Email & location</p>
+      </header>
 
       <div class="grid">
         <article class="card">
           <h3>Address</h3>
-          <p><i class="fa-solid fa-location-dot"></i> 9 Mubarak Street, New Damietta, Egypt</p>
+          <p class="meta"><i class="fa-solid fa-location-dot"></i> New Damietta, Egypt</p>
         </article>
 
         <article class="card">
           <h3>Email</h3>
-          <p><i class="fa-solid fa-envelope"></i> <a href="mailto:melshaarawy@horus.edu.eg">melshaarawy@horus.edu.eg</a></p>
-          <p><i class="fa-solid fa-envelope"></i> <a href="mailto:mkamel35@gmail.com">mkamel35@gmail.com</a></p>
+          <p class="meta"><i class="fa-regular fa-envelope"></i> <a href="mailto:melshaarawy@horus.edu.eg">melshaarawy@horus.edu.eg</a></p>
+          <p class="meta"><i class="fa-regular fa-envelope"></i> <a href="mailto:mkamel35@gmail.com">mkamel35@gmail.com</a></p>
         </article>
 
         <article class="card">
-          <h3>Phone</h3>
-          <p><i class="fa-solid fa-phone"></i> <a href="tel:+201280961080">+20 128 096 1080</a></p>
-          <p><i class="fa-solid fa-phone"></i> <a href="tel:+201033476255">01033476255</a></p>
-          <p class="muted small">If you prefer privacy, you can remove phone numbers later.</p>
+          <h3>Note</h3>
+          <p class="meta">Phone numbers are intentionally not displayed.</p>
+          <p class="meta">For urgent contact, please use email or LinkedIn.</p>
         </article>
       </div>
     </section>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <span>Built for GitHub Pages • Fast • Responsive</span>
+        <span class="muted">© <span id="yearNow2"></span> Mohamed Kamel Elshaarawy</span>
+      </div>
+    </footer>
   </main>
 
   <script>
-    // =========================
-    // Mobile menu (sidebar drawer)
-    // =========================
+    // -------------------------
+    // Mobile drawer
+    // -------------------------
     const sidebar = document.getElementById("sidebar");
     const overlay = document.getElementById("overlay");
     const menuBtn = document.getElementById("menuBtn");
@@ -301,369 +686,116 @@
       document.body.classList.remove("no-scroll");
     }
 
-    menuBtn.addEventListener("click", () => {
+    menuBtn?.addEventListener("click", () => {
       sidebar.classList.contains("is-open") ? closeMenu() : openMenu();
     });
-    overlay.addEventListener("click", closeMenu);
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
-
-    // Close drawer after clicking a nav link on mobile
+    overlay?.addEventListener("click", closeMenu);
+    window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
     document.querySelectorAll(".nav__link").forEach(a => {
       a.addEventListener("click", () => {
-        if (window.matchMedia("(max-width: 900px)").matches) closeMenu();
+        if (window.matchMedia("(max-width: 980px)").matches) closeMenu();
       });
     });
 
-    // Current year in footer
-    document.getElementById("yearNow").textContent = new Date().getFullYear();
+    // Footer years
+    const nowY = new Date().getFullYear();
+    document.getElementById("yearNow").textContent = nowY;
+    document.getElementById("yearNow2").textContent = nowY;
 
-    // =========================
-    // Publications data (from your CV) + filters
-    // =========================
-    const publications = [
-  {
-    "id": 10,
-    "year": 2026,
-    "type": "Journal article",
-    "title": "Solar Distiller Efficiency Enhancement via Optical Concentration and Thermal Storage: Challenges, Materials, and Future Directions",
-    "citation": "Kabeel, A. E., Elazab, M. A., Almetwally, E. M., Al-Moisheer, A. S., Ayman, M., & Elshaarawy, M. K. (2026). Solar Distiller Efficiency Enhancement via Optical Concentration and Thermal Storage: Challenges, Materials, and Future Directions. Case Studies in Thermal Engineering, 107659. https://doi.org/10.1016/j.csite.2026.107659",
-    "url": "https://doi.org/10.1016/j.csite.2026.107659"
-  },
-  {
-    "id": 31,
-    "year": 2026,
-    "type": "Journal article",
-    "title": "Interpretable Deep Neural Network Deployment for Concrete Compressive Strength Prediction",
-    "citation": "Hamed, A.K., Alsaadawi, M.M. & Elshaarawy, M.K. Interpretable Deep Neural Network Deployment for Concrete Compressive Strength Prediction. J Build Rehabil 11, 98 (2026). https://doi.org/10.1007/s41024-025-00752-z",
-    "url": "https://doi.org/10.1007/s41024-025-00752-z"
-  },
-  {
-    "id": 32,
-    "year": 2026,
-    "type": "Journal article",
-    "title": "Enhanced prediction of fly ash concrete compressive strength using machine learning models",
-    "citation": "Alsaadawi, M. M., Hamed, A. K., & Elshaarawy, M. K. (2026). Enhanced prediction of fly ash concrete compressive strength using machine learning models. Engineering Computations, 1-29. https://doi.org/10.1108/EC-08-2024-0774",
-    "url": "https://doi.org/10.1108/EC-08-2024-0774"
-  },
-  {
-    "id": 1,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Numerical and Regression-Based Modeling of Leakage in Lined Trapezoidal Channels",
-    "citation": "Elshaarawy, M. K. (2025). Numerical and Regression-Based Modeling of Leakage in Lined Trapezoidal Channels. Horus University Journal of Engineering, 1(1), 1-12. https://doi.org/10.21608/huje.2025.366458.1001.",
-    "url": "https://doi.org/10.21608/huje.2025.366458.1001"
-  },
-  {
-    "id": 2,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Metaheuristic-driven CatBoost model for accurate seepage loss prediction in lined canals",
-    "citation": "Elshaarawy, M. K. (2025). Metaheuristic-driven CatBoost model for accurate seepage loss prediction in lined canals. Multiscale and Multidisciplinary Modeling, Experiments and Design, 8(5), 235. https://doi.org/10.1007/s41939-025-00800-8",
-    "url": "https://doi.org/10.1007/s41939-025-00800-8"
-  },
-  {
-    "id": 3,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Stacked-based hybrid gradient boosting models for estimating seepage from lined canals",
-    "citation": "Elshaarawy, M. K. (2025). Stacked-based hybrid gradient boosting models for estimating seepage from lined canals. Journal of Water Process Engineering, 70, 106913. https://doi.org/10.1016/j.jwpe.2024.106913.",
-    "url": "https://doi.org/10.1016/j.jwpe.2024.106913"
-  },
-  {
-    "id": 11,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Predicting groundwater contamination risk using explainable machine learning: A case study",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., Abu-El-Magd, S. A., & Moghazy, M. E. (2025). Predicting groundwater contamination risk using explainable machine learning: A case study. Journal of Hydrology and Hydromechanics, 73(2), 1-19. https://doi.org/10.2478/johh-2025-0029.",
-    "url": "https://doi.org/10.2478/johh-2025-0029"
-  },
-  {
-    "id": 12,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "CatBoost optimization for predicting soil erosion susceptibility",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., Gabr, M. E., & Mohammed, M. A. (2025). CatBoost optimization for predicting soil erosion susceptibility. CATENA, 244, 109558. https://doi.org/10.1016/j.catena.2025.109558",
-    "url": "https://doi.org/10.1016/j.catena.2025.109558"
-  },
-  {
-    "id": 13,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Predicting reference evapotranspiration in semi-arid regions using optimized machine learning models",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., Bali, K. M., & Gabr, M. E. (2025). Predicting reference evapotranspiration in semi-arid regions using optimized machine learning models. Journal of Water and Climate Change, 16(10), 3082-3108.",
-    "url": null
-  },
-  {
-    "id": 14,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Hybrid data-driven machine learning approach for forecasting discharge coefficient of Piano Key Weirs",
-    "citation": "Hamed, A. K., & Elshaarawy, M. K. (2025). Hybrid data-driven machine learning approach for forecasting discharge coefficient of Piano Key Weirs. Flow Measurement and Instrumentation, 103050.",
-    "url": null
-  },
-  {
-    "id": 15,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "A comprehensive review of soil erosion modeling and GIS-based approaches",
-    "citation": "Elshaarawy, M. K., & Eltarabily, M. G. (2025). A comprehensive review of soil erosion modeling and GIS-based approaches. Water Conservation Science and Engineering, 10(1), 853. https://doi.org/10.2166/wcc.2025.853.",
-    "url": "https://doi.org/10.2166/wcc.2025.853"
-  },
-  {
-    "id": 16,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Optimized machine learning framework for predicting seepage losses in irrigation canals",
-    "citation": "Elshaarawy, M. K., Selim, T., Elkiki, M., & Eltarabily, M. G. (2025). Optimized machine learning framework for predicting seepage losses in irrigation canals. Scientific Reports, 15, 12830. https://doi.org/10.1038/s41598-025-12830-w",
-    "url": "https://doi.org/10.1038/s41598-025-12830-w"
-  },
-  {
-    "id": 17,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Multi-objective optimization of groundwater management using advanced machine learning",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., Elkiki, M., & Selim, T. (2025). Multi-objective optimization of groundwater management using advanced machine learning. Scientific Reports, 15, 10990. https://doi.org/10.1038/s41598-025-10990-3",
-    "url": "https://doi.org/10.1038/s41598-025-10990-3"
-  },
-  {
-    "id": 18,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Explainable ML for predicting groundwater salinity in coastal aquifers",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., & Gabr, M. E. (2025). Explainable ML for predicting groundwater salinity in coastal aquifers. Results in Engineering, 106031. https://doi.org/10.1016/j.rineng.2025.106031",
-    "url": "https://doi.org/10.1016/j.rineng.2025.106031"
-  },
-  {
-    "id": 19,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Machine learning-based evaluation of deep excavation wall deformation",
-    "citation": "Hamed, A. K., Elshaarawy, M. K., & Alsaadawi, M. M. (2025). Machine learning-based evaluation of deep excavation wall deformation. International Journal of Concrete Structures and Materials, 19, 1-25. https://doi.org/10.1007/s40069-025-01900-2",
-    "url": "https://doi.org/10.1007/s40069-025-01900-2"
-  },
-  {
-    "id": 20,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Interpretable ML for concrete strength prediction with uncertainty analysis",
-    "citation": "Alsaadawi, M. M., Hamed, A. K., & Elshaarawy, M. K. (2025). Interpretable ML for concrete strength prediction with uncertainty analysis. International Journal of Concrete Structures and Materials, 19, 1-25. https://doi.org/10.1007/s40069-025-01755-7",
-    "url": "https://doi.org/10.1007/s40069-025-01755-7"
-  },
-  {
-    "id": 21,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Explainable AI in concrete compressive strength prediction: A review",
-    "citation": "Hamed, A. K., & Elshaarawy, M. K. (2025). Explainable AI in concrete compressive strength prediction: A review. Engineering Computations, 1-29. https://doi.org/10.1108/EC-08-2024-0774",
-    "url": "https://doi.org/10.1108/EC-08-2024-0774"
-  },
-  {
-    "id": 22,
-    "year": 2025,
-    "type": "Journal article",
-    "title": "Explainable ML for rainfall-runoff modeling in arid basins",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., Bali, K. M., & Gabr, M. E. (2025). Explainable ML for rainfall-runoff modeling in arid basins. Physics and Chemistry of the Earth, 107644. https://doi.org/10.1016/j.compstruc.2025.107644",
-    "url": "https://doi.org/10.1016/j.compstruc.2025.107644"
-  },
-  {
-    "id": 4,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Experimental and Numerical Modeling of Seepage in Trapezoidal Channels",
-    "citation": "Elshaarawy, M. K., & Elmasry, N. H. (2024). Experimental and Numerical Modeling of Seepage in Trapezoidal Channels. Knowledge-Based Engineering and Sciences, 5(3), 43-60. https://doi.org/10.51526/kbes.2024.5.3.43-60.",
-    "url": "https://doi.org/10.51526/kbes.2024.5.3.43-60"
-  },
-  {
-    "id": 5,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Determining seepage loss predictions in lined canals through optimizing advanced gradient boosting techniques",
-    "citation": "Elshaarawy, M. K., Elmasry, N. H., Selim, T., Elkiki, M., & Eltarabily, M. G. (2024). Determining seepage loss predictions in lined canals through optimizing advanced gradient boosting techniques. Water Conservation Science and Engineering, 2), 75. https://doi.org/10.1007/s41101-024-00306-3.",
-    "url": "https://doi.org/10.1007/s41101-024-00306-3"
-  },
-  {
-    "id": 6,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Estimating seepage losses from lined irrigation canals using nonlinear regression and artificial neural network models",
-    "citation": "Selim, T., Elshaarawy, M. K,, Elkiki, M., & Eltarabily, M. G. (2024). Estimating seepage losses from lined irrigation canals using nonlinear regression and artificial neural network models. Applied Water Science, 14(5), 90. https://doi.org/10.1007/s13201-024-02142-1.",
-    "url": "https://doi.org/10.1007/s13201-024-02142-1"
-  },
-  {
-    "id": 7,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Computational fluid dynamics and artificial neural networks for modelling lined irrigation canals with low-density polyethylene and cement concrete liners",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., Elkiki, M., & Selim, T. (2024). Computational fluid dynamics and artificial neural networks for modelling lined irrigation canals with low-density polyethylene and cement concrete liners. Irrigation and Drainage, 73(3), 910-927. https://doi.org/10.1002/ird.2911.",
-    "url": "https://doi.org/10.1002/ird.2911"
-  },
-  {
-    "id": 23,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Machine learning and interactive GUI for estimating roller length of hydraulic jumps",
-    "citation": "Elshaarawy, M. K., & Hamed, A. K. (2024). Machine learning and interactive GUI for estimating roller length of hydraulic jumps. Neural Computing and Applications, 1-30. https://doi.org/10.1007/s00521-024-10846-3.",
-    "url": "https://doi.org/10.1007/s00521-024-10846-3"
-  },
-  {
-    "id": 24,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Stacked ensemble model for optimized prediction of triangular side orifice discharge coefficient",
-    "citation": "Elshaarawy, M. K. & Hamed, A. K. (2024). Stacked ensemble model for optimized prediction of triangular side orifice discharge coefficient. Engineering Optimization, 1-31. https://doi.org/10.1080/0305215X.2024.2397431.",
-    "url": "https://doi.org/10.1080/0305215X.2024.2397431"
-  },
-  {
-    "id": 25,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Enhancing discharge prediction over Type-A piano key weirs: An innovative machine learning approach",
-    "citation": "Tian, W., Isleem, H. F., Hamed, A. K., & Elshaarawy, M. K. (2024). Enhancing discharge prediction over Type-A piano key weirs: An innovative machine learning approach. Flow Measurement and Instrumentation, 100, 102732.",
-    "url": null
-  },
-  {
-    "id": 26,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Machine learning models for predicting water quality index: optimization and performance analysis for El Moghra, Egypt",
-    "citation": "Elshaarawy, M. K., & Eltarabily, M. G. (2024). Machine learning models for predicting water quality index: optimization and performance analysis for El Moghra, Egypt. Water Supply, 24(9), 3269-3294. https://doi.org/10.2166/ws.2024.189.",
-    "url": "https://doi.org/10.2166/ws.2024.189"
-  },
-  {
-    "id": 27,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Exploring the potential of conical solar stills: Design optimization and enhanced performance overview",
-    "citation": "Elazab, M. A., Attia, M. E. H., Elshaarawy, M. K., Hamed, A. K., Alsaadawi, M. M., Elnasr, M. A., & Bady, M. (2024). Exploring the potential of conical solar stills: Design optimization and enhanced performance overview. Desalination and Water Treatment, 320, 10",
-    "url": null
-  },
-  {
-    "id": 28,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Groundwater vulnerability mapping using hybrid ML and geospatial analysis",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., & Abu-El-Magd, S. A. (2024). Groundwater vulnerability mapping using hybrid ML and geospatial analysis. Arabian Journal of Geosciences, 17, 11560. https://doi.org/10.1007/s12665-024-11560-y.",
-    "url": "https://doi.org/10.1007/s12665-024-11560-y"
-  },
-  {
-    "id": 29,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Predicting water quality index using ML (case study)",
-    "citation": "Elshaarawy, M. K. (2024). Predicting water quality index using ML (case study). Engineering Research Journal, 7(5), 31. https://doi.org/digitalcommons.aaru.edu.jo/erjeng/vol7/iss5/31",
-    "url": "https://doi.org/digitalcommons.aaru.edu.jo/erjeng/vol7/iss5/31"
-  },
-  {
-    "id": 30,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "Explainable AI for soil erosion susceptibility mapping",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., & Mohammed, M. A. (2024). Explainable AI for soil erosion susceptibility mapping. Scientific Reports, 14, 68360. https://doi.org/10.1038/s41598-024-68360-4",
-    "url": "https://doi.org/10.1038/s41598-024-68360-4"
-  },
-  {
-    "id": 33,
-    "year": 2024,
-    "type": "Journal article",
-    "title": "AI-based modeling of saltwater intrusion in coastal aquifers",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., & Gabr, M. E. (2024). AI-based modeling of saltwater intrusion in coastal aquifers. Scientific Reports, 14, 66957. https://doi.org/10.1038/s41598-024-66957-3",
-    "url": "https://doi.org/10.1038/s41598-024-66957-3"
-  },
-  {
-    "id": 42,
-    "year": 2024,
-    "type": "Thesis",
-    "title": "Hydraulic comparison of different types of lining for irrigation canals using computational fluid dynamic models",
-    "citation": "Elshaarawy, M. K., Elkiki, M., Selim, T., & Eltarabily, M. G. (2024). Hydraulic comparison of different types of lining for irrigation canals using computational fluid dynamic models. M.Sc. Thesis, Civil Engineering Department, Faculty of Engineering, Port Said University. http://dx.doi.org/10.13140/RG.2.2.21927.97441",
-    "url": "http://dx.doi.org/10.13140/RG.2.2.21927.97441"
-  },
-  {
-    "id": 43,
-    "year": 2024,
-    "type": "Book chapter",
-    "title": "Analysis of flow dynamics and energy dissipation in piano key and labyrinth weirs using computational fluid dynamics",
-    "citation": "Isleem, H. F., Elshaarawy, M. K., & Hamed, A. K. (2024). Analysis of flow dynamics and energy dissipation in piano key and labyrinth weirs using computational fluid dynamics. In: Computational Fluid Dynamics - Analysis, Simulations, and Applications, IntechOpen. https://doi.org/10.5772/intechopen.1006332.",
-    "url": "https://doi.org/10.5772/intechopen.1006332"
-  },
-  {
-    "id": 8,
-    "year": 2023,
-    "type": "Journal article",
-    "title": "Predicting seepage losses from lined irrigation canals using machine learning models",
-    "citation": "Eltarabily, M. G., Abd-Elhamid, H. F., Zelenakova, M., Elshaarawy, M. K., Elkiki, M., & Selim, T. (2023). Predicting seepage losses from lined irrigation canals using machine learning models. Frontiers in Water, 5, 1287357. https://doi.org/10.3389/frwa.2023.1287357.",
-    "url": "https://doi.org/10.3389/frwa.2023.1287357"
-  },
-  {
-    "id": 9,
-    "year": 2023,
-    "type": "Journal article",
-    "title": "Modeling surface water and groundwater interactions for seepage losses estimation from unlined and lined canals",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., Elkiki, M., & Selim, T. (2023). Modeling surface water and groundwater interactions for seepage losses estimation from unlined and lined canals. Water Science, 37(1), 315-328.",
-    "url": null
-  },
-  {
-    "id": 34,
-    "year": 2023,
-    "type": "Journal article",
-    "title": "Deep learning models for predicting concrete strength (comparative study)",
-    "citation": "Hamed, A. K., & Elshaarawy, M. K. (2023). Deep learning models for predicting concrete strength (comparative study). Discover Civil Engineering, 1-22. https://doi.org/10.1007/s41062-025-01983-2",
-    "url": "https://doi.org/10.1007/s41062-025-01983-2"
-  },
-  {
-    "id": 35,
-    "year": 2023,
-    "type": "Journal article",
-    "title": "Optimized ML for concrete strength prediction with explainability",
-    "citation": "Alsaadawi, M. M., Hamed, A. K., & Elshaarawy, M. K. (2023). Optimized ML for concrete strength prediction with explainability. Neural Computing and Applications, 1-33. https://doi.org/10.1007/s13042-025-02776-w",
-    "url": "https://doi.org/10.1007/s13042-025-02776-w"
-  },
-  {
-    "id": 36,
-    "year": 2023,
-    "type": "Journal article",
-    "title": "Soil erosion modeling using machine learning and remote sensing data",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., & Mohammed, M. A. (2023). Soil erosion modeling using machine learning and remote sensing data. Scientific Reports, 13, 06380. https://doi.org/10.1038/s41598-025-06380-4",
-    "url": "https://doi.org/10.1038/s41598-025-06380-4"
-  },
-  {
-    "id": 37,
-    "year": 2023,
-    "type": "Journal article",
-    "title": "Saltwater intrusion prediction using machine learning models",
-    "citation": "Eltarabily, M. G., Elshaarawy, M. K., & Gabr, M. E. (2023). Saltwater intrusion prediction using machine learning models. Scientific Reports, 13, 90648. https://doi.org/10.1038/s41598-025-90648-2",
-    "url": "https://doi.org/10.1038/s41598-025-90648-2"
-  },
-  {
-    "id": 38,
-    "year": 2023,
-    "type": "Journal article",
-    "title": "Seepage losses in irrigation canals using ML: a review",
-    "citation": "Elshaarawy, M. K., & Eltarabily, M. G. (2023). Seepage losses in irrigation canals using ML: a review. Earth Science Informatics, 1-30. https://doi.org/10.1007/s12145-025-01900-2",
-    "url": "https://doi.org/10.1007/s12145-025-01900-2"
-  },
-  {
-    "id": 39,
-    "year": 2023,
-    "type": "Journal article",
-    "title": "Machine learning applications in water resources engineering: review and perspectives",
-    "citation": "Elshaarawy, M. K., & Eltarabily, M. G. (2023). Machine learning applications in water resources engineering: review and perspectives. Earth Systems and Environment, 1-26. https://doi.org/10.1007/s12145-025-01755-7",
-    "url": "https://doi.org/10.1007/s12145-025-01755-7"
-  },
-  {
-    "id": 40,
-    "year": 2023,
-    "type": "Book chapter",
-    "title": "Risk Assessment of Potential Groundwater Contamination by Agricultural Drainage Water in the Central Valley Watershed, California, USA",
-    "citation": "Eltarabily, M. G., & Elshaarawy, M. K. (2023). Risk Assessment of Potential Groundwater Contamination by Agricultural Drainage Water in the Central Valley Watershed, California, USA. In Groundwater Quality and Geochemistry in Arid and Semi-Arid Regions (pp. 37-76). Cham: Springer Nature Switzerland, https://doi.org/10.1007/698_2023_1051.",
-    "url": "https://doi.org/10.1007/698_2023_1051"
-  }
-];
+    // -------------------------
+    // Active nav highlight
+    // -------------------------
+    const navLinks = Array.from(document.querySelectorAll(".nav__link"));
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
 
-    // NOTE:
-    // Some entries from the CV do not include a DOI/URL. For those, we create a Google Scholar search link.
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === `#${entry.target.id}`));
+      });
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
 
+    sections.forEach(s => observer.observe(s));
+
+    // -------------------------
+    // Publications (ALL links you provided)
+    // -------------------------
+    const pubLinks = [
+      "https://doi.org/10.21608/huje.2025.366458.1001",
+      "https://doi.org/10.1007/s41939-025-00800-8",
+      "https://doi.org/10.1007/s41101-024-00306-3",
+      "https://doi.org/10.1007/s13201-024-02142-1",
+      "https://doi.org/10.1002/ird.2911",
+      "https://doi.org/10.3389/frwa.2023.1287357",
+      "https://doi.org/10.1080/23570008.2023.2248734",
+      "https://doi.org/10.1016/j.csite.2026.107659",
+      "https://doi.org/10.2478/johh-2025-0029",
+      "https://doi.org/10.1016/j.catena.2025.109558",
+      "https://doi.org/10.2166/wcc.2025.853",
+      "https://doi.org/10.1016/j.flowmeasinst.2025.103050",
+      "https://doi.org/10.1038/s41598-025-12830-w",
+      "https://doi.org/10.1038/s41598-025-10990-3",
+      "https://doi.org/10.1016/j.rineng.2025.106031",
+      "https://doi.org/10.1007/s12145-025-01900-2",
+      "https://doi.org/10.1007/s12145-025-01755-7",
+      "https://doi.org/10.1080/0305215X.2024.2397431",
+      "https://doi.org/10.1016/j.flowmeasinst.2024.102732",
+      "https://doi.org/10.2166/ws.2024.189",
+      "https://doi.org/10.1080/23570008.2023.2290301",
+      "https://doi.org/10.1007/s12665-024-11560-y",
+      "https://doi.org/digitalcommons.aaru.edu.jo/erjeng/vol7/iss5/31",
+      "https://doi.org/10.1007/s41024-025-00752-z",
+      "https://doi.org/10.1108/EC-08-2024-0774",
+      "https://doi.org/10.1007/s41062-025-01983-2",
+      "https://doi.org/10.1007/s13042-025-02776-w",
+      "https://doi.org/10.1038/s41598-025-06380-4",
+      "https://doi.org/10.1038/s41598-025-90648-2",
+      "https://doi.org/10.1016/j.compstruc.2025.107644",
+      "https://doi.org/10.1038/s41598-024-68360-4",
+      "https://doi.org/10.1038/s41598-024-66957-3",
+      "http://dx.doi.org/10.13140/RG.2.2.21927.97441",
+      "https://doi.org/10.5772/intechopen.1006332",
+      "https://doi.org/10.1007/698_2023_1051"
+    ];
+
+    function inferYear(url) {
+      // 1) direct 4-digit year in the URL
+      const m1 = url.match(/(20\d{2})/);
+      if (m1) return Number(m1[1]);
+
+      // 2) patterns like s41598-025-xxxxx (=> 2025)
+      const m2 = url.match(/-(\d{2})-\d{4,}/);
+      if (m2) return Number("20" + m2[1]);
+
+      return null;
+    }
+
+    function inferType(url) {
+      const u = url.toLowerCase();
+      if (u.includes("intechopen")) return "Book chapter";
+      if (u.includes("10.1007/698_")) return "Book chapter";
+      if (u.includes("10.13140/rg")) return "Thesis";
+      return "Journal article";
+    }
+
+    function scholarSearchUrl(url) {
+      const q = encodeURIComponent(url);
+      return `https://scholar.google.com/scholar?q=${q}`;
+    }
+
+    const publications = pubLinks.map((url, idx) => {
+      const year = inferYear(url);
+      const type = inferType(url);
+      return {
+        id: idx + 1,
+        url,
+        year: year ?? "Unknown",
+        type,
+        citation: url
+      };
+    });
+
+    // UI elements
     const pubList = document.getElementById("pubList");
     const pubSearch = document.getElementById("pubSearch");
     const yearChips = document.getElementById("yearChips");
@@ -671,34 +803,23 @@
     const resetBtn = document.getElementById("resetBtn");
     const tabs = Array.from(document.querySelectorAll(".tab"));
 
-    const state = {
-      year: "All",
-      type: "All",
-      q: ""
-    };
+    const state = { year: "All", type: "All", q: "" };
 
-    function uniq(arr) {
-      return Array.from(new Set(arr));
-    }
-
-    function scholarSearchUrl(text) {
-      const q = encodeURIComponent(text);
-      return `https://scholar.google.com/scholar?q=${q}`;
-    }
+    function uniq(arr) { return Array.from(new Set(arr)); }
 
     function buildYearChips() {
-      const years = publications.map(p => p.year).filter(Boolean);
-      const uniqueYears = uniq(years).sort((a,b) => b-a);
-      const counts = uniqueYears.map(y => ({
-        year: y,
-        count: publications.filter(p => p.year === y).length
-      }));
+      const years = publications.map(p => p.year);
+      const uniqueYears = uniq(years).sort((a, b) => {
+        if (a === "Unknown") return 1;
+        if (b === "Unknown") return -1;
+        return b - a;
+      });
 
       yearChips.innerHTML = "";
 
       const allBtn = document.createElement("button");
       allBtn.type = "button";
-      allBtn.className = "chip is-active";
+      allBtn.className = "chip-btn is-active";
       allBtn.dataset.year = "All";
       allBtn.textContent = `All (${publications.length})`;
       allBtn.addEventListener("click", () => {
@@ -708,15 +829,16 @@
       });
       yearChips.appendChild(allBtn);
 
-      counts.forEach(({year, count}) => {
+      uniqueYears.forEach(y => {
+        const count = publications.filter(p => p.year === y).length;
         const btn = document.createElement("button");
         btn.type = "button";
-        btn.className = "chip";
-        btn.dataset.year = String(year);
-        btn.textContent = `${year} (${count})`;
+        btn.className = "chip-btn";
+        btn.dataset.year = String(y);
+        btn.textContent = `${y} (${count})`;
         btn.addEventListener("click", () => {
-          state.year = String(year);
-          setActiveChip(String(year));
+          state.year = String(y);
+          setActiveChip(String(y));
           renderPublications();
         });
         yearChips.appendChild(btn);
@@ -724,11 +846,10 @@
     }
 
     function setActiveChip(year) {
-      yearChips.querySelectorAll(".chip").forEach(c => {
+      yearChips.querySelectorAll(".chip-btn").forEach(c => {
         c.classList.toggle("is-active", c.dataset.year === year);
       });
     }
-
     function setActiveTab(type) {
       tabs.forEach(t => t.classList.toggle("is-active", t.dataset.type === type));
     }
@@ -738,99 +859,95 @@
       return publications.filter(p => {
         const byYear = (state.year === "All") ? true : String(p.year) === state.year;
         const byType = (state.type === "All") ? true : p.type === state.type;
-        const hay = `${p.title} ${p.citation}`.toLowerCase();
+        const hay = `${p.citation} ${p.url}`.toLowerCase();
         const byQ = q ? hay.includes(q) : true;
         return byYear && byType && byQ;
+      }).sort((a, b) => {
+        const ay = a.year === "Unknown" ? -1 : a.year;
+        const by = b.year === "Unknown" ? -1 : b.year;
+        return (by - ay) || (a.id - b.id);
       });
     }
 
     function renderPublications() {
       const filtered = filterPubs();
       pubCount.textContent = `Showing ${filtered.length} of ${publications.length}`;
-
-      // When "All years": group by year
-      const groupAllYears = state.year === "All";
-
       pubList.innerHTML = "";
 
-      function renderItem(p) {
+      if (!filtered.length) {
+        const empty = document.createElement("div");
+        empty.className = "empty";
+        empty.innerHTML = `<h4>No matches</h4><p>Try clearing filters or searching with fewer keywords.</p>`;
+        pubList.appendChild(empty);
+        return;
+      }
+
+      const groupAllYears = state.year === "All";
+
+      const makeItem = (p) => {
         const li = document.createElement("li");
         li.className = "pub-item";
 
         const left = document.createElement("div");
         left.className = "pub-left";
 
-        const title = document.createElement("div");
-        title.className = "pub-title";
-        title.textContent = p.title;
-
-        const meta = document.createElement("div");
-        meta.className = "pub-citation";
-        meta.textContent = p.citation;
-
-        const badges = document.createElement("div");
-        badges.className = "badges";
-        badges.innerHTML = `
-          <span class="badge">${p.year ?? "—"}</span>
+        const top = document.createElement("div");
+        top.className = "pub-top";
+        top.innerHTML = `
+          <span class="badge">${p.year}</span>
           <span class="badge badge--muted">${p.type}</span>
         `;
 
-        left.appendChild(title);
-        left.appendChild(badges);
-        left.appendChild(meta);
+        const cite = document.createElement("div");
+        cite.className = "pub-cite";
+        cite.textContent = p.citation;
+
+        left.appendChild(top);
+        left.appendChild(cite);
 
         const actions = document.createElement("div");
         actions.className = "pub-actions";
 
-        const link = document.createElement("a");
-        link.className = "btn btn--small";
-        link.target = "_blank";
-        link.rel = "noopener";
+        const a = document.createElement("a");
+        a.className = "btn btn--small";
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.href = p.url;
+        a.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> Open`;
 
-        if (p.url) {
-          link.href = p.url;
-          link.innerHTML = `<i class="fa-solid fa-arrow-up-right-from-square"></i> Open`;
-        } else {
-          link.href = scholarSearchUrl(p.citation);
-          link.innerHTML = `<i class="fa-solid fa-graduation-cap"></i> Scholar`;
-          link.classList.add("btn--ghost");
-        }
+        // fallback: scholar search (extra)
+        const s = document.createElement("a");
+        s.className = "btn btn--ghost btn--tiny";
+        s.target = "_blank";
+        s.rel = "noopener";
+        s.href = scholarSearchUrl(p.url);
+        s.innerHTML = `<i class="fa-solid fa-graduation-cap"></i> Scholar`;
 
-        actions.appendChild(link);
+        actions.appendChild(a);
+        actions.appendChild(s);
 
         li.appendChild(left);
         li.appendChild(actions);
         return li;
-      }
-
-      if (!filtered.length) {
-        const empty = document.createElement("div");
-        empty.className = "empty";
-        empty.innerHTML = `
-          <h4>No matches</h4>
-          <p>Try clearing filters or searching with fewer keywords.</p>
-        `;
-        pubList.appendChild(empty);
-        return;
-      }
+      };
 
       if (groupAllYears) {
-        const years = uniq(filtered.map(p => p.year)).sort((a,b) => b-a);
+        const years = uniq(filtered.map(p => p.year)).sort((a, b) => {
+          if (a === "Unknown") return 1;
+          if (b === "Unknown") return -1;
+          return b - a;
+        });
+
         years.forEach(y => {
           const header = document.createElement("div");
           header.className = "pub-year";
           header.textContent = y;
           pubList.appendChild(header);
 
-          filtered
-            .filter(p => p.year === y)
-            .sort((a,b) => a.id - b.id)
-            .forEach(p => pubList.appendChild(renderItem(p)));
+          filtered.filter(p => p.year === y).forEach(p => pubList.appendChild(makeItem(p)));
         });
       } else {
-        filtered
-          .sort((a,b) => a.id - b.id)
-          .forEach(p => pubList.appendChild(renderItem(p)));
+        filtered.forEach(p => pubList.appendChild(makeItem(p)));
       }
     }
 
@@ -857,24 +974,8 @@
       renderPublications();
     });
 
-    // Initial render
     buildYearChips();
     renderPublications();
-
-    // =========================
-    // Active nav highlight (desktop)
-    // =========================
-    const navLinks = Array.from(document.querySelectorAll(".nav__link"));
-    const sections = navLinks.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === `#${entry.target.id}`));
-      });
-    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 });
-
-    sections.forEach(s => observer.observe(s));
   </script>
 </body>
 </html>
